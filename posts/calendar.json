@@ -39,7 +39,8 @@
         "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-10-ssh-meme/slide1.jpg"
       ],
       "caption": "Tag someone who still has 9 SSH tabs open 😅\n\nOne panel for every server, with disk alerts before you hit 99%.\n\n👉 yourpanel.host (link in bio)\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #devhumor #programmerhumor",
-      "status": "draft"
+      "status": "approved",
+      "note": "Approved by owner on 2026-11-07."
     },
     {
       "date": "2026-11-11",
@@ -52,7 +53,8 @@
         "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-11-no-inbound-ports/slide4.jpg"
       ],
       "caption": "Why does our agent open no ports on your server? 🔒\n\nMost tools need a way in: a web port for the panel, or SSH keys stored on someone else's platform.\n\nYourPanel flips it: a small Go agent on your server connects OUT to the panel over a secure WebSocket. Nothing listens for incoming connections, the panel never holds an SSH key, and every action goes into a tamper-evident audit log.\n\nStart free, no card needed 👉 link in bio\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #cybersecurity #infosec",
-      "status": "draft"
+      "status": "approved",
+      "note": "Approved by owner on 2026-11-07."
     },
     {
       "date": "2026-11-12",
@@ -65,7 +67,8 @@
         "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-12-one-click-apps/slide4.jpg"
       ],
       "caption": "WordPress, n8n, Uptime Kuma. One click. ⚡\n\nEvery YourPanel template uses reviewed Compose files, images pinned by digest and generated passwords, so a quick install is still a safe one.\n\nNeed a database? PostgreSQL, MySQL, MariaDB, Redis and MongoDB, one click each.\n\nStart free, no card needed 👉 link in bio\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #wordpress #n8n #selfhosting",
-      "status": "draft"
+      "status": "approved",
+      "note": "Approved by owner on 2026-11-07."
     },
     {
       "date": "2026-11-13",
@@ -77,7 +80,8 @@
         "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-13-browser-terminal/slide3.jpg"
       ],
       "caption": "A root terminal in your browser 💻\n\nNo SSH client, no keys on your laptop. And built with guardrails:\n✅ Admins only, every session audited\n✅ 30-minute idle timeout\n✅ Can be turned off per server\n✅ Runs over the agent's outbound connection: still no inbound ports\n\nStart free, no card needed 👉 link in bio\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #terminal #ssh",
-      "status": "draft"
+      "status": "approved",
+      "note": "Approved by owner on 2026-11-07."
     },
     {
       "date": "2026-11-14",
@@ -89,7 +93,8 @@
         "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-14-coming-next/slide3.jpg"
       ],
       "caption": "What's coming next in YourPanel 🚀\n\n📧 Deploy emails when a deploy fails or rolls back\n🧱 Firewall check that asks before a rule cuts off your SSH\n👥 Custom roles with read/write per area\n💾 Warnings before you lose unsaved changes\n\nWhat should we build after that? Tell us in the comments 👇\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #buildinpublic #saas",
-      "status": "draft"
+      "status": "approved",
+      "note": "Approved by owner on 2026-11-07."
     }
   ]
 }
