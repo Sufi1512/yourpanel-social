@@ -75,11 +75,11 @@ def cover(date_label, n, total, teaser):
     d.text((80, 470), "AI NEWS", font=font(150, "ExtraBold"), fill=IVORY, anchor="ls")
     d.text((80, 640), "TODAY", font=font(150, "ExtraBold"), fill=GOLD, anchor="ls")
     d.text((84, 730), f"{n} stories you should know", font=font(44, "Medium"), fill=IVORY, anchor="ls")
-    y = 840
+    y = 840; step = 70 if len(teaser) <= 4 else int(320 / len(teaser)); fs = min(36, step - 8)
     for i, t in enumerate(teaser):
-        f, ls = fit_block(d, t, "SemiBold", W - 240, 1, 36, 26)
-        d.text((80, y), f"{i + 1:02d}", font=font(36, "ExtraBold"), fill=GOLD, anchor="ls")
-        d.text((160, y), ls[0], font=f, fill=MUTED, anchor="ls"); y += 70
+        f, ls = fit_block(d, t, "SemiBold", W - 240, 1, fs, 22)
+        d.text((80, y), f"{i + 1:02d}", font=font(fs, "ExtraBold"), fill=GOLD, anchor="ls")
+        d.text((160, y), ls[0], font=f, fill=MUTED, anchor="ls"); y += step
     d.text((W - 80, H - 150), "Swipe  →", font=font(36, "Bold"), fill=GOLD, anchor="rs")
     return im
 
@@ -120,7 +120,7 @@ def main(src, out):
     dt = datetime.date.fromisoformat(data["date"])
     set_theme(THEME or WEEKDAY_THEMES[dt.weekday()])
     date_label = dt.strftime("%a · %d %b %Y").upper()
-    st = data["stories"]; total = len(st) + 2
+    st = data["stories"][:8]; total = len(st) + 2   # Instagram carousels allow at most 10 slides
     slides = [cover(date_label, len(st), total, [s.get("short", s["headline"]) for s in st])]
     slides += [story(s, i + 1, i + 1, total, date_label) for i, s in enumerate(st)]
     slides.append(closing(total - 1, total, date_label))
