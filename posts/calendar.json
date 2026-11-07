@@ -1,0 +1,97 @@
+{
+  "account": "yourpanel.host",
+  "instagram_account_id": "17841431433396429",
+  "post_time": "19:45 Asia/Riyadh",
+  "statuses": "draft = waiting for owner approval; approved = publish on its date; published; skipped",
+  "posts": [
+    {
+      "date": "2026-11-07",
+      "slug": "2026-11-08-one-panel",
+      "format": "carousel",
+      "images": [
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-08-one-panel/yourpanel-post1-slide1.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-08-one-panel/yourpanel-post1-slide2.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-08-one-panel/yourpanel-post1-slide3.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-08-one-panel/yourpanel-post1-slide4.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-08-one-panel/yourpanel-post1-slide5.jpg"
+      ],
+      "caption": "(published)",
+      "status": "published",
+      "media_id": "18136112786493180",
+      "permalink": "https://www.instagram.com/p/Dfct5ftjTQh/"
+    },
+    {
+      "date": "2026-11-09",
+      "slug": "2026-11-09-git-push-deploy",
+      "format": "carousel",
+      "images": [
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-09-git-push-deploy/slide1.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-09-git-push-deploy/slide2.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-09-git-push-deploy/slide3.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-09-git-push-deploy/slide4.jpg"
+      ],
+      "caption": "git push → live. With a health check. ✅\n\nEvery YourPanel deploy:\n1️⃣ Builds your code on your server\n2️⃣ Starts the new version next to the old one\n3️⃣ Waits for it to pass a health check\n4️⃣ Switches traffic over with zero dropped requests\n\nHealth check fails? The new version is removed and the old one keeps serving. No 3am rollbacks.\n\nStart free, no card needed 👉 link in bio\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #cicd #github",
+      "status": "draft"
+    },
+    {
+      "date": "2026-11-10",
+      "slug": "2026-11-10-ssh-meme",
+      "format": "image",
+      "images": [
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-10-ssh-meme/slide1.jpg"
+      ],
+      "caption": "Tag someone who still has 9 SSH tabs open 😅\n\nOne panel for every server, with disk alerts before you hit 99%.\n\n👉 yourpanel.host (link in bio)\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #devhumor #programmerhumor",
+      "status": "draft"
+    },
+    {
+      "date": "2026-11-11",
+      "slug": "2026-11-11-no-inbound-ports",
+      "format": "carousel",
+      "images": [
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-11-no-inbound-ports/slide1.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-11-no-inbound-ports/slide2.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-11-no-inbound-ports/slide3.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-11-no-inbound-ports/slide4.jpg"
+      ],
+      "caption": "Why does our agent open no ports on your server? 🔒\n\nMost tools need a way in: a web port for the panel, or SSH keys stored on someone else's platform.\n\nYourPanel flips it: a small Go agent on your server connects OUT to the panel over a secure WebSocket. Nothing listens for incoming connections, the panel never holds an SSH key, and every action goes into a tamper-evident audit log.\n\nStart free, no card needed 👉 link in bio\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #cybersecurity #infosec",
+      "status": "draft"
+    },
+    {
+      "date": "2026-11-12",
+      "slug": "2026-11-12-one-click-apps",
+      "format": "carousel",
+      "images": [
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-12-one-click-apps/slide1.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-12-one-click-apps/slide2.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-12-one-click-apps/slide3.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-12-one-click-apps/slide4.jpg"
+      ],
+      "caption": "WordPress, n8n, Uptime Kuma. One click. ⚡\n\nEvery YourPanel template uses reviewed Compose files, images pinned by digest and generated passwords, so a quick install is still a safe one.\n\nNeed a database? PostgreSQL, MySQL, MariaDB, Redis and MongoDB, one click each.\n\nStart free, no card needed 👉 link in bio\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #wordpress #n8n #selfhosting",
+      "status": "draft"
+    },
+    {
+      "date": "2026-11-13",
+      "slug": "2026-11-13-browser-terminal",
+      "format": "carousel",
+      "images": [
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-13-browser-terminal/slide1.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-13-browser-terminal/slide2.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-13-browser-terminal/slide3.jpg"
+      ],
+      "caption": "A root terminal in your browser 💻\n\nNo SSH client, no keys on your laptop. And built with guardrails:\n✅ Admins only, every session audited\n✅ 30-minute idle timeout\n✅ Can be turned off per server\n✅ Runs over the agent's outbound connection: still no inbound ports\n\nStart free, no card needed 👉 link in bio\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #terminal #ssh",
+      "status": "draft"
+    },
+    {
+      "date": "2026-11-14",
+      "slug": "2026-11-14-coming-next",
+      "format": "carousel",
+      "images": [
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-14-coming-next/slide1.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-14-coming-next/slide2.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-14-coming-next/slide3.jpg"
+      ],
+      "caption": "What's coming next in YourPanel 🚀\n\n📧 Deploy emails when a deploy fails or rolls back\n🧱 Firewall check that asks before a rule cuts off your SSH\n👥 Custom roles with read/write per area\n💾 Warnings before you lose unsaved changes\n\nWhat should we build after that? Tell us in the comments 👇\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #buildinpublic #saas",
+      "status": "draft"
+    }
+  ]
+}
