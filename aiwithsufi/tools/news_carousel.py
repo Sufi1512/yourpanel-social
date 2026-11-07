@@ -10,8 +10,26 @@ import json, os, sys, datetime, urllib.request
 from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1080, 1350
-BG = (20, 20, 22); CARD = (32, 32, 35); LINE = (70, 70, 74)
-IVORY = (240, 236, 226); MUTED = (160, 156, 148); GOLD = (196, 164, 104)
+# Palettes: TEXT = main text, MUTED = body text, GOLD = the single accent colour.
+THEMES = {
+    "charcoal_gold":  dict(BG=(20, 20, 22), CARD=(32, 32, 35), LINE=(70, 70, 74), IVORY=(240, 236, 226), MUTED=(160, 156, 148), GOLD=(196, 164, 104)),
+    "ivory_maroon":   dict(BG=(246, 242, 233), CARD=(236, 230, 218), LINE=(205, 198, 184), IVORY=(28, 28, 30), MUTED=(96, 90, 82), GOLD=(128, 32, 40)),
+    "newsroom_red":   dict(BG=(250, 250, 248), CARD=(238, 238, 236), LINE=(210, 210, 206), IVORY=(17, 17, 17), MUTED=(85, 85, 85), GOLD=(200, 30, 30)),
+    "forest_cream":   dict(BG=(22, 44, 36), CARD=(31, 58, 48), LINE=(60, 90, 78), IVORY=(244, 238, 222), MUTED=(190, 196, 180), GOLD=(222, 184, 110)),
+    "plum_blush":     dict(BG=(44, 24, 46), CARD=(60, 36, 62), LINE=(92, 64, 94), IVORY=(248, 238, 242), MUTED=(206, 188, 202), GOLD=(240, 164, 184)),
+    "terracotta_sand":dict(BG=(176, 88, 58), CARD=(156, 74, 48), LINE=(206, 128, 98), IVORY=(255, 244, 228), MUTED=(250, 222, 200), GOLD=(255, 214, 160)),
+    "sunflower_ink":  dict(BG=(246, 206, 70), CARD=(236, 192, 52), LINE=(214, 170, 40), IVORY=(22, 20, 16), MUTED=(70, 58, 28), GOLD=(150, 36, 18)),
+}
+# One palette per weekday (Mon..Sun); NEWS_THEME overrides.
+WEEKDAY_THEMES = ["charcoal_gold", "ivory_maroon", "newsroom_red", "forest_cream", "plum_blush", "terracotta_sand", "sunflower_ink"]
+THEME = os.environ.get("NEWS_THEME", "")
+
+def set_theme(name):
+    global THEME
+    THEME = name
+    globals().update(THEMES[name])
+
+def lum(c): return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONT = os.path.join(HERE, "Montserrat.ttf")
 FONT_URL = "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/Montserrat%5Bwght%5D.ttf"
@@ -92,20 +110,22 @@ def closing(page, total, date_label):
     d.text((W / 2, 520), "That's AI today.", font=font(76, "ExtraBold"), fill=IVORY, anchor="ms")
     d.text((W / 2, 610), "New explainer Reel every evening.", font=font(40, "Medium"), fill=MUTED, anchor="ms")
     d.rounded_rectangle([W / 2 - 330, 700, W / 2 + 330, 800], radius=50, fill=GOLD)
-    d.text((W / 2, 750), "FOLLOW @aiwithsufi", font=font(44, "ExtraBold"), fill=BG, anchor="mm")
+    d.text((W / 2, 750), "FOLLOW @aiwithsufi", font=font(44, "ExtraBold"), fill=BG if lum(GOLD) > lum(BG) else (255, 255, 255), anchor="mm")
     d.text((W / 2, 900), "Save  ·  Share  ·  Comment your take", font=font(34, "SemiBold"), fill=GOLD, anchor="ms")
     return im
 
 def main(src, out):
     data = json.load(open(src)); os.makedirs(out, exist_ok=True)
-    dt = datetime.date.fromisoformat(data["date"]); date_label = dt.strftime("%a · %d %b %Y").upper()
+    dt = datetime.date.fromisoformat(data["date"])
+    set_theme(THEME or WEEKDAY_THEMES[dt.weekday()])
+    date_label = dt.strftime("%a · %d %b %Y").upper()
     st = data["stories"]; total = len(st) + 2
     slides = [cover(date_label, len(st), total, [s.get("short", s["headline"]) for s in st])]
     slides += [story(s, i + 1, i + 1, total, date_label) for i, s in enumerate(st)]
     slides.append(closing(total - 1, total, date_label))
     for i, im in enumerate(slides):
         im.save(os.path.join(out, f"{i + 1:02d}.jpg"), quality=92, subsampling=0)
-    print(f"wrote {len(slides)} slides to {out}")
+    print(f"wrote {len(slides)} slides to {out} (theme {THEME})")
 
 if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2])
