@@ -18,10 +18,11 @@ THEMES = {
     "forest_cream":   dict(BG=(22, 44, 36), CARD=(31, 58, 48), LINE=(60, 90, 78), IVORY=(244, 238, 222), MUTED=(190, 196, 180), GOLD=(222, 184, 110)),
     "plum_blush":     dict(BG=(44, 24, 46), CARD=(60, 36, 62), LINE=(92, 64, 94), IVORY=(248, 238, 242), MUTED=(206, 188, 202), GOLD=(240, 164, 184)),
     "terracotta_sand":dict(BG=(176, 88, 58), CARD=(156, 74, 48), LINE=(206, 128, 98), IVORY=(255, 244, 228), MUTED=(250, 222, 200), GOLD=(255, 214, 160)),
-    "sunflower_ink":  dict(BG=(246, 206, 70), CARD=(236, 192, 52), LINE=(214, 170, 40), IVORY=(22, 20, 16), MUTED=(70, 58, 28), GOLD=(150, 36, 18)),
+    "graphite_tangerine": dict(BG=(40, 40, 40), CARD=(54, 54, 54), LINE=(84, 84, 84), IVORY=(246, 244, 240), MUTED=(176, 172, 166), GOLD=(244, 128, 52)),
+    "blush_burgundy": dict(BG=(246, 228, 226), CARD=(238, 214, 212), LINE=(222, 192, 190), IVORY=(34, 20, 24), MUTED=(104, 80, 84), GOLD=(136, 28, 58)),
 }
 # One palette per weekday (Mon..Sun); NEWS_THEME overrides.
-WEEKDAY_THEMES = ["charcoal_gold", "ivory_maroon", "newsroom_red", "forest_cream", "plum_blush", "terracotta_sand", "sunflower_ink"]
+WEEKDAY_THEMES = ["charcoal_gold", "ivory_maroon", "newsroom_red", "forest_cream", "plum_blush", "terracotta_sand", "graphite_tangerine"]
 THEME = os.environ.get("NEWS_THEME", "")
 
 def set_theme(name):
