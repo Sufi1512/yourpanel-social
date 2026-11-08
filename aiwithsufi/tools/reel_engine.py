@@ -18,6 +18,10 @@ Script format:
     {"type": "outro",   "recap": ["Goal", "Tools", "Memory", "Loop"], "lines": [...]}
   ]
 }
+Discussion style (default for new Reels): add "speakers": {"A": {"name": "Arjun", "voice": "am_fenrir"},
+"B": {"name": "Riya", "voice": "af_heart"}} and give every line "who": "A" (host who explains) or "B" (curious
+co-host who asks what viewers would ask). Captions then show the speaker's name with a live waveform and
+highlight word by word. See scripts/2026-11-09-ai-agents-discussion.json.
 Every element may carry "at": the index of the voiceover line at which it appears (default: spread evenly).
 In captions, words in ALL CAPS are highlighted in gold.
 """
@@ -136,26 +140,47 @@ def chrome(c, sc, t, T, TOTAL):
         c.rrect(W / 2 - w / 2, 190, W / 2 + w / 2, 244, 27, fill=fade(CARD2, a), outline=fade(GOLD, a), width=2)
         c.text(W / 2, 217, lab, 28, fade(TEXT, a))
 
-def caption(c, sc, t):
+def caption(c, sc, t, ctx=None, T=0.0):
     cur = None
     for ln in sc["lines"]:
         if ln["start"] - 0.05 <= t <= ln["end"] + 0.25: cur = ln
     if not cur: return
+    ctx = ctx or {}; spk = ctx.get("speakers") or {}
     a = ease((t - cur["start"] + 0.05) / 0.2); size = 44; wsp = c.tw(" ", size) + 4
-    rows = [[]]
-    for w in cur["cap"].split():
+    words = cur["cap"].split(); rows = [[]]
+    for w in words:
         cand = rows[-1] + [w]
-        if sum(c.tw(x, size) for x in cand) + wsp * (len(cand) - 1) > 920 and rows[-1]: rows.append([w])
+        if sum(c.tw(x, size) for x in cand) + wsp * (len(cand) - 1) > 900 and rows[-1]: rows.append([w])
         else: rows[-1] = cand
-    lh = 60; y0 = 1490 - (len(rows) - 1) * lh / 2 + (1 - a) * 16
-    widths = [sum(c.tw(x, size) for x in r) + wsp * (len(r) - 1) for r in rows]; bw = max(widths) + 70
-    c.rrect(W / 2 - bw / 2, y0 - 50, W / 2 + bw / 2, y0 + (len(rows) - 1) * lh + 50, 24, fill=fade(CARD, 0.95 * a))
+    lh = 60; y0 = 1500 - (len(rows) - 1) * lh / 2 + (1 - a) * 16
+    widths = [sum(c.tw(x, size) for x in r) + wsp * (len(r) - 1) for r in rows]; bw = max(max(widths) + 70, 420)
+    who = cur.get("who", "A"); info = spk.get(who)
+    accent = GOLD if who == "A" else TEXT
+    c.rrect(W / 2 - bw / 2, y0 - 50, W / 2 + bw / 2, y0 + (len(rows) - 1) * lh + 50, 24, fill=fade(CARD, 0.95 * a),
+            outline=fade(accent, 0.6 * a) if info else None, width=2)
+    if info and info.get("name"):
+        # speaker chip with live waveform, sitting on the box's top edge
+        name = info["name"].upper(); nw = c.tw(name, 26) + 150; x0 = W / 2 - bw / 2 + 30; yc = y0 - 50
+        c.rrect(x0, yc - 26, x0 + nw, yc + 26, 26, fill=fade(accent, a))
+        c.text(x0 + 24, yc, name, 26, fade(BG, a) if a > 0.05 else BG, anchor="lm")
+        env = ctx.get("_env") or []; fi = int(T * FPS)
+        for k in range(5):
+            v = env[min(len(env) - 1, max(0, fi - k))] if env else 0.3
+            h = 6 + 30 * v * (0.6 + 0.4 * math.sin(T * 18 + k * 1.7) ** 2)
+            bx = x0 + nw - 100 + k * 16
+            c.rrect(bx, yc - h / 2, bx + 8, yc + h / 2, 4, fill=fade(BG, a) if a > 0.05 else BG)
+    # word-by-word highlight, timed across the line
+    n = len(words); dur = max(0.3, cur["end"] - cur["start"]); idx = 0
     for i, r in enumerate(rows):
         x = W / 2 - widths[i] / 2
         for w in r:
+            ws = cur["start"] + dur * idx / n
             core = w.strip(".,:;!?'\"()")
             hi = len(core) > 1 and core.isupper() and core.replace("-", "").replace("'", "").isalpha()
-            c.text(x, y0 + i * lh, w, size, fade(GOLD if hi else TEXT, a), anchor="lm"); x += c.tw(w, size) + wsp
+            if t < ws: col = fade(MUTED, 0.7 * a)
+            elif t < ws + dur / n: col = fade(GOLD, a)
+            else: col = fade(GOLD if hi else TEXT, a)
+            c.text(x, y0 + i * lh, w, size, col, anchor="lm"); x += c.tw(w, size) + wsp; idx += 1
 
 # ---------- scene types ----------
 def s_hook(c, t, sc, ctx):
@@ -307,15 +332,20 @@ def voiceover(spec, work):
     from kokoro_onnx import Kokoro
     k = Kokoro(fetch(os.path.join(CACHE, "kokoro-v1.0.onnx")), fetch(os.path.join(CACHE, "voices-v1.0.bin")))
     LEAD, GAP, TAIL = 0.35, 0.3, 0.5; parts = []; SR = 24000
+    spk = spec.get("speakers") or {"A": {"name": "", "voice": VOICE}}
     for sc in spec["scenes"]:
         seg = [np.zeros(int(LEAD * SR), np.float32)]; t = LEAD
         for i, ln in enumerate(sc["lines"]):
-            s, sr = k.create(ln["vo"], voice=VOICE, speed=SPEED, lang="en-us")
+            who = ln.get("who", "A"); ln["who"] = who
+            s, sr = k.create(ln["vo"], voice=spk.get(who, spk["A"])["voice"], speed=SPEED, lang="en-us")
             idx = np.where(np.abs(s) > 0.01)[0]; s = s[max(0, idx[0] - 600): idx[-1] + 1200].astype(np.float32)
             d = len(s) / SR; ln["start"], ln["end"] = t, t + d; seg.append(s); t += d
             g = GAP if i < len(sc["lines"]) - 1 else TAIL; seg.append(np.zeros(int(g * SR), np.float32)); t += g
         a = np.concatenate(seg); sc["dur"] = len(a) / SR; parts.append(a)
-    raw = os.path.join(work, "vo_raw.wav"); sf.write(raw, np.concatenate(parts), SR)
+    full = np.concatenate(parts)
+    hop = SR // FPS; spec["_env"] = [float(np.sqrt(np.mean(full[i:i + hop] ** 2))) for i in range(0, len(full), hop)]
+    mx = max(spec["_env"]) or 1.0; spec["_env"] = [min(1.0, v / mx * 1.6) for v in spec["_env"]]
+    raw = os.path.join(work, "vo_raw.wav"); sf.write(raw, full, SR)
     vo = os.path.join(work, "vo.wav")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw, "-af",
                     "highpass=f=70,equalizer=f=180:t=q:w=1:g=1.5,acompressor=threshold=-22dB:ratio=2.5:attack=8:release=120,loudnorm=I=-15:TP=-1.5",
@@ -334,8 +364,8 @@ def voiceover(spec, work):
 # ---------- render ----------
 def frame(spec, idx, f, TOTAL):
     sc = spec["scenes"][idx]; T0 = sum(s["dur"] for s in spec["scenes"][:idx]); t = f / FPS
-    c = Canvas(); chrome(c, sc, t, T0 + t, TOTAL); FN[sc["type"]](c, t, sc, spec); caption(c, sc, t)
-    im = c.out(); fi = clamp(t / 0.25) if idx > 0 else 1.0; fo = clamp((sc["dur"] - t) / 0.25); k = min(fi, fo)
+    c = Canvas(); chrome(c, sc, t, T0 + t, TOTAL); FN[sc["type"]](c, t, sc, spec); caption(c, sc, t, spec, T0 + t)
+    im = c.out(); fi = clamp(t / 0.3) if idx > 0 else 1.0; fo = clamp((sc["dur"] - t) / 0.25); k = min(fi, fo)
     if k < 1: im = Image.blend(Image.new("RGB", (W, H), BG), im, k)
     return im
 

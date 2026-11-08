@@ -1,0 +1,48 @@
+{
+  "title": "AI Agents",
+  "next": "Agent Skills",
+  "speakers": {"A": {"name": "Arjun", "voice": "am_fenrir"}, "B": {"name": "Riya", "voice": "af_heart"}},
+  "caption": "ChatGPT answers. An AI agent gets things done 🤖\n\nRiya asks, Arjun explains:\n1. Chatbot vs Agent\n2. The 4 parts: Brain, Tools, Memory, Goal\n3. The agent loop: Think → Act → Observe\n4. A real example, step by step\n\nSave this for later 📌 Next up: Agent Skills\n\n#ai #aiagents #agenticai #llm #automation #chatgpt #artificialintelligence #aiexplained #techeducation #aiwithsufi",
+  "scenes": [
+    {"type": "hook", "chips": ["ChatGPT", "AI Agent"], "title": "AI AGENTS", "subtitle": "From answering to doing",
+     "lines": [
+       {"who": "B", "vo": "Arjun, everyone keeps saying AI agents. Isn't that just ChatGPT?", "cap": "Everyone says AI AGENTS. Isn't that just ChatGPT?"},
+       {"who": "A", "vo": "Not quite. ChatGPT answers you. An agent actually gets the job done.", "cap": "ChatGPT ANSWERS. An agent GETS THE JOB DONE."}]},
+    {"type": "compare", "label": "CHATBOT VS AGENT", "left": "Chatbot", "right": "AI Agent",
+     "rows": [["Answers questions", "Completes tasks", 0], ["One reply", "Many steps", 1], ["Text only", "Uses tools", 1], ["You do the work", "It does the work", 2]],
+     "lines": [
+       {"who": "A", "vo": "A chatbot gives you one answer, and then you do the rest.", "cap": "A chatbot gives ONE answer. You do the rest."},
+       {"who": "A", "vo": "An agent takes a goal, plans the steps, and uses tools to finish it.", "cap": "An agent takes a GOAL, plans steps, uses TOOLS."},
+       {"who": "B", "vo": "So I just review the result, instead of doing the work?", "cap": "So I just REVIEW instead of doing the work?"},
+       {"who": "A", "vo": "Exactly.", "cap": "Exactly."}]},
+    {"type": "list", "label": "WHAT'S INSIDE AN AGENT",
+     "items": [{"t": "Brain", "s": "The LLM that reasons and plans", "at": 1}, {"t": "Tools", "s": "Web search, code, email, APIs", "at": 2},
+               {"t": "Memory", "s": "Remembers what it already did", "at": 3}, {"t": "Goal", "s": "The task it must complete", "at": 3}],
+     "lines": [
+       {"who": "B", "vo": "Okay, so what's actually inside one?", "cap": "Okay, what's actually INSIDE one?"},
+       {"who": "A", "vo": "Four parts. A brain, which is the language model that reasons and plans.", "cap": "4 parts. A BRAIN: the model that reasons and plans."},
+       {"who": "A", "vo": "Tools, like web search, code, or email.", "cap": "TOOLS: web search, code, email."},
+       {"who": "A", "vo": "Memory of what it already did. And a goal, the task it has to finish.", "cap": "MEMORY of what it did, and a GOAL."}]},
+    {"type": "cycle", "label": "THE AGENT LOOP", "center": "Goal",
+     "nodes": [{"t": "Think", "at": 1}, {"t": "Act", "s": "call a tool", "at": 1}, {"t": "Observe", "s": "read the result", "at": 2}],
+     "lines": [
+       {"who": "B", "vo": "But how does it decide what to do next?", "cap": "How does it decide what to do NEXT?"},
+       {"who": "A", "vo": "It runs a loop. First it thinks. Then it acts, by calling a tool.", "cap": "A loop. It THINKS, then ACTS by calling a tool."},
+       {"who": "A", "vo": "Then it observes the result, and decides the next step.", "cap": "It OBSERVES the result, then decides the next step."},
+       {"who": "B", "vo": "And it keeps going until the goal is done?", "cap": "And it REPEATS until the goal is done?"},
+       {"who": "A", "vo": "Yes. That loop is the heart of every agent.", "cap": "Yes. That LOOP is the heart of every agent."}]},
+    {"type": "flow", "label": "EXAMPLE · BOOK A TRIP",
+     "nodes": [{"t": "\"Book me a trip to Dubai\"", "s": "your goal", "at": 0}, {"t": "Search flights", "s": "tool: web search", "at": 1},
+               {"t": "Compare prices", "s": "think", "at": 1}, {"t": "Check your calendar", "s": "tool: calendar", "at": 2},
+               {"t": "Book + email you", "s": "tools: booking, email", "at": 3}],
+     "lines": [
+       {"who": "B", "vo": "Give me a real example.", "cap": "Give me a REAL example."},
+       {"who": "A", "vo": "You say, book me a trip to Dubai next weekend. It searches flights and compares prices.", "cap": "\"Book me a trip to Dubai.\" It SEARCHES flights and COMPARES prices."},
+       {"who": "A", "vo": "It checks your calendar so nothing clashes.", "cap": "It CHECKS your calendar."},
+       {"who": "A", "vo": "Then it books the best option, and emails you the confirmation.", "cap": "Then it BOOKS and emails you the confirmation."}]},
+    {"type": "outro", "recap": ["Brain + Tools + Memory + Goal", "Think, Act, Observe", "Repeat until done"],
+     "lines": [
+       {"who": "B", "vo": "So an agent is a model with tools and memory, working in a loop toward a goal.", "cap": "A model + TOOLS + MEMORY, looping toward a GOAL."},
+       {"who": "A", "vo": "You got it. Next, how agents learn new skills. Follow A.I. with Sufi.", "cap": "Next: AGENT SKILLS. Follow @aiwithsufi!"}]}
+  ]
+}
