@@ -16,6 +16,7 @@ Script format:
     {"type": "compare", "label": "...", "left": "Chatbot", "right": "Agent", "rows": [["answers", "acts"], ...], "lines": [...]},
     {"type": "bars",    "label": "...", "title": "...", "bars": [{"t": "Paris", "v": 82, "unit": "%"}], "lines": [...]},
     {"type": "code",    "label": "...", "title": "...", "code": "line1\nline2", "at": 1, "note": "...", "lines": [...]},  (typewriter)
+    {"type": "quiz",    "label": "...", "question": "...", "options": ["...", "...", "..."], "answer": 1, "reveal": 2, "lines": [...]},  (pause & guess)
     {"type": "outro",   "recap": ["Goal", "Tools", "Memory", "Loop"], "lines": [...]}
   ]
 }
@@ -143,39 +144,70 @@ def chrome(c, sc, t, T, TOTAL):
         c.rrect(W / 2 - w / 2, 190, W / 2 + w / 2, 244, 27, fill=fade(CARD2, a), outline=fade(GOLD, a), width=2)
         c.text(W / 2, 217, lab, 28, fade(TEXT, a))
 
+CHAR = {
+    "A": dict(skin=(196, 138, 98), hair=(28, 22, 20), shirt=GOLD, beard=True, long=False),
+    "B": dict(skin=(214, 164, 124), hair=(58, 34, 26), shirt=TEXT, beard=False, long=True),
+}
+_chars = {}
+def character(c, x, y, r, who, talking, level, T, dim):
+    """Flat illustrated host avatar; mouth moves with the voice level, eyes blink."""
+    st = CHAR.get(who, CHAR["A"]); S = int(2 * r * SS); im = Image.new("RGBA", (S, S), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    u = S / 200.0
+    def E(cx, cy, rx, ry, col): d.ellipse([(cx - rx) * u, (cy - ry) * u, (cx + rx) * u, (cy + ry) * u], fill=col)
+    E(100, 100, 100, 100, CARD2 + (255,))
+    if st["long"]: d.rounded_rectangle([46 * u, 50 * u, 154 * u, 175 * u], radius=50 * u, fill=st["hair"])
+    E(100, 210, 78, 62, st["shirt"])                                   # shoulders
+    d.rectangle([86 * u, 128 * u, 114 * u, 160 * u], fill=st["skin"])   # neck
+    E(100, 98, 46, 54, st["skin"])                                      # face
+    if st["beard"]: d.chord([56 * u, 70 * u, 144 * u, 156 * u], 10, 170, fill=st["hair"]); E(100, 112, 30, 22, st["skin"])
+    d.chord([52 * u, 36 * u, 148 * u, 112 * u], 180, 360, fill=st["hair"])  # hair top
+    blink = (T * 0.31 + (0.5 if who == "B" else 0)) % 1.0 < 0.04
+    for ex in (82, 118):
+        if blink: d.line([(ex - 6) * u, 98 * u, (ex + 6) * u, 98 * u], fill=(30, 22, 20), width=max(1, int(3 * u)))
+        else: E(ex, 98, 5, 6.5, (30, 22, 20))
+    mh = 3 + 15 * level if talking else 2.5
+    E(100, 126, 11 if talking else 9, mh, (110, 50, 46))
+    m = Image.new("L", (S, S), 0); ImageDraw.Draw(m).ellipse([0, 0, S - 1, S - 1], fill=int(255 * (0.45 if dim else 1.0)))
+    c.im.paste(im.convert("RGB"), (c.s(x - r), c.s(y - r)), m)
+    if talking: c.circle(x, y, r + 7, outline=GOLD if who == "A" else TEXT, width=4)
+
 def caption(c, sc, t, ctx=None, T=0.0):
     cur = None
     for ln in sc["lines"]:
         if ln["start"] - 0.05 <= t <= ln["end"] + 0.25: cur = ln
-    if not cur: return
     ctx = ctx or {}; spk = ctx.get("speakers") or {}
-    a = ease((t - cur["start"] + 0.05) / 0.2); size = 44; wsp = c.tw(" ", size) + 4
+    env = ctx.get("_env") or []; fi = int(T * FPS); level = env[min(len(env) - 1, fi)] if env else 0.3
+    duo = len(spk) >= 2
+    if duo:  # both characters always on screen; the speaker is lit
+        who_now = cur.get("who", "A") if cur else None
+        for who, (x, y) in (("B", (130, 1500)), ("A", (950, 1500))):
+            character(c, x, y, 78, who, who_now == who, level, T, who_now not in (None, who))
+            c.text(x, y + 104, spk[who]["name"], 26, fade(GOLD if who == "A" else TEXT, 0.9), "SemiBold")
+    if not cur: return
+    a = ease((t - cur["start"] + 0.05) / 0.2); size = 40 if duo else 44; wsp = c.tw(" ", size) + 4
+    maxw = 640 if duo else 900
     words = cur["cap"].split(); rows = [[]]
     for w in words:
         cand = rows[-1] + [w]
-        if sum(c.tw(x, size) for x in cand) + wsp * (len(cand) - 1) > 900 and rows[-1]: rows.append([w])
+        if sum(c.tw(x, size) for x in cand) + wsp * (len(cand) - 1) > maxw and rows[-1]: rows.append([w])
         else: rows[-1] = cand
-    lh = 60; y0 = 1500 - (len(rows) - 1) * lh / 2 + (1 - a) * 16
-    widths = [sum(c.tw(x, size) for x in r) + wsp * (len(r) - 1) for r in rows]; bw = max(max(widths) + 70, 420)
-    who = cur.get("who", "A"); info = spk.get(who)
-    accent = GOLD if who == "A" else TEXT
-    c.rrect(W / 2 - bw / 2, y0 - 50, W / 2 + bw / 2, y0 + (len(rows) - 1) * lh + 50, 24, fill=fade(CARD, 0.95 * a),
-            outline=fade(accent, 0.6 * a) if info else None, width=2)
-    if info and info.get("name"):
-        # speaker chip with live waveform, sitting on the box's top edge
-        name = info["name"].upper(); nw = c.tw(name, 26) + 150; x0 = W / 2 - bw / 2 + 30; yc = y0 - 50
-        c.rrect(x0, yc - 26, x0 + nw, yc + 26, 26, fill=fade(accent, a))
-        c.text(x0 + 24, yc, name, 26, fade(BG, a) if a > 0.05 else BG, anchor="lm")
-        env = ctx.get("_env") or []; fi = int(T * FPS)
-        for k in range(5):
-            v = env[min(len(env) - 1, max(0, fi - k))] if env else 0.3
-            h = 6 + 30 * v * (0.6 + 0.4 * math.sin(T * 18 + k * 1.7) ** 2)
-            bx = x0 + nw - 100 + k * 16
-            c.rrect(bx, yc - h / 2, bx + 8, yc + h / 2, 4, fill=fade(BG, a) if a > 0.05 else BG)
-    # word-by-word highlight, timed across the line
+    lh = size + 16; widths = [sum(c.tw(x, size) for x in r) + wsp * (len(r) - 1) for r in rows]
+    bw = max(widths) + 64; bh = (len(rows) - 1) * lh + 92
+    who = cur.get("who", "A"); accent = GOLD if who == "A" else TEXT
+    if duo:
+        cy = 1500 + (1 - a) * 14
+        bx0 = 238 if who == "B" else 842 - bw
+        c.rrect(bx0, cy - bh / 2, bx0 + bw, cy + bh / 2, 26, fill=fade(CARD2, a), outline=fade(accent, 0.7 * a), width=2)
+        tx = bx0 if who == "B" else bx0 + bw
+        dirn = -1 if who == "B" else 1
+        c.poly([(tx, cy - 16), (tx, cy + 16), (tx + dirn * 26, cy)], fade(accent, 0.7 * a))
+        cx = bx0 + bw / 2; y0 = cy - (len(rows) - 1) * lh / 2
+    else:
+        y0 = 1500 - (len(rows) - 1) * lh / 2 + (1 - a) * 16; cx = W / 2
+        c.rrect(cx - bw / 2, y0 - 50, cx + bw / 2, y0 + (len(rows) - 1) * lh + 50, 24, fill=fade(CARD, 0.95 * a))
     n = len(words); dur = max(0.3, cur["end"] - cur["start"]); idx = 0
     for i, r in enumerate(rows):
-        x = W / 2 - widths[i] / 2
+        x = cx - widths[i] / 2
         for w in r:
             ws = cur["start"] + dur * idx / n
             core = w.strip(".,:;!?'\"()")
@@ -354,7 +386,41 @@ def s_code(c, t, sc, ctx):
         y += lh
     if sc.get("note"): c.text(W / 2, y0 + h + 70, sc["note"], c.fit(sc["note"], 34, 920, "SemiBold"), fade(MUTED, ease((t - st - span) / 0.6)), "SemiBold")
 
-FN = {"code": s_code, "hook": s_hook, "flow": s_flow, "cycle": s_cycle, "hub": s_hub, "list": s_list, "compare": s_compare, "bars": s_bars, "outro": s_outro}
+def s_quiz(c, t, sc, ctx):
+    """Interactive 'Pause & guess' moment. sc: {"question", "options": [3-4], "answer": index, "reveal": line index}"""
+    L = sc["lines"]; a = ease(t / 0.5); rv = L[min(int(sc.get("reveal", len(L) - 1)), len(L) - 1)]["start"]
+    c.rrect(W / 2 - 170, 300, W / 2 + 170, 356, 28, fill=fade(GOLD, a)); c.text(W / 2, 328, "PAUSE & GUESS", 30, fade(BG, a) if a > 0.05 else BG)
+    q = sc["question"]; size = c.fit(q, 50, 900)
+    words = q.split(); rows = [""]
+    for w in words:
+        tst = (rows[-1] + " " + w).strip()
+        if c.tw(tst, 46) > 900 and rows[-1]: rows.append(w)
+        else: rows[-1] = tst
+    for i, r in enumerate(rows): c.text(W / 2, 430 + i * 60, r, 46, fade(TEXT, a))
+    y = 430 + len(rows) * 60 + 40; opts = sc["options"]; revealed = t >= rv
+    for i, o in enumerate(opts):
+        p = back((t - 0.4 - i * 0.25) / 0.5)
+        if p <= 0: continue
+        pa = clamp(p); right = i == sc["answer"]; yy = y + i * 130
+        if revealed:
+            fill = GOLD if right else CARD; txt = BG if right else MUTED; out = GOLD if right else LINE
+        else:
+            fill = CARD2; txt = TEXT; out = LINE
+        c.rrect(140, yy, W - 140, yy + 104, 52, fill=fade(fill, pa), outline=fade(out, pa), width=3)
+        c.circle(200, yy + 52, 30, fill=fade(BG if (revealed and right) else CARD, pa))
+        c.text(200, yy + 52, "ABCD"[i], 30, fade(GOLD, pa))
+        c.text(250, yy + 52, o, c.fit(o, 38, W - 140 - 270), fade(txt, pa) if pa > 0.05 else BG, anchor="lm")
+    if not revealed:  # countdown ring for the last 3 seconds before the reveal
+        left = rv - t
+        if left <= 3.2:
+            cx, cy, R = W / 2, y + len(opts) * 130 + 80, 46; frac = clamp(left / 3.0)
+            c.circle(cx, cy, R, outline=LINE, width=6)
+            c.d.arc([c.s(cx - R), c.s(cy - R), c.s(cx + R), c.s(cy + R)], -90, -90 + 360 * frac, fill=GOLD, width=c.s(6))
+            c.text(cx, cy, str(max(1, math.ceil(left))), 44, GOLD)
+    else:
+        c.text(W / 2, y + len(opts) * 130 + 80, "Got it right? Comment below", 34, fade(MUTED, ease((t - rv - 0.5) / 0.5)), "SemiBold")
+
+FN = {"quiz": s_quiz, "code": s_code, "hook": s_hook, "flow": s_flow, "cycle": s_cycle, "hub": s_hub, "list": s_list, "compare": s_compare, "bars": s_bars, "outro": s_outro}
 
 # ---------- voice ----------
 def voiceover(spec, work):
