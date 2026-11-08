@@ -5,10 +5,11 @@
       "slug": "ai-agents",
       "title": "AI Agents",
       "status": "approved",
-      "script": "aiwithsufi/scripts/2026-11-09-ai-agents.json",
+      "script": "aiwithsufi/scripts/2026-11-09-ai-agents-deep.json",
       "video": "aiwithsufi/reels/2026-11-09-ai-agents/reel.mp4",
       "format": "reel",
-      "date": "2026-11-09"
+      "date": "2026-11-09",
+      "note": "deep-dive discussion version approved by Sufi on 2026-11-08"
     },
     {
       "slug": "agent-skills",
