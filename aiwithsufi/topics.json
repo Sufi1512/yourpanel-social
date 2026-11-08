@@ -1,0 +1,29 @@
+{
+  "note": "Daily explainer Reel queue for @aiwithsufi. The daily task takes the first entry whose status is not 'posted'. status: todo -> ready (rendered, waiting for approval) -> approved -> posted.",
+  "topics": [
+    {"slug": "ai-agents", "title": "AI Agents", "status": "ready", "script": "aiwithsufi/scripts/2026-11-09-ai-agents.json", "video": "aiwithsufi/reels/2026-11-09-ai-agents/reel.mp4"},
+    {"slug": "mcp", "title": "MCP: the USB-C port for AI", "status": "todo", "angle": "N apps x M tools problem -> one standard plug; host, client, server; tools, resources, prompts; example: an assistant reading your files and calendar"},
+    {"slug": "rag", "title": "RAG: how AI reads your documents", "status": "todo", "angle": "why LLMs don't know your data; chunk, embed, store; retrieve top chunks; grounded answer with sources"},
+    {"slug": "vector-databases", "title": "Vector databases", "status": "todo", "angle": "keyword vs meaning search; words as points; nearest neighbours; indexing at scale; uses"},
+    {"slug": "prompt-engineering", "title": "Prompt engineering", "status": "todo", "angle": "role, context, task, format, examples; before/after prompt"},
+    {"slug": "context-window", "title": "Context window", "status": "todo", "angle": "what fits in the model's working memory; tokens; what happens when it's full"},
+    {"slug": "hallucinations", "title": "Why AI hallucinates", "status": "todo", "angle": "next-token prediction guesses; missing knowledge; how RAG, citations and checks reduce it"},
+    {"slug": "fine-tuning-vs-rag", "title": "Fine-tuning vs RAG", "status": "todo", "angle": "teach behaviour vs give knowledge; cost, freshness; when to use which"},
+    {"slug": "multi-agent-systems", "title": "Multi-agent systems", "status": "todo", "angle": "planner, workers, reviewer; hand-offs; example: research report"},
+    {"slug": "embeddings", "title": "Embeddings", "status": "todo", "angle": "meaning as numbers; similarity; king - man + woman"},
+    {"slug": "tokens", "title": "Tokens", "status": "todo", "angle": "how text is split; why pricing and limits use tokens"},
+    {"slug": "function-calling", "title": "Function calling", "status": "todo", "angle": "model outputs a structured call; app runs it; result goes back"},
+    {"slug": "agent-memory", "title": "How AI agents remember", "status": "todo", "angle": "short-term context, long-term store, summaries"},
+    {"slug": "reasoning-models", "title": "Reasoning models", "status": "todo", "angle": "thinking before answering; chain of thought; when it helps"},
+    {"slug": "diffusion-models", "title": "How AI makes images", "status": "todo", "angle": "noise to image step by step; text guidance"},
+    {"slug": "multimodal-ai", "title": "Multimodal AI", "status": "todo", "angle": "text, images, audio in one model; shared embeddings"},
+    {"slug": "rlhf", "title": "RLHF", "status": "todo", "angle": "pre-training, human ratings, reward model, tuning"},
+    {"slug": "lora", "title": "LoRA fine-tuning", "status": "todo", "angle": "small adapter matrices instead of retraining everything"},
+    {"slug": "mixture-of-experts", "title": "Mixture of Experts", "status": "todo", "angle": "router picks a few experts per token; big model, low cost"},
+    {"slug": "quantization", "title": "Quantization", "status": "todo", "angle": "fewer bits per number; smaller, faster, small accuracy cost"},
+    {"slug": "a2a-protocol", "title": "A2A: agents talking to agents", "status": "todo", "angle": "agent cards, tasks, messages; vs MCP"},
+    {"slug": "guardrails", "title": "AI guardrails", "status": "todo", "angle": "input checks, output checks, permissions, human approval"},
+    {"slug": "ai-evals", "title": "How AI is tested (evals)", "status": "todo", "angle": "benchmarks, test sets, LLM-as-judge, why scores mislead"},
+    {"slug": "temperature", "title": "Temperature", "status": "todo", "angle": "probability sampling; creative vs precise"}
+  ]
+}

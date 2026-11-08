@@ -1,0 +1,49 @@
+{
+  "title": "AI Agents",
+  "next": "MCP",
+  "caption": "ChatGPT answers. An AI agent gets things done 🤖\n\nHow AI agents work in 4 steps:\n1. Chatbot vs Agent\n2. The 4 parts: Brain, Tools, Memory, Goal\n3. The agent loop: Think → Act → Observe\n4. Tools: how agents act in the real world\n\nSave this for later 📌 Next up: MCP\n\n#ai #aiagents #agenticai #llm #automation #chatgpt #artificialintelligence #aiexplained #techeducation #aiwithsufi",
+  "scenes": [
+    {"type": "hook", "chips": ["ChatGPT", "AI Agent"], "title": "AI AGENTS", "subtitle": "From answering to doing",
+     "lines": [
+       {"vo": "ChatGPT answers your questions. An AI agent actually gets things done.", "cap": "ChatGPT ANSWERS. An AI agent GETS THINGS DONE."},
+       {"vo": "So what exactly is an AI agent? Let's break it down.", "cap": "So what exactly is an AI agent? Let's break it down."}]},
+    {"type": "compare", "label": "STEP 1 · CHATBOT VS AGENT", "left": "Chatbot", "right": "AI Agent",
+     "rows": [["Answers questions", "Completes tasks", 0], ["One reply", "Many steps", 1], ["Text only", "Uses tools", 1], ["You do the work", "It does the work", 2]],
+     "lines": [
+       {"vo": "A chatbot gives you one answer, and then you do the rest.", "cap": "A chatbot gives you ONE answer. Then you do the rest."},
+       {"vo": "An agent takes a goal, plans several steps, and uses tools to finish the job.", "cap": "An agent takes a GOAL, plans steps, and uses TOOLS to finish the job."},
+       {"vo": "You go from doing the work, to simply reviewing it.", "cap": "You go from DOING the work to REVIEWING it."}]},
+    {"type": "list", "label": "STEP 2 · THE 4 PARTS",
+     "items": [{"t": "Brain", "s": "The LLM that reasons and plans", "at": 1}, {"t": "Tools", "s": "Web search, code, email, APIs", "at": 2},
+               {"t": "Memory", "s": "Remembers what it already did", "at": 3}, {"t": "Goal", "s": "The task it must complete", "at": 3}],
+     "lines": [
+       {"vo": "Every agent is built from four parts.", "cap": "Every agent has 4 PARTS."},
+       {"vo": "A brain. That's the language model, which reasons and plans.", "cap": "A BRAIN: the language model that reasons and plans."},
+       {"vo": "Tools, like web search, code, or email.", "cap": "TOOLS: web search, code, email..."},
+       {"vo": "Memory, to remember what it already did. And a goal, the task it has to complete.", "cap": "MEMORY of what it did, and a GOAL to complete."}]},
+    {"type": "cycle", "label": "STEP 3 · THE AGENT LOOP", "center": "Goal",
+     "nodes": [{"t": "Think", "at": 1}, {"t": "Act", "s": "call a tool", "at": 1}, {"t": "Observe", "s": "read the result", "at": 2}],
+     "lines": [
+       {"vo": "Agents work in a loop. You'll often hear it called ReAct.", "cap": "Agents work in a LOOP, often called ReAct."},
+       {"vo": "First, it thinks about the next step. Then it acts, by calling a tool.", "cap": "It THINKS about the next step, then ACTS by calling a tool."},
+       {"vo": "Then it observes the result, and decides what to do next.", "cap": "It OBSERVES the result and decides what's next."},
+       {"vo": "And this loop repeats, until the goal is done.", "cap": "The loop REPEATS until the goal is done."}]},
+    {"type": "hub", "label": "STEP 4 · TOOLS", "center": "LLM",
+     "nodes": [{"t": "Web search"}, {"t": "Calendar"}, {"t": "Email"}, {"t": "Code"}, {"t": "Files"}, {"t": "APIs"}],
+     "lines": [
+       {"vo": "Tools are what make agents powerful.", "cap": "TOOLS are what make agents powerful."},
+       {"vo": "The model can't book a flight on its own. But it can call a tool that does.", "cap": "The model can't book a flight itself, but it can CALL A TOOL that does."}]},
+    {"type": "flow", "label": "EXAMPLE · BOOK A TRIP",
+     "nodes": [{"t": "\"Book me a trip to Dubai\"", "s": "your goal", "at": 0}, {"t": "Search flights", "s": "tool: web search", "at": 1},
+               {"t": "Compare prices", "s": "think", "at": 1}, {"t": "Check your calendar", "s": "tool: calendar", "at": 1},
+               {"t": "Book + email you", "s": "tools: booking, email", "at": 2}],
+     "lines": [
+       {"vo": "Here's an example. You say, book me a trip to Dubai next weekend.", "cap": "Example: \"Book me a trip to Dubai next weekend.\""},
+       {"vo": "The agent searches flights, compares prices, and checks your calendar.", "cap": "It SEARCHES flights, COMPARES prices, CHECKS your calendar."},
+       {"vo": "Then it books the best option, and emails you the confirmation.", "cap": "Then it BOOKS the best option and emails you."}]},
+    {"type": "outro", "recap": ["Brain + Tools + Memory + Goal", "Think, Act, Observe", "Repeat until done"],
+     "lines": [
+       {"vo": "So remember. An agent is a model with tools, memory, and a goal, working in a loop.", "cap": "An agent = a model + TOOLS + MEMORY + a GOAL, working in a LOOP."},
+       {"vo": "Next up, M.C.P., the standard way agents connect to tools. Follow A.I. with Sufi.", "cap": "Next up: MCP. Follow @aiwithsufi!"}]}
+  ]
+}
