@@ -196,7 +196,7 @@ def caption(c, sc, t, ctx=None, T=0.0):
             c.text(x, y + 104, spk[who]["name"], 26, fade(GOLD if who == "A" else TEXT, 0.9), "SemiBold")
     if not cur: return
     a = ease((t - cur["start"] + 0.05) / 0.2); size = 40 if duo else 44; wsp = c.tw(" ", size) + 4
-    maxw = 640 if duo else 900
+    maxw = 530 if duo else 900
     words = cur["cap"].split(); rows = [[]]
     for w in words:
         cand = rows[-1] + [w]
