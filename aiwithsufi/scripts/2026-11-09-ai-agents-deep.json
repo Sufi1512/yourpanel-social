@@ -1,0 +1,453 @@
+{
+  "title": "AI Agents",
+  "next": "Agent Skills",
+  "speakers": {
+    "A": {
+      "name": "Arjun",
+      "voice": "am_fenrir"
+    },
+    "B": {
+      "name": "Riya",
+      "voice": "af_heart"
+    }
+  },
+  "caption": "AI agents, explained properly 🤖 (save this one)\n\nRiya asks, Arjun explains:\n1. Chatbot vs agent\n2. What's inside: brain, tools, memory, goal\n3. How tool calling really works\n4. The think → act → observe loop\n5. Planning and memory\n6. Teams of agents\n7. Where agents fail, and the guardrails\n8. A full example, step by step\n\nNext up: Agent Skills 📌\n\n#ai #aiagents #agenticai #llm #functioncalling #automation #artificialintelligence #aiexplained #techeducation #aiwithsufi",
+  "scenes": [
+    {
+      "type": "hook",
+      "chips": [
+        "ChatGPT",
+        "AI Agent"
+      ],
+      "title": "AI AGENTS",
+      "subtitle": "The complete breakdown",
+      "lines": [
+        {
+          "who": "B",
+          "vo": "Arjun, everyone keeps saying AI agents. Isn't that just ChatGPT with a new name?",
+          "cap": "Everyone says AI AGENTS. Isn't that just ChatGPT renamed?"
+        },
+        {
+          "who": "A",
+          "vo": "Not at all. ChatGPT answers you. An agent actually does the work. Let's open one up, piece by piece.",
+          "cap": "ChatGPT ANSWERS. An agent DOES THE WORK. Let's open one up."
+        }
+      ]
+    },
+    {
+      "type": "compare",
+      "label": "1 · CHATBOT VS AGENT",
+      "left": "Chatbot",
+      "right": "AI Agent",
+      "rows": [
+        [
+          "Answers questions",
+          "Completes tasks",
+          0
+        ],
+        [
+          "One reply",
+          "Many steps",
+          1
+        ],
+        [
+          "Only text",
+          "Uses real tools",
+          1
+        ],
+        [
+          "You do the work",
+          "It does the work",
+          2
+        ]
+      ],
+      "lines": [
+        {
+          "who": "A",
+          "vo": "A chatbot gives you one answer. Then you do everything else yourself.",
+          "cap": "A chatbot: ONE answer. You do the rest."
+        },
+        {
+          "who": "A",
+          "vo": "An agent takes a goal, breaks it into steps, and uses real tools to finish it.",
+          "cap": "An agent takes a GOAL, makes STEPS, uses real TOOLS."
+        },
+        {
+          "who": "B",
+          "vo": "So my job changes from doing the work, to checking the work.",
+          "cap": "So I go from DOING to CHECKING."
+        }
+      ]
+    },
+    {
+      "type": "hub",
+      "label": "2 · WHAT'S INSIDE",
+      "center": "Agent",
+      "nodes": [
+        {
+          "t": "Brain",
+          "s": "the LLM",
+          "at": 1
+        },
+        {
+          "t": "Tools",
+          "s": "actions",
+          "at": 1
+        },
+        {
+          "t": "Memory",
+          "s": "what it knows",
+          "at": 2
+        },
+        {
+          "t": "Goal",
+          "s": "the task",
+          "at": 2
+        }
+      ],
+      "lines": [
+        {
+          "who": "B",
+          "vo": "Okay. So what's actually inside an agent?",
+          "cap": "So what's actually INSIDE an agent?"
+        },
+        {
+          "who": "A",
+          "vo": "Four parts. The brain is a language model. It reads the situation and decides what to do. The tools are what let it act.",
+          "cap": "The BRAIN decides. The TOOLS let it act."
+        },
+        {
+          "who": "A",
+          "vo": "Memory holds what it has learned so far. And the goal is the finish line it is working toward.",
+          "cap": "MEMORY holds what it learned. The GOAL is the finish line."
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "label": "3 · HOW TOOL CALLING WORKS",
+      "title": "The model writes a request...",
+      "at": 1,
+      "code": "{\n  \"tool\": \"search_flights\",\n  \"args\": {\n    \"from\": \"RUH\",\n    \"to\": \"DXB\",\n    \"date\": \"2026-11-14\"\n  }\n}",
+      "note": "...the app runs it and sends the result back",
+      "lines": [
+        {
+          "who": "B",
+          "vo": "Wait. How can a language model use a tool? It only writes text.",
+          "cap": "How can a model USE A TOOL? It only writes text!"
+        },
+        {
+          "who": "A",
+          "vo": "Exactly, and that's the trick. It writes a small structured request, like this. The tool's name, and the inputs.",
+          "cap": "It writes a structured REQUEST: the tool name and its inputs."
+        },
+        {
+          "who": "A",
+          "vo": "The app around the model actually runs that tool, then pastes the result back into the conversation.",
+          "cap": "The APP runs the tool and sends the RESULT back."
+        },
+        {
+          "who": "B",
+          "vo": "So the model never touches the internet itself. It just asks.",
+          "cap": "So the model just ASKS. The app DOES."
+        }
+      ]
+    },
+    {
+      "type": "cycle",
+      "label": "4 · THE AGENT LOOP",
+      "center": "Goal",
+      "nodes": [
+        {
+          "t": "Think",
+          "s": "what's next?",
+          "at": 1
+        },
+        {
+          "t": "Act",
+          "s": "call a tool",
+          "at": 1
+        },
+        {
+          "t": "Observe",
+          "s": "read the result",
+          "at": 2
+        }
+      ],
+      "lines": [
+        {
+          "who": "B",
+          "vo": "And how does it know what to do after that?",
+          "cap": "How does it know what to do NEXT?"
+        },
+        {
+          "who": "A",
+          "vo": "It runs a loop. Think about the next step. Act by calling a tool.",
+          "cap": "A loop: THINK about the next step, ACT with a tool."
+        },
+        {
+          "who": "A",
+          "vo": "Then observe the result, and think again. This pattern is often called ReAct, short for reason and act.",
+          "cap": "OBSERVE the result, think again. Called ReAct: reason + act."
+        },
+        {
+          "who": "B",
+          "vo": "Does it ever stop?",
+          "cap": "Does it ever STOP?"
+        },
+        {
+          "who": "A",
+          "vo": "When the goal is reached. Good agents also have a step limit, so they can't loop forever.",
+          "cap": "When the goal is done. Good agents also have a STEP LIMIT."
+        }
+      ]
+    },
+    {
+      "type": "flow",
+      "label": "5 · PLANNING",
+      "nodes": [
+        {
+          "t": "Big goal",
+          "s": "\"Plan my Dubai weekend\"",
+          "at": 0
+        },
+        {
+          "t": "Find flights",
+          "at": 1
+        },
+        {
+          "t": "Find a hotel near the event",
+          "at": 1
+        },
+        {
+          "t": "Fit it to your calendar",
+          "at": 1
+        },
+        {
+          "t": "Book + send a summary",
+          "at": 2
+        }
+      ],
+      "lines": [
+        {
+          "who": "B",
+          "vo": "What if the task is big and messy?",
+          "cap": "What if the task is BIG and messy?"
+        },
+        {
+          "who": "A",
+          "vo": "Then the agent plans first. It splits the big goal into small steps, and works through them one by one.",
+          "cap": "It PLANS: big goal into small STEPS."
+        },
+        {
+          "who": "A",
+          "vo": "If a step fails, it can change the plan. That flexibility is what makes it feel smart.",
+          "cap": "If a step fails, it CHANGES THE PLAN."
+        }
+      ]
+    },
+    {
+      "type": "compare",
+      "label": "6 · MEMORY",
+      "left": "Short-term",
+      "right": "Long-term",
+      "rows": [
+        [
+          "The current chat",
+          "Saved notes and files",
+          1
+        ],
+        [
+          "In the context window",
+          "In a database",
+          1
+        ],
+        [
+          "Forgotten when done",
+          "Kept across sessions",
+          2
+        ],
+        [
+          "Fast, but limited",
+          "Searched when needed",
+          2
+        ]
+      ],
+      "lines": [
+        {
+          "who": "B",
+          "vo": "You said memory. Does it remember me?",
+          "cap": "Does it REMEMBER me?"
+        },
+        {
+          "who": "A",
+          "vo": "There are two kinds. Short-term memory is the current conversation, which fits inside the model's context window.",
+          "cap": "SHORT-TERM: the current chat, inside the context window."
+        },
+        {
+          "who": "A",
+          "vo": "Long-term memory is saved outside the model, like notes in a database. The agent searches it when it needs something.",
+          "cap": "LONG-TERM: saved outside, searched when needed."
+        }
+      ]
+    },
+    {
+      "type": "hub",
+      "label": "7 · TEAMS OF AGENTS",
+      "center": "Manager",
+      "nodes": [
+        {
+          "t": "Researcher"
+        },
+        {
+          "t": "Writer"
+        },
+        {
+          "t": "Coder"
+        },
+        {
+          "t": "Reviewer"
+        }
+      ],
+      "lines": [
+        {
+          "who": "B",
+          "vo": "Can agents work together?",
+          "cap": "Can agents WORK TOGETHER?"
+        },
+        {
+          "who": "A",
+          "vo": "Yes. In a multi-agent setup, a manager agent hands out jobs to specialists. One researches, one writes, one reviews.",
+          "cap": "A MANAGER hands jobs to SPECIALISTS."
+        },
+        {
+          "who": "A",
+          "vo": "Each one stays focused, and the reviewer catches mistakes before you ever see them.",
+          "cap": "The REVIEWER catches mistakes first."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "label": "8 · WHERE AGENTS FAIL",
+      "items": [
+        {
+          "t": "Wrong tool inputs",
+          "s": "a typo in a date books the wrong day",
+          "at": 1
+        },
+        {
+          "t": "Endless loops",
+          "s": "retrying the same failing step",
+          "at": 1
+        },
+        {
+          "t": "Prompt injection",
+          "s": "a web page hides fake instructions",
+          "at": 2
+        },
+        {
+          "t": "The fix: guardrails",
+          "s": "approvals, permissions, step limits",
+          "at": 3
+        }
+      ],
+      "lines": [
+        {
+          "who": "B",
+          "vo": "This sounds powerful. What can go wrong?",
+          "cap": "Powerful. But what can GO WRONG?"
+        },
+        {
+          "who": "A",
+          "vo": "Quite a lot. It can pass the wrong input to a tool, or get stuck retrying the same failing step.",
+          "cap": "WRONG INPUTS, or stuck in a LOOP."
+        },
+        {
+          "who": "A",
+          "vo": "Worse, a web page can hide instructions that trick the agent. That's called prompt injection.",
+          "cap": "Hidden instructions can trick it: PROMPT INJECTION."
+        },
+        {
+          "who": "A",
+          "vo": "That's why serious agents ask a human before risky actions, like paying or deleting, and only get the permissions they need.",
+          "cap": "So: ASK A HUMAN before risky actions, and limit PERMISSIONS."
+        }
+      ]
+    },
+    {
+      "type": "flow",
+      "label": "9 · FULL EXAMPLE",
+      "nodes": [
+        {
+          "t": "Goal: Dubai, next weekend",
+          "at": 0
+        },
+        {
+          "t": "Think: need flights first",
+          "s": "plan",
+          "at": 1
+        },
+        {
+          "t": "Act: search_flights",
+          "s": "tool call",
+          "at": 1
+        },
+        {
+          "t": "Observe: 3 options",
+          "s": "result",
+          "at": 2
+        },
+        {
+          "t": "Ask you: book the 9 AM?",
+          "s": "human approval",
+          "at": 3
+        }
+      ],
+      "lines": [
+        {
+          "who": "B",
+          "vo": "Walk me through one real run.",
+          "cap": "Walk me through ONE REAL RUN."
+        },
+        {
+          "who": "A",
+          "vo": "You say, plan my Dubai trip next weekend. It thinks: flights first. It calls the flight search tool.",
+          "cap": "THINK: flights first. ACT: call the flight tool."
+        },
+        {
+          "who": "A",
+          "vo": "It observes three options, checks your calendar, and picks the best one.",
+          "cap": "OBSERVE: 3 options. Check the calendar. Pick the best."
+        },
+        {
+          "who": "A",
+          "vo": "Then, before paying, it asks you. Book the nine A.M. flight? You tap yes, and it's done.",
+          "cap": "Before paying, it ASKS YOU. Tap yes, done."
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "recap": [
+        "Brain + Tools + Memory + Goal",
+        "Tool calls: the model asks, the app acts",
+        "Think, Act, Observe, until done",
+        "Guardrails keep you in control"
+      ],
+      "lines": [
+        {
+          "who": "B",
+          "vo": "So an agent is a model that can ask for tools, remember, plan, and loop until the job is done. With me in control.",
+          "cap": "Model + TOOLS + MEMORY + PLAN, looping, with ME in control."
+        },
+        {
+          "who": "A",
+          "vo": "Perfectly put. Next, how agents learn brand new skills. Follow A.I. with Sufi.",
+          "cap": "Next: AGENT SKILLS. Follow @aiwithsufi!"
+        }
+      ]
+    }
+  ],
+  "speed": 1.05
+}

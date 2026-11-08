@@ -15,6 +15,7 @@ Script format:
     {"type": "list",    "label": "...", "items": [{"t": "...", "s": "...", "at": 1}], "lines": [...]},
     {"type": "compare", "label": "...", "left": "Chatbot", "right": "Agent", "rows": [["answers", "acts"], ...], "lines": [...]},
     {"type": "bars",    "label": "...", "title": "...", "bars": [{"t": "Paris", "v": 82, "unit": "%"}], "lines": [...]},
+    {"type": "code",    "label": "...", "title": "...", "code": "line1\nline2", "at": 1, "note": "...", "lines": [...]},  (typewriter)
     {"type": "outro",   "recap": ["Goal", "Tools", "Memory", "Loop"], "lines": [...]}
   ]
 }
@@ -41,6 +42,8 @@ DL = {
     os.path.join(CACHE, "kokoro-v1.0.onnx"): "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx",
     os.path.join(CACHE, "voices-v1.0.bin"): "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin",
 }
+MONO = os.path.join(HERE, "PlexMono.ttf")
+DL[MONO] = "https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexmono/IBMPlexMono-Medium.ttf"
 VOICE, SPEED = "am_fenrir", 1.0
 
 def fetch(path):
@@ -324,7 +327,34 @@ def s_outro(c, t, sc, ctx):
         c.rrect(W / 2 - w, 1260, W / 2 + w, 1350, 45, fill=fade(GOLD, qa))
         c.text(W / 2, 1305, "FOLLOW @aiwithsufi", 42 * max(q, 0.2) * pulse, fade(BG, qa) if qa > 0.05 else BG)
 
-FN = {"hook": s_hook, "flow": s_flow, "cycle": s_cycle, "hub": s_hub, "list": s_list, "compare": s_compare, "bars": s_bars, "outro": s_outro}
+_mono = {}
+def mono(size):
+    if size not in _mono: _mono[size] = ImageFont.truetype(fetch(MONO), int(size * SS))
+    return _mono[size]
+
+def s_code(c, t, sc, ctx):
+    """Typewriter code block. sc: {"title": "...", "code": "multi-line text", "at": line index to start typing, "note": "optional caption under"}"""
+    L = sc["lines"]; a = ease(t / 0.5)
+    if sc.get("title"): c.text(W / 2, 340, sc["title"], c.fit(sc["title"], 44, 940), fade(TEXT, a))
+    code = sc["code"].split("\n"); st = L[min(int(sc.get("at", 0)), len(L) - 1)]["start"] + 0.2
+    span = max(1.5, (L[-1]["end"] - st) * 0.6); total = sum(len(l) for l in code)
+    shown = int(total * clamp((t - st) / span)); fs = 34 if max(len(l) for l in code) <= 38 else 28
+    lh = fs * 1.55; h = len(code) * lh + 90; y0 = 420
+    c.rrect(80, y0, W - 80, y0 + h, 24, fill=fade(CARD, a), outline=fade(LINE, a), width=2)
+    for k, col in enumerate((GOLD, MUTED, LINE)): c.circle(120 + k * 30, y0 + 32, 8, fill=fade(col, a))
+    y = y0 + 80; n = 0
+    for ln in code:
+        vis = ln[:max(0, min(len(ln), shown - n))]; n += len(ln)
+        if vis:
+            col = GOLD if vis.strip().startswith(('"tool"', '"name"', "tool", "#")) else TEXT
+            c.d.text((c.s(120), c.s(y)), vis, font=mono(fs), fill=fade(col, a), anchor="lm")
+        if 0 <= shown - (n - len(ln)) <= len(ln) and int(t * 2) % 2 == 0 and shown < total:
+            cx = 120 + c.d.textlength(vis, font=mono(fs)) / SS + 4
+            c.rrect(cx, y - fs * 0.6, cx + fs * 0.55, y + fs * 0.6, 2, fill=GOLD)
+        y += lh
+    if sc.get("note"): c.text(W / 2, y0 + h + 70, sc["note"], c.fit(sc["note"], 34, 920, "SemiBold"), fade(MUTED, ease((t - st - span) / 0.6)), "SemiBold")
+
+FN = {"code": s_code, "hook": s_hook, "flow": s_flow, "cycle": s_cycle, "hub": s_hub, "list": s_list, "compare": s_compare, "bars": s_bars, "outro": s_outro}
 
 # ---------- voice ----------
 def voiceover(spec, work):
@@ -337,7 +367,7 @@ def voiceover(spec, work):
         seg = [np.zeros(int(LEAD * SR), np.float32)]; t = LEAD
         for i, ln in enumerate(sc["lines"]):
             who = ln.get("who", "A"); ln["who"] = who
-            s, sr = k.create(ln["vo"], voice=spk.get(who, spk["A"])["voice"], speed=SPEED, lang="en-us")
+            s, sr = k.create(ln["vo"], voice=spk.get(who, spk["A"])["voice"], speed=spec.get("speed", SPEED), lang="en-us")
             idx = np.where(np.abs(s) > 0.01)[0]; s = s[max(0, idx[0] - 600): idx[-1] + 1200].astype(np.float32)
             d = len(s) / SR; ln["start"], ln["end"] = t, t + d; seg.append(s); t += d
             g = GAP if i < len(sc["lines"]) - 1 else TAIL; seg.append(np.zeros(int(g * SR), np.float32)); t += g
