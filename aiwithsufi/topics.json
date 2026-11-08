@@ -1,10 +1,10 @@
 {
-  "note": "Explainer queue for @aiwithsufi. Format alternates daily: Reel on days where (date - 2026-11-09) is an even number of days, carousel post on odd days (Mon 9 Nov Reel, Tue 10 Nov post, ...). The evening planning task proposes the next day's topic (from this queue or a new trending concept), gets the plan approved, builds it, gets the result approved, then posts at 5:00 PM Riyadh. status: todo -> planned -> ready -> approved -> posted.",
+  "note": "Explainer queue for @aiwithsufi. Format alternates daily: Reel on days where (date - 2026-11-09) is an even number of days, carousel post on odd days (Mon 9 Nov Reel, Tue 10 Nov post, ...). The evening planning task proposes the next day's topic (from this queue or a new trending concept), gets the plan approved, builds it, gets the result approved, then posts at 5:00 PM Riyadh. status: todo -> planned -> ready -> approved -> posted. Entries with a 'date' are the default proposal for that day; the evening task may propose a trending alternative, which Sufi must approve.",
   "topics": [
     {
       "slug": "ai-agents",
       "title": "AI Agents",
-      "status": "ready",
+      "status": "approved",
       "script": "aiwithsufi/scripts/2026-11-09-ai-agents.json",
       "video": "aiwithsufi/reels/2026-11-09-ai-agents/reel.mp4",
       "format": "reel",
@@ -14,37 +14,49 @@
       "slug": "mcp",
       "title": "MCP: the USB-C port for AI",
       "status": "todo",
-      "angle": "N apps x M tools problem -> one standard plug; host, client, server; tools, resources, prompts; example: an assistant reading your files and calendar"
+      "angle": "N apps x M tools problem -> one standard plug; host, client, server; tools, resources, prompts; example: an assistant reading your files and calendar",
+      "date": "2026-11-10",
+      "format": "post"
     },
     {
       "slug": "rag",
       "title": "RAG: how AI reads your documents",
       "status": "todo",
-      "angle": "why LLMs don't know your data; chunk, embed, store; retrieve top chunks; grounded answer with sources"
+      "angle": "why LLMs don't know your data; chunk, embed, store; retrieve top chunks; grounded answer with sources",
+      "date": "2026-11-11",
+      "format": "reel"
     },
     {
       "slug": "vector-databases",
       "title": "Vector databases",
       "status": "todo",
-      "angle": "keyword vs meaning search; words as points; nearest neighbours; indexing at scale; uses"
-    },
-    {
-      "slug": "prompt-engineering",
-      "title": "Prompt engineering",
-      "status": "todo",
-      "angle": "role, context, task, format, examples; before/after prompt"
+      "angle": "keyword vs meaning search; words as points; nearest neighbours; indexing at scale; uses",
+      "date": "2026-11-12",
+      "format": "post"
     },
     {
       "slug": "context-window",
       "title": "Context window",
       "status": "todo",
-      "angle": "what fits in the model's working memory; tokens; what happens when it's full"
+      "angle": "what fits in the model's working memory; tokens; what happens when it's full",
+      "date": "2026-11-13",
+      "format": "reel"
+    },
+    {
+      "slug": "prompt-engineering",
+      "title": "Prompt engineering",
+      "status": "todo",
+      "angle": "role, context, task, format, examples; before/after prompt",
+      "date": "2026-11-14",
+      "format": "post"
     },
     {
       "slug": "hallucinations",
       "title": "Why AI hallucinates",
       "status": "todo",
-      "angle": "next-token prediction guesses; missing knowledge; how RAG, citations and checks reduce it"
+      "angle": "next-token prediction guesses; missing knowledge; how RAG, citations and checks reduce it",
+      "date": "2026-11-15",
+      "format": "reel"
     },
     {
       "slug": "fine-tuning-vs-rag",
