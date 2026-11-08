@@ -34,16 +34,13 @@ from PIL import Image, ImageDraw, ImageFont
 W, H, FPS, SS = 1080, 1920, 30, 2
 BG = (20, 20, 22); CARD = (32, 32, 35); CARD2 = (38, 38, 42); LINE = (70, 70, 74)
 TEXT = (240, 236, 226); MUTED = (150, 146, 138); GOLD = (196, 164, 104)
-# Palettes. GOLD = the accent colour, TEXT = main text, CARD/CARD2 = panels. Pick with "theme" in the script.
-THEMES = {
-    "charcoal_gold":  dict(BG=(20, 20, 22), CARD=(32, 32, 35), CARD2=(38, 38, 42), LINE=(70, 70, 74), TEXT=(240, 236, 226), MUTED=(150, 146, 138), GOLD=(196, 164, 104)),
-    "ivory_maroon":   dict(BG=(246, 242, 233), CARD=(236, 230, 218), CARD2=(251, 249, 244), LINE=(208, 200, 186), TEXT=(30, 28, 28), MUTED=(110, 102, 94), GOLD=(128, 32, 40)),
-    "forest_cream":   dict(BG=(20, 42, 34), CARD=(28, 54, 45), CARD2=(34, 62, 52), LINE=(64, 94, 82), TEXT=(244, 238, 222), MUTED=(176, 186, 170), GOLD=(226, 186, 112)),
-    "plum_blush":     dict(BG=(40, 22, 44), CARD=(54, 32, 58), CARD2=(62, 38, 66), LINE=(96, 70, 100), TEXT=(248, 238, 242), MUTED=(196, 176, 192), GOLD=(240, 160, 182)),
-    "graphite_tangerine": dict(BG=(36, 36, 38), CARD=(48, 48, 50), CARD2=(56, 56, 58), LINE=(88, 88, 90), TEXT=(246, 244, 240), MUTED=(170, 166, 160), GOLD=(244, 128, 52)),
-    "paper_red":      dict(BG=(250, 250, 248), CARD=(240, 240, 237), CARD2=(255, 255, 255), LINE=(212, 212, 208), TEXT=(20, 20, 20), MUTED=(96, 96, 96), GOLD=(200, 32, 32)),
-}
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from palettes import PALETTES, WEEKDAY, for_date, date_from_path
+THEMES = {k: dict(BG=v["BG"], CARD=v["CARD"], CARD2=v["CARD2"], LINE=v["LINE"], TEXT=v["TEXT"], MUTED=v["MUTED"], GOLD=v["ACCENT"]) for k, v in PALETTES.items()}
+THEMES["charcoal_gold"] = dict(BG=(20, 20, 22), CARD=(32, 32, 35), CARD2=(38, 38, 42), LINE=(70, 70, 74), TEXT=(240, 236, 226), MUTED=(150, 146, 138), GOLD=(196, 164, 104))
+THEME_NAME = ["sand_espresso"]
 def set_theme(name):
+    THEME_NAME[0] = name
     globals().update(THEMES[name])
     CHAR["A"]["shirt"] = THEMES[name]["GOLD"]; CHAR["B"]["shirt"] = THEMES[name]["MUTED"]
     _av.clear()
@@ -490,7 +487,8 @@ def render_scene(spec, idx, path, TOTAL):
 def main():
     src, out = sys.argv[1], sys.argv[2]; preview = "--preview" in sys.argv
     spec = json.load(open(src)); work = tempfile.mkdtemp(prefix="reel_")
-    set_theme(spec.get("theme", "charcoal_gold"))
+    day = spec.get("date") or date_from_path(src)
+    set_theme(spec.get("theme") or (for_date(day) if day else "sand_espresso")); print("theme", THEME_NAME[0])
     audio = voiceover(spec, work); TOTAL = sum(s["dur"] for s in spec["scenes"])
     json.dump(spec, open(os.path.join(work, "timeline.json"), "w"), indent=1)
     print(f"voiceover {TOTAL:.1f}s, work dir {work}")

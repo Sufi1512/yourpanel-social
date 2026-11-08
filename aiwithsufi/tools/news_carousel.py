@@ -10,19 +10,9 @@ import json, os, sys, datetime, urllib.request
 from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1080, 1350
-# Palettes: TEXT = main text, MUTED = body text, GOLD = the single accent colour.
-THEMES = {
-    "charcoal_gold":  dict(BG=(20, 20, 22), CARD=(32, 32, 35), LINE=(70, 70, 74), IVORY=(240, 236, 226), MUTED=(160, 156, 148), GOLD=(196, 164, 104)),
-    "ivory_maroon":   dict(BG=(246, 242, 233), CARD=(236, 230, 218), LINE=(205, 198, 184), IVORY=(28, 28, 30), MUTED=(96, 90, 82), GOLD=(128, 32, 40)),
-    "newsroom_red":   dict(BG=(250, 250, 248), CARD=(238, 238, 236), LINE=(210, 210, 206), IVORY=(17, 17, 17), MUTED=(85, 85, 85), GOLD=(200, 30, 30)),
-    "forest_cream":   dict(BG=(22, 44, 36), CARD=(31, 58, 48), LINE=(60, 90, 78), IVORY=(244, 238, 222), MUTED=(190, 196, 180), GOLD=(222, 184, 110)),
-    "plum_blush":     dict(BG=(44, 24, 46), CARD=(60, 36, 62), LINE=(92, 64, 94), IVORY=(248, 238, 242), MUTED=(206, 188, 202), GOLD=(240, 164, 184)),
-    "terracotta_sand":dict(BG=(176, 88, 58), CARD=(156, 74, 48), LINE=(206, 128, 98), IVORY=(255, 244, 228), MUTED=(250, 222, 200), GOLD=(255, 214, 160)),
-    "graphite_tangerine": dict(BG=(40, 40, 40), CARD=(54, 54, 54), LINE=(84, 84, 84), IVORY=(246, 244, 240), MUTED=(176, 172, 166), GOLD=(244, 128, 52)),
-    "blush_burgundy": dict(BG=(246, 228, 226), CARD=(238, 214, 212), LINE=(222, 192, 190), IVORY=(34, 20, 24), MUTED=(104, 80, 84), GOLD=(136, 28, 58)),
-}
-# One palette per weekday (Mon..Sun); NEWS_THEME overrides.
-WEEKDAY_THEMES = ["charcoal_gold", "ivory_maroon", "newsroom_red", "forest_cream", "plum_blush", "terracotta_sand", "graphite_tangerine"]
+from palettes import PALETTES, WEEKDAY
+THEMES = {k: dict(BG=v["BG"], CARD=v["CARD"], LINE=v["LINE"], IVORY=v["TEXT"], MUTED=v["MUTED"], GOLD=v["ACCENT"]) for k, v in PALETTES.items()}
+WEEKDAY_THEMES = WEEKDAY
 THEME = os.environ.get("NEWS_THEME", "")
 
 def set_theme(name):

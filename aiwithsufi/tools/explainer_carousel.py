@@ -144,8 +144,17 @@ def s_cta(s, page, total, title):
     d.text((W / 2, 1000), "FOLLOW @aiwithsufi", font=font(44, "ExtraBold"), fill=BG, anchor="mm")
     return im
 
+def apply_palette(name):
+    from palettes import PALETTES
+    v = PALETTES[name]; g = globals()
+    g.update(BG=v["BG"], CARD=v["CARD"], CARD2=v["CARD2"], LINE=v["LINE"], TEXT=v["TEXT"], MUTED=v["MUTED"], GOLD=v["ACCENT"])
+
 def main(src, out):
     post = json.load(open(src)); os.makedirs(out, exist_ok=True)
+    sys.path.insert(0, HERE)
+    from palettes import for_date, date_from_path
+    day = post.get("date") or date_from_path(src)
+    apply_palette(post.get("theme") or (for_date(day) if day else "sand_espresso"))
     slides = post["slides"][:10]; total = len(slides); title = post.get("title", ""); n = 0
     for i, s in enumerate(slides):
         t = s["type"]
