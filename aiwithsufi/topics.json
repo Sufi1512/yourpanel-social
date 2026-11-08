@@ -11,52 +11,129 @@
       "date": "2026-11-09"
     },
     {
+      "slug": "agent-skills",
+      "title": "Agent Skills: how AI learns a new job from a folder",
+      "date": "2026-11-10",
+      "format": "post",
+      "status": "todo",
+      "angle": "What a skill is (a folder with instructions + scripts the agent loads when needed); why it beats one giant prompt; example skill; Anthropic donated the Agent Skills standard to the Agentic AI Foundation (AAIF), so it is becoming an open standard.",
+      "sources": [
+        "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+        "https://agentskills.io/home",
+        "https://www.oreilly.com/radar/radar-trends-to-watch-november-2026/"
+      ]
+    },
+    {
+      "slug": "brain-scan-ai",
+      "title": "Can AI read your mind? Rebuilding what you see from brain scans",
+      "date": "2026-11-11",
+      "format": "reel",
+      "status": "todo",
+      "angle": "Brain scan while a person looks at images -> model learns the mapping -> reconstructs a new image; what it can and cannot do; privacy concerns. Verify every claim on the MIT Technology Review article / the paper.",
+      "sources": [
+        "https://www.technologyreview.com/2026/10/01/1145588/ai-mind-reading-reconstructs-what-youre-looking-at/"
+      ]
+    },
+    {
+      "slug": "agent-prompt-injection",
+      "title": "How AI agents get hacked (prompt injection)",
+      "date": "2026-11-12",
+      "format": "post",
+      "status": "todo",
+      "angle": "Agents read files and web pages and can't always tell data from instructions; real example: malicious AGENTS.md files in Downloads folders made agents install a malicious NPM package; 5 safety habits (separate working folders, approve installs, least-privilege tools, review actions, trusted sources).",
+      "sources": [
+        "https://www.oreilly.com/radar/radar-trends-to-watch-november-2026/"
+      ]
+    },
+    {
+      "slug": "always-on-agents",
+      "title": "Always-on AI: agents that work without being asked",
+      "date": "2026-11-13",
+      "format": "reel",
+      "status": "todo",
+      "angle": "Reactive chat vs proactive agents that run in the cloud, watch for triggers and act; OpenAI dots (always on, own browser and tools); what this means and the approval/safety trade-offs. Verify launches on primary sources before using them.",
+      "sources": [
+        "https://openai.com/index/introducing-dots/",
+        "https://www.oreilly.com/radar/radar-trends-to-watch-november-2026/"
+      ]
+    },
+    {
+      "slug": "geo-ai-search",
+      "title": "GEO: how to get your business recommended by AI search",
+      "date": "2026-11-14",
+      "format": "post",
+      "status": "todo",
+      "angle": "Search is moving into AI answers; what generative engine optimization is; Google's 2026 guide calling AEO/GEO 'still SEO'; practical checklist (clear facts, structured pages, reviews, cited sources).",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Generative_engine_optimization",
+        "https://www.searchenginejournal.com/googles-new-ai-search-guide-calls-aeo-and-geo-still-seo/575026/"
+      ]
+    },
+    {
+      "slug": "ai-on-your-phone",
+      "title": "A 24-billion-parameter AI on your phone: how AI got small",
+      "date": "2026-11-15",
+      "format": "reel",
+      "status": "todo",
+      "angle": "Why big models used to need data centres; compression/quantization (Gemma 4 E4B shrunk to 5 GB); mixture-of-experts with few active parameters (Liquid LFM2.5-24B-A2B: 24B total, 2B active); benefits: privacy, offline, speed.",
+      "sources": [
+        "https://alphasignal.ai/news/google-deepmind-shrinks-gemma-4-e4b-to-5gb-without-losing-reasoning-power",
+        "https://www.liquid.ai/blog/lfm2-5-24b-a2b"
+      ]
+    },
+    {
+      "slug": "reasoning-effort",
+      "title": "The 'think harder' dial: reasoning effort settings",
+      "status": "todo",
+      "angle": "why models now let you choose how long they reason; cost/latency trade-off"
+    },
+    {
+      "slug": "world-models",
+      "title": "World models: AI that simulates whole worlds",
+      "status": "todo",
+      "angle": "models that generate interactive worlds that remember what happened; uses in games and robotics"
+    },
+    {
+      "slug": "ai-shopping-agents",
+      "title": "AI shopping agents",
+      "status": "todo",
+      "angle": "agents that compare and buy for you; how stores are opening up to agents"
+    },
+    {
       "slug": "mcp",
       "title": "MCP: the USB-C port for AI",
       "status": "todo",
-      "angle": "N apps x M tools problem -> one standard plug; host, client, server; tools, resources, prompts; example: an assistant reading your files and calendar",
-      "date": "2026-11-10",
-      "format": "post"
+      "angle": "N apps x M tools problem -> one standard plug; host, client, server; tools, resources, prompts; example: an assistant reading your files and calendar"
     },
     {
       "slug": "rag",
       "title": "RAG: how AI reads your documents",
       "status": "todo",
-      "angle": "why LLMs don't know your data; chunk, embed, store; retrieve top chunks; grounded answer with sources",
-      "date": "2026-11-11",
-      "format": "reel"
+      "angle": "why LLMs don't know your data; chunk, embed, store; retrieve top chunks; grounded answer with sources"
     },
     {
       "slug": "vector-databases",
       "title": "Vector databases",
       "status": "todo",
-      "angle": "keyword vs meaning search; words as points; nearest neighbours; indexing at scale; uses",
-      "date": "2026-11-12",
-      "format": "post"
+      "angle": "keyword vs meaning search; words as points; nearest neighbours; indexing at scale; uses"
     },
     {
       "slug": "context-window",
       "title": "Context window",
       "status": "todo",
-      "angle": "what fits in the model's working memory; tokens; what happens when it's full",
-      "date": "2026-11-13",
-      "format": "reel"
+      "angle": "what fits in the model's working memory; tokens; what happens when it's full"
     },
     {
       "slug": "prompt-engineering",
       "title": "Prompt engineering",
       "status": "todo",
-      "angle": "role, context, task, format, examples; before/after prompt",
-      "date": "2026-11-14",
-      "format": "post"
+      "angle": "role, context, task, format, examples; before/after prompt"
     },
     {
       "slug": "hallucinations",
       "title": "Why AI hallucinates",
       "status": "todo",
-      "angle": "next-token prediction guesses; missing knowledge; how RAG, citations and checks reduce it",
-      "date": "2026-11-15",
-      "format": "reel"
+      "angle": "next-token prediction guesses; missing knowledge; how RAG, citations and checks reduce it"
     },
     {
       "slug": "fine-tuning-vs-rag",
