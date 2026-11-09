@@ -83,17 +83,18 @@ def story(s, idx, page, total, date_label):
     y = 470
     for l in ls: d.text((80, y), l, font=f, fill=IVORY, anchor="ls"); y += int(f.size * 1.18)
     y += 30
-    fb, lb = fit_block(d, s["body"], "Medium", W - 160, 6, 38, 30)
+    fb, lb = fit_block(d, s["body"], "Medium", W - 160, 5, 36, 28)
     for l in lb: d.text((80, y), l, font=fb, fill=MUTED, anchor="ls"); y += int(fb.size * 1.45)
     if s.get("why"):
         y += 30
         fw, lw = fit_block(d, s["why"], "SemiBold", W - 220, 3, 34, 28)
-        box_h = 70 + len(lw) * int(fw.size * 1.4)
+        box_h = 80 + len(lw) * int(fw.size * 1.45)
         d.rounded_rectangle([80, y, W - 80, y + box_h], radius=20, fill=CARD)
         d.text((110, y + 50), "WHY IT MATTERS", font=font(26, "Bold"), fill=GOLD, anchor="ls")
         yy = y + 50 + int(fw.size * 1.45)
         for l in lw: d.text((110, yy), l, font=fw, fill=IVORY, anchor="ls"); yy += int(fw.size * 1.4)
-    d.text((80, H - 150), f"Source: {s.get('source', '')}", font=font(26, "Medium"), fill=MUTED, anchor="ls")
+        y = y + box_h
+    d.text((80, min(H - 115, max(H - 150, y + 50))), f"Source: {s.get('source', '')}", font=font(26, "Medium"), fill=MUTED, anchor="ls")
     return im
 
 def closing(page, total, date_label):

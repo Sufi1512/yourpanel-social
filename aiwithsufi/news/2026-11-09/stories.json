@@ -1,0 +1,17 @@
+{"date": "2026-11-09", "stories": [
+ {"tag": "Power", "short": "Anthropic's $3.4B power deal", "headline": "Anthropic buys $3.4B of gas generators for its AI data centers",
+  "body": "Anthropic agreed to pay $3.4 billion for 1.7 gigawatts of gas-fired generators from OnePWR Solutions, the FT reported. It's the largest known single power-equipment purchase by an AI lab.",
+  "why": "Electricity, not just chips, is now the bottleneck for building AI.", "source": "Financial Times via Bloomberg"},
+ {"tag": "AI research", "short": "DeepMind agents vs old encryption", "headline": "DeepMind's AI agents found two weaknesses in old 1024-bit encryption",
+  "body": "Guided by human experts, Google DeepMind's AI agents found a cheaper way to forge signatures and to crack many legacy 1024-bit RSA keys. Modern 2048-bit keys are not affected.",
+  "why": "AI is now doing real cryptography research, compressing years of work into weeks.", "source": "Google DeepMind"},
+ {"tag": "Security", "short": "800+ AI hacking tools exposed", "headline": "800+ copies of an AI hacking tool were left open online",
+  "body": "Internet scanner Censys found more than 800 deployments of Artex, an AI-powered hacking tool, reachable from the web with no password at all.",
+  "why": "A misconfigured AI attack tool is a weapon anyone can pick up.", "source": "TechCrunch / Censys"},
+ {"tag": "Reality check", "short": "Uber: almost no agent bookings", "headline": "Almost no one books Uber through AI agents, Uber says",
+  "body": "Despite the buzz around AI agents doing tasks for us, Uber says very few rides are actually booked through them.",
+  "why": "The agent hype is still well ahead of what people actually use.", "source": "TechCrunch"},
+ {"tag": "Infrastructure", "short": "Google buys a data center project", "headline": "Google buys Crusoe's troubled Wyoming data center project",
+  "body": "AI cloud company Crusoe sold its struggling Wyoming data center project to Google.",
+  "why": "The race for AI computing capacity keeps pushing big tech to buy wherever it can.", "source": "TechCrunch"}
+]}
