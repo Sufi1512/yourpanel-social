@@ -28,7 +28,9 @@
       "video_alt": "https://sufi1512.github.io/yourpanel-social/posts/2026-11-09-git-push-deploy-reel/reel.mp4",
       "cover": "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-09-git-push-deploy-reel/cover.jpg",
       "caption": "Your deploy failed at 3am. Your users never noticed. 😴\n\nWith YourPanel, every release must pass a health check before it gets traffic. Fails? It never goes live: automatic rollback, the old version keeps serving, zero dropped requests.\n\ngit push → live. Safely. 🚀\n\nStart free, no card needed 👉 link in bio\n\n#devops #linux #selfhosted #sysadmin #webdev #deployment #cicd #github #developer #vps",
-      "status": "approved",
+      "status": "published",
+      "media_id": "18169237624468600",
+      "permalink": "https://www.instagram.com/reel/DfhmgOwj7U8/",
       "note": "Replaces the Nov 9 carousel (kept in posts/2026-11-09-git-push-deploy/). Approved by owner on 2026-11-07."
     },
     {
