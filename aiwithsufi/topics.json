@@ -4,12 +4,14 @@
     {
       "slug": "ai-agents",
       "title": "AI Agents",
-      "status": "approved",
+      "status": "posted",
       "script": "aiwithsufi/scripts/2026-11-09-ai-agents-deep.json",
       "video": "aiwithsufi/reels/2026-11-09-ai-agents/reel.mp4",
       "format": "reel",
       "date": "2026-11-09",
-      "note": "deep-dive discussion version approved by Sufi on 2026-11-08"
+      "note": "deep-dive discussion version approved by Sufi on 2026-11-08",
+      "media_id": "18085666286356820",
+      "posted_on": "2026-11-09"
     },
     {
       "slug": "agent-skills",
