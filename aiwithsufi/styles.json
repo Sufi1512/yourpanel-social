@@ -1,0 +1,17 @@
+{
+  "_note": "Visual styles Sufi saved on 2026-11-10 for @aiwithsufi explainer Reels and carousel posts. NOT for the daily AI News carousel (keep its current look). Propose one style in every explainer plan (rotate; don't repeat the previous explainer's style unless he asks) and build it after approval. Keep everything original: no real creators' branding, no LEGO logo or minifigures, no known characters.",
+  "styles": [
+    {"id": "pixel_art",     "name": "Pixel Art",        "kind": "2d", "look": "chunky pixels, limited retro palette, blocky pixel font, agent as an original pixel character"},
+    {"id": "chalkboard",    "name": "Chalkboard",       "kind": "2d", "look": "dark green board, chalk-textured strokes, diagrams that draw themselves, handwritten-style labels"},
+    {"id": "glow_sketch",   "name": "Glow Sketch",      "kind": "2d", "look": "dark background, neon line drawings that trace on, soft glow on strokes"},
+    {"id": "ps2_lowpoly",   "name": "PS2 Style",        "kind": "3d", "look": "low-poly 3D models, flat shading, low-res textures, early-2000s game feel"},
+    {"id": "comic",         "name": "Comic Art",        "kind": "2d", "look": "panels, thick ink outlines, halftone dots, speech bubbles for Riya/Arjun, bold onomatopoeia labels"},
+    {"id": "flat_vector",   "name": "Flat Vector",      "kind": "2d", "look": "bright flat shapes, more motion than the current engine look"},
+    {"id": "minimal_essay", "name": "Minimal Sketch Essay (Dan Koe-inspired)", "kind": "2d", "look": "original take: black/white, sparse hand-drawn sketches, big serif statements, calm pacing"},
+    {"id": "cgi_motion",    "name": "CGI Motion",       "kind": "3d", "look": "smooth 3D objects and camera moves, clean lighting"},
+    {"id": "toy_brick",     "name": "Toy-Brick (Lego-style)", "kind": "3d", "look": "generic plastic studded bricks building the diagram; no LEGO branding or minifigures"},
+    {"id": "cgi_explainer", "name": "3D Explainer Short (ZackD Films-inspired)", "kind": "3d", "look": "original take: realistic 3D close-ups showing how something works inside, dramatic narration"}
+  ],
+  "build_notes": "2d styles: add as a skin/theme in aiwithsufi/tools/reel_engine.py and explainer_carousel.py (Pillow). 3d styles: need a 3D renderer (e.g. three.js rendered frame-by-frame with the pre-installed Playwright Chromium, or Blender); tell Sufi in the plan that 3D takes longer. Carousels are still images: apply the style's look to static slides.",
+  "used": []
+}
