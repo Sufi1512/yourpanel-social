@@ -1,0 +1,345 @@
+{
+ "title": "Can AI Read Your Mind?",
+ "next": "How AI agents get hacked",
+ "speed": 1.05,
+ "speakers": {
+  "A": {
+   "name": "Arjun",
+   "voice": "am_fenrir"
+  },
+  "B": {
+   "name": "Riya",
+   "voice": "af_heart"
+  }
+ },
+ "caption": "Can AI read your mind? 🧠\n\nIn 2026, AI turned brain signals into sentences, with no surgery. Riya asks, Arjun explains:\n1. How a brain becomes data\n2. Mind captioning: describing what you see and remember\n3. Brain2Qwerty: decoding what you type\n4. What it still CAN'T do\n5. Why it matters, and mental privacy\n\nWatch till the quiz ⏸️ and drop your answer below 👇\n\nNext up: How AI agents get hacked 📌\n\n#ai #neuroscience #braincomputerinterface #bci #artificialintelligence #aiexplained #techeducation #aiwithsufi",
+ "scenes": [
+  {
+   "type": "hook",
+   "chips": [
+    "Brain scan",
+    "AI"
+   ],
+   "title": "CAN AI READ YOUR MIND?",
+   "subtitle": "What 2026 research really shows",
+   "lines": [
+    {
+     "who": "B",
+     "vo": "Arjun, I saw a headline saying AI can now read thoughts. Is that real?",
+     "cap": "Headlines say AI can READ THOUGHTS. Is that real?"
+    },
+    {
+     "who": "A",
+     "vo": "Kind of. AI can now turn brain signals into sentences. But not the way you think. Let me show you.",
+     "cap": "AI can turn BRAIN SIGNALS into SENTENCES. But not how you think."
+    }
+   ]
+  },
+  {
+   "type": "flow",
+   "label": "1 · HOW A BRAIN BECOMES DATA",
+   "nodes": [
+    {
+     "t": "Brain scanner",
+     "s": "fMRI or MEG records activity",
+     "at": 0
+    },
+    {
+     "t": "Decoder",
+     "s": "turns patterns into 'meaning' numbers",
+     "at": 1
+    },
+    {
+     "t": "Language model",
+     "s": "searches for matching words",
+     "at": 2
+    },
+    {
+     "t": "A sentence",
+     "s": "the AI's best guess",
+     "at": 3
+    }
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "Step one. A scanner records your brain activity while you see, remember, or type something.",
+     "cap": "A SCANNER records your brain while you see, remember, or type."
+    },
+    {
+     "who": "A",
+     "vo": "Step two. A decoder, trained on your own brain, turns those patterns into numbers that stand for meaning.",
+     "cap": "A DECODER turns patterns into numbers that mean something."
+    },
+    {
+     "who": "B",
+     "vo": "And then a language model turns the numbers into words?",
+     "cap": "Then a LANGUAGE MODEL turns numbers into words?"
+    },
+    {
+     "who": "A",
+     "vo": "Exactly. It keeps trying words until its sentence matches the meaning from your brain.",
+     "cap": "It keeps trying words until they MATCH your brain."
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "label": "2 · MIND CAPTIONING (NTT, JAPAN)",
+   "items": [
+    {
+     "t": "Watch a short video",
+     "s": "while lying in an fMRI scanner",
+     "at": 0
+    },
+    {
+     "t": "AI writes what you saw",
+     "s": "objects, actions, places",
+     "at": 1
+    },
+    {
+     "t": "Even from memory",
+     "s": "when you just recall the clip",
+     "at": 2
+    }
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "In Japan, researchers at NTT built something called mind captioning. People watched short silent videos inside an fMRI scanner.",
+     "cap": "NTT built MIND CAPTIONING. People watched silent videos in a scanner."
+    },
+    {
+     "who": "A",
+     "vo": "The AI then wrote a sentence describing the video. Who did what, and where. Straight from their brain activity.",
+     "cap": "The AI wrote WHO did WHAT, and WHERE. From brain activity."
+    },
+    {
+     "who": "B",
+     "vo": "Wait, and it even worked when they only remembered the video?",
+     "cap": "It worked when they only REMEMBERED the video?"
+    },
+    {
+     "who": "A",
+     "vo": "Yes. Recalling a clip lit up a similar pattern, so the AI could still describe it.",
+     "cap": "Yes. RECALLING a clip gave a similar pattern."
+    }
+   ]
+  },
+  {
+   "type": "quiz",
+   "label": "QUIZ 1",
+   "question": "Meta's Brain2Qwerty decodes what you TYPE. Which brain signal does it read?",
+   "options": [
+    "Your eye movements",
+    "Your finger-movement plans",
+    "Your inner voice"
+   ],
+   "answer": 1,
+   "reveal": 2,
+   "lines": [
+    {
+     "who": "B",
+     "vo": "Okay, quiz time. Meta's Brain2Qwerty decodes what you type. Which signal is it reading?",
+     "cap": "QUIZ: Brain2Qwerty decodes what you type. Which signal?"
+    },
+    {
+     "who": "A",
+     "vo": "Pause the video and guess. A, B, or C.",
+     "cap": "PAUSE and guess. A, B or C?"
+    },
+    {
+     "who": "A",
+     "vo": "It's B. It reads the signals your brain sends to plan each finger movement on the keyboard.",
+     "cap": "B! It reads your FINGER-MOVEMENT plans."
+    }
+   ]
+  },
+  {
+   "type": "bars",
+   "label": "3 · BRAIN2QWERTY V2 (META, 2026)",
+   "title": "Word accuracy, no surgery",
+   "bars": [
+    {
+     "t": "Older methods",
+     "v": 8,
+     "unit": "%",
+     "at": 0
+    },
+    {
+     "t": "Brain2Qwerty v2",
+     "v": 61,
+     "unit": "%",
+     "at": 1
+    },
+    {
+     "t": "Best volunteer",
+     "v": 78,
+     "unit": "%",
+     "at": 2
+    }
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "Older methods without surgery got about eight percent of words right.",
+     "cap": "Older no-surgery methods: about 8% of words right."
+    },
+    {
+     "who": "A",
+     "vo": "Meta's new version, from June twenty twenty six, gets sixty one percent, using a scanner called MEG.",
+     "cap": "Brain2Qwerty v2: 61% with an MEG scanner."
+    },
+    {
+     "who": "B",
+     "vo": "And the best volunteer?",
+     "cap": "And the BEST volunteer?"
+    },
+    {
+     "who": "A",
+     "vo": "Seventy eight percent. More than half of their sentences came out with one wrong word or less.",
+     "cap": "78%. Half their sentences had ONE mistake or less."
+    }
+   ]
+  },
+  {
+   "type": "compare",
+   "label": "4 · HYPE VS REALITY",
+   "left": "The hype",
+   "right": "The reality",
+   "rows": [
+    [
+     "Reads anyone's mind",
+     "Trained on ONE person",
+     0
+    ],
+    [
+     "Works anywhere",
+     "Needs a huge scanner",
+     1
+    ],
+    [
+     "Reads secret thoughts",
+     "Needs you to cooperate",
+     2
+    ],
+    [
+     "Perfect transcript",
+     "A best guess",
+     3
+    ]
+   ],
+   "lines": [
+    {
+     "who": "B",
+     "vo": "So should I be scared? Can someone read my thoughts on the street?",
+     "cap": "Should I be SCARED? Can someone read me on the street?"
+    },
+    {
+     "who": "A",
+     "vo": "No. Each decoder is trained on one person, for hours. Try it on someone else and it barely beats a random guess.",
+     "cap": "Each decoder is trained on ONE person. On others it barely works."
+    },
+    {
+     "who": "A",
+     "vo": "It also needs a giant scanner, and you have to sit still and cooperate.",
+     "cap": "It needs a GIANT SCANNER and your COOPERATION."
+    },
+    {
+     "who": "A",
+     "vo": "And the output is a best guess of the meaning, not a word for word transcript of your thoughts.",
+     "cap": "The output is a BEST GUESS, not a transcript."
+    }
+   ]
+  },
+  {
+   "type": "quiz",
+   "label": "QUIZ 2",
+   "question": "Can today's AI read your mind WITHOUT your cooperation?",
+   "options": [
+    "Yes, with any headset",
+    "No, not today",
+    "Only on phones"
+   ],
+   "answer": 1,
+   "reveal": 1,
+   "lines": [
+    {
+     "who": "B",
+     "vo": "Second quiz. Can today's AI read your mind without your cooperation?",
+     "cap": "QUIZ 2: Can AI read you WITHOUT cooperation?"
+    },
+    {
+     "who": "A",
+     "vo": "The answer is no. Not today. It needs training on you, a scanner, and you willingly taking part.",
+     "cap": "NO. It needs training, a scanner, and YOU taking part."
+    }
+   ]
+  },
+  {
+   "type": "hub",
+   "label": "5 · WHY IT MATTERS",
+   "center": "Brain to text",
+   "nodes": [
+    {
+     "t": "A voice",
+     "s": "for people who can't speak",
+     "at": 0
+    },
+    {
+     "t": "No surgery",
+     "s": "safer than implants",
+     "at": 0
+    },
+    {
+     "t": "Mental privacy",
+     "s": "who owns brain data?",
+     "at": 1
+    },
+    {
+     "t": "New laws",
+     "s": "rules are being written",
+     "at": 1
+    }
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "The big win is for people who lost the ability to speak. They could communicate again, without brain surgery.",
+     "cap": "Big win: a VOICE for people who can't speak. No surgery."
+    },
+    {
+     "who": "B",
+     "vo": "But it also means brain data becomes something companies could collect.",
+     "cap": "But BRAIN DATA could be collected by companies."
+    },
+    {
+     "who": "A",
+     "vo": "Right. That's why mental privacy is becoming a real debate. Your thoughts might need protection, like your passwords.",
+     "cap": "That's why MENTAL PRIVACY is now a real debate."
+    }
+   ]
+  },
+  {
+   "type": "outro",
+   "recap": [
+    "Scanner, decoder, language model",
+    "Mind captioning: what you see and recall",
+    "Brain2Qwerty: 61% words, no surgery",
+    "Needs YOU: trained per person, big scanner"
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "So, can AI read your mind? It can read some meaning, from a willing person, in a lab. Not your secrets.",
+     "cap": "Some MEANING, from a WILLING person, in a LAB. Not your secrets."
+    },
+    {
+     "who": "B",
+     "vo": "Follow AI with Sufi. Next, we show how AI agents get hacked.",
+     "cap": "Follow @aiwithsufi. Next: how AI AGENTS get HACKED."
+    }
+   ]
+  }
+ ]
+}
