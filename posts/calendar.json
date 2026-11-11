@@ -57,8 +57,10 @@
         "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-11-no-inbound-ports/slide4.jpg"
       ],
       "caption": "Why does our agent open no ports on your server? 🔒\n\nMost tools need a way in: a web port for the panel, or SSH keys stored on someone else's platform.\n\nYourPanel flips it: a small Go agent on your server connects OUT to the panel over a secure WebSocket. Nothing listens for incoming connections, the panel never holds an SSH key, and every action goes into a tamper-evident audit log.\n\nStart free, no card needed 👉 link in bio\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #cybersecurity #infosec",
-      "status": "approved",
-      "note": "Approved by owner on 2026-11-07."
+      "status": "published",
+      "note": "Scheduled run failed (usage limit); published manually at 23:05 Riyadh on owner's request.",
+      "media_id": "17911742535573966",
+      "permalink": "https://www.instagram.com/p/DfnTF3DlpQs/"
     },
     {
       "date": "2026-11-12",
