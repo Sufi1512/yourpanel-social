@@ -17,6 +17,7 @@ Script format:
     {"type": "bars",    "label": "...", "title": "...", "bars": [{"t": "Paris", "v": 82, "unit": "%"}], "lines": [...]},
     {"type": "code",    "label": "...", "title": "...", "code": "line1\nline2", "at": 1, "note": "...", "lines": [...]},  (typewriter)
     {"type": "quiz",    "label": "...", "question": "...", "options": ["...", "...", "..."], "answer": 1, "reveal": 2, "lines": [...]},  (pause & guess)
+    {"type": "media",   "media": "assets/clip.mp4", "title": "...", "sub": "...", "lines": [...]},  (image or video B-roll; path relative to the script)
     {"type": "outro",   "recap": ["Goal", "Tools", "Memory", "Loop"], "lines": [...]}
   ]
 }
@@ -359,8 +360,9 @@ def s_outro(c, t, sc, ctx):
     for i, s in enumerate(recap):
         p = back((t - 0.3 - i * d0 * 0.8 / max(1, len(recap))) / 0.5)
         if p <= 0: continue
-        pa = clamp(p); y = 690 + i * 105; w = 400 * p
-        c.rrect(W / 2 - w, y - 40, W / 2 + w, y + 40, 40, fill=fade(CARD2, pa), outline=fade(GOLD, pa), width=2)
+        step = min(105, 420 / max(1, len(recap) - 1)); hh = min(40, step * 0.42)
+        pa = clamp(p); y = 690 + i * step; w = 400 * p
+        c.rrect(W / 2 - w, y - hh, W / 2 + w, y + hh, hh, fill=fade(CARD2, pa), outline=fade(GOLD, pa), width=2)
         c.text(W / 2, y, f"{i + 1}. {s}", c.fit(f"{i + 1}. {s}", 40, 760) * max(p, 0.2), fade(TEXT, pa))
     t1 = L[-1]["start"]; q = back((t - t1) / 0.6)
     if q > 0:
@@ -431,9 +433,72 @@ def s_quiz(c, t, sc, ctx):
     else:
         c.text(W / 2, y + len(opts) * 130 + 80, "Got it right? Comment below", 34, fade(MUTED, ease((t - rv - 0.5) / 0.5)), "SemiBold")
 
-FN = {"quiz": s_quiz, "code": s_code, "hook": s_hook, "flow": s_flow, "cycle": s_cycle, "hub": s_hub, "list": s_list, "compare": s_compare, "bars": s_bars, "outro": s_outro}
+
+# ---------- media (AI B-roll / images) ----------
+_media = {}
+def _load_media(path, box):
+    k = (path, box)
+    if k in _media: return _media[k]
+    bw, bh = box
+    if path.lower().endswith((".mp4", ".mov", ".webm", ".mkv")):
+        import cv2
+        cap = cv2.VideoCapture(path); fps = cap.get(cv2.CAP_PROP_FPS) or 30; frames = []
+        while True:
+            ok, fr = cap.read()
+            if not ok: break
+            im = Image.fromarray(cv2.cvtColor(fr, cv2.COLOR_BGR2RGB)); frames.append(_cover_fit(im, int(bw * 1.12), int(bh * 1.12)))
+        cap.release(); _media[k] = ("video", frames, fps)
+    else:
+        _media[k] = ("image", [_cover_fit(Image.open(path).convert("RGB"), int(bw * 1.12), int(bh * 1.12))], 1)
+    return _media[k]
+
+def _cover_fit(im, w, h):
+    r = max(w / im.width, h / im.height); im = im.resize((max(w, round(im.width * r)), max(h, round(im.height * r))), Image.LANCZOS)
+    x, y = (im.width - w) // 2, (im.height - h) // 2; return im.crop((x, y, x + w, y + h))
+
+def s_media(c, t, sc, ctx):
+    """{"type": "media", "media": "assets/x.png" | "assets/x.mp4", "title": "...", "sub": "...", "lines": [...]}
+    Shows an image (slow Ken Burns zoom) or a video clip (looped) in a rounded frame, with an optional title card."""
+    path = sc.get("media")
+    if path and not os.path.isabs(path): path = os.path.join(ctx.get("_base", "."), path)
+    x0, y0, x1, y1 = 70, 290, W - 70, 1290; bw, bh = x1 - x0, y1 - y0; a = ease(t / 0.5)
+    if path and os.path.exists(path):
+        kind, frames, fps = _load_media(path, (bw, bh))
+        im = frames[int(t * fps) % len(frames)] if kind == "video" else frames[0]
+        z = 1.0 + 0.10 * clamp(t / max(sc.get("dur", 6), 1)) if kind == "image" else 1.0
+        cw, ch = int(im.width / z / 1.0), int(im.height / z / 1.0)
+        cx, cy = (im.width - cw) // 2, (im.height - ch) // 2
+        crop = im.crop((cx, cy, cx + cw, cy + ch)).resize((c.s(bw), c.s(bh)), Image.BILINEAR)
+        m = Image.new("L", (c.s(bw), c.s(bh)), 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, c.s(bw) - 1, c.s(bh) - 1], radius=c.s(36), fill=int(255 * a))
+        c.im.paste(crop, (c.s(x0), c.s(y0) + c.s((1 - a) * 40)), m)
+        c.rrect(x0, y0 + (1 - a) * 40, x1, y1 + (1 - a) * 40, 36, outline=fade(LINE, a), width=2)
+    else:
+        c.rrect(x0, y0, x1, y1, 36, fill=fade(CARD, a), outline=fade(LINE, a), width=2)
+        alt = sc.get("alt") or "@aiwithsufi"
+        c.text(W / 2, (y0 + y1) / 2 - (60 if sc.get("title") else 0), alt, c.fit(alt, 72, bw - 120), fade(GOLD, a))
+    if sc.get("title"):
+        q = ease((t - 0.4) / 0.5); tw = min(bw - 60, c.tw(sc["title"], 46) + 64); yy = y1 - 70
+        c.rrect(W / 2 - tw / 2, yy - 44 - (16 if sc.get("sub") else 0), W / 2 + tw / 2, yy + 44 + (16 if sc.get("sub") else 0), 26, fill=fade(BG, q * 0.92))
+        size = c.fit(sc["title"], 46, bw - 100)
+        c.text(W / 2, yy - (16 if sc.get("sub") else 0), sc["title"], size, fade(TEXT, q))
+        if sc.get("sub"): c.text(W / 2, yy + 30, sc["sub"], 28, fade(MUTED, q), "Medium")
+
+FN = {"media": s_media, "quiz": s_quiz, "code": s_code, "hook": s_hook, "flow": s_flow, "cycle": s_cycle, "hub": s_hub, "list": s_list, "compare": s_compare, "bars": s_bars, "outro": s_outro}
 
 # ---------- voice ----------
+def eleven_tts(text, voice_id, model=None):
+    """ElevenLabs text-to-speech -> float32 mono at 24 kHz, or None on any failure (caller falls back to Kokoro)."""
+    import urllib.error
+    try:
+        req = urllib.request.Request(
+            f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}?output_format=pcm_24000",
+            data=json.dumps({"text": text, "model_id": model or os.environ.get("ELEVENLABS_MODEL", "eleven_multilingual_v2")}).encode(),
+            headers={"xi-api-key": os.environ["ELEVENLABS_API_KEY"], "Content-Type": "application/json", "Accept": "audio/pcm"})
+        raw = urllib.request.urlopen(req, timeout=120).read()
+        return np.frombuffer(raw, dtype="<i2").astype(np.float32) / 32768.0
+    except Exception as e:
+        print(f"ElevenLabs failed ({e}); using Kokoro for this line"); return None
+
 def voiceover(spec, work):
     import soundfile as sf
     from kokoro_onnx import Kokoro
@@ -444,7 +509,11 @@ def voiceover(spec, work):
         seg = [np.zeros(int(LEAD * SR), np.float32)]; t = LEAD
         for i, ln in enumerate(sc["lines"]):
             who = ln.get("who", "A"); ln["who"] = who
-            s, sr = k.create(ln["vo"], voice=spk.get(who, spk["A"])["voice"], speed=spec.get("speed", SPEED), lang="en-us")
+            sp = spk.get(who, spk["A"]); s = None
+            if sp.get("eleven_voice_id") and os.environ.get("ELEVENLABS_API_KEY"):
+                s = eleven_tts(ln["vo"], sp["eleven_voice_id"], spec.get("eleven_model"))
+            if s is None:
+                s, sr = k.create(ln["vo"], voice=sp["voice"], speed=spec.get("speed", SPEED), lang="en-us")
             idx = np.where(np.abs(s) > 0.01)[0]; s = s[max(0, idx[0] - 600): idx[-1] + 1200].astype(np.float32)
             d = len(s) / SR; ln["start"], ln["end"] = t, t + d; seg.append(s); t += d
             g = GAP if i < len(sc["lines"]) - 1 else TAIL; seg.append(np.zeros(int(g * SR), np.float32)); t += g
@@ -486,7 +555,7 @@ def render_scene(spec, idx, path, TOTAL):
 
 def main():
     src, out = sys.argv[1], sys.argv[2]; preview = "--preview" in sys.argv
-    spec = json.load(open(src)); work = tempfile.mkdtemp(prefix="reel_")
+    spec = json.load(open(src)); work = tempfile.mkdtemp(prefix="reel_"); spec["_base"] = os.path.dirname(os.path.abspath(src))
     day = spec.get("date") or date_from_path(src)
     set_theme(spec.get("theme") or (for_date(day) if day else "sand_espresso")); print("theme", THEME_NAME[0])
     audio = voiceover(spec, work); TOTAL = sum(s["dur"] for s in spec["scenes"])
