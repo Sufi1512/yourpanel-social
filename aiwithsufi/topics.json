@@ -58,7 +58,7 @@
    "title": "Always-on AI: agents that work without being asked",
    "date": "2026-11-13",
    "format": "reel",
-   "status": "planned",
+   "status": "ready",
    "angle": "Reactive chat vs proactive agents that run in the cloud, watch for triggers and act; OpenAI dots (always on, own browser and tools); what this means and the approval/safety trade-offs. Verify launches on primary sources before using them.",
    "sources": [
     "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
@@ -67,7 +67,9 @@
    ],
    "style": "glow_sketch",
    "plan_approved": "2026-11-13",
-   "engine": "explainer-engine (GSAP/HTML) + explainer-saas-ui UI mocks"
+   "engine": "explainer-engine (GSAP/HTML) + explainer-saas-ui UI mocks",
+   "video": "aiwithsufi/reels/2026-11-13-always-on-agents/reel.mp4",
+   "source": "aiwithsufi/reels_src/2026-11-13-always-on-agents/"
   },
   {
    "slug": "geo-ai-search",

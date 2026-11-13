@@ -1,0 +1,2647 @@
+{
+ "duration": 166.14,
+ "voice": "discussion",
+ "words": 453,
+ "wpm_overall": 163.6,
+ "lines": [
+  {
+   "id": "h1",
+   "scene": "hook",
+   "who": "B",
+   "text": "Wait. An AI that texts me first? Without me asking anything?",
+   "cap": "An AI that TEXTS ME FIRST?",
+   "start": 0.547,
+   "end": 3.982,
+   "words": [
+    {
+     "w": "Wait.",
+     "start": 0.547,
+     "end": 0.817
+    },
+    {
+     "w": "An",
+     "start": 0.817,
+     "end": 0.977
+    },
+    {
+     "w": "AI",
+     "start": 0.977,
+     "end": 1.137
+    },
+    {
+     "w": "that",
+     "start": 1.137,
+     "end": 1.37
+    },
+    {
+     "w": "texts",
+     "start": 1.37,
+     "end": 1.639
+    },
+    {
+     "w": "me",
+     "start": 1.639,
+     "end": 1.799
+    },
+    {
+     "w": "first?",
+     "start": 1.799,
+     "end": 2.068
+    },
+    {
+     "w": "Without",
+     "start": 2.432,
+     "end": 2.774
+    },
+    {
+     "w": "me",
+     "start": 2.774,
+     "end": 2.934
+    },
+    {
+     "w": "asking",
+     "start": 2.934,
+     "end": 3.24
+    },
+    {
+     "w": "anything?",
+     "start": 3.24,
+     "end": 3.982
+    }
+   ]
+  },
+  {
+   "id": "h2",
+   "scene": "hook",
+   "who": "A",
+   "text": "That's always-on AI. Agents that keep working in the background, and check in when something needs you.",
+   "cap": "That's ALWAYS-ON AI. It works in the BACKGROUND.",
+   "start": 4.432,
+   "end": 9.993,
+   "words": [
+    {
+     "w": "That's",
+     "start": 4.432,
+     "end": 4.774
+    },
+    {
+     "w": "always-on",
+     "start": 4.774,
+     "end": 5.237
+    },
+    {
+     "w": "AI.",
+     "start": 5.237,
+     "end": 5.457
+    },
+    {
+     "w": "Agents",
+     "start": 5.457,
+     "end": 5.798
+    },
+    {
+     "w": "that",
+     "start": 5.798,
+     "end": 6.058
+    },
+    {
+     "w": "keep",
+     "start": 6.058,
+     "end": 6.318
+    },
+    {
+     "w": "working",
+     "start": 6.318,
+     "end": 6.701
+    },
+    {
+     "w": "in",
+     "start": 6.701,
+     "end": 6.879
+    },
+    {
+     "w": "the",
+     "start": 6.879,
+     "end": 7.099
+    },
+    {
+     "w": "background,",
+     "start": 7.099,
+     "end": 7.603
+    },
+    {
+     "w": "and",
+     "start": 8.009,
+     "end": 8.229
+    },
+    {
+     "w": "check",
+     "start": 8.229,
+     "end": 8.53
+    },
+    {
+     "w": "in",
+     "start": 8.53,
+     "end": 8.708
+    },
+    {
+     "w": "when",
+     "start": 8.708,
+     "end": 8.969
+    },
+    {
+     "w": "something",
+     "start": 8.969,
+     "end": 9.432
+    },
+    {
+     "w": "needs",
+     "start": 9.432,
+     "end": 9.733
+    },
+    {
+     "w": "you.",
+     "start": 9.733,
+     "end": 9.993
+    }
+   ]
+  },
+  {
+   "id": "h3",
+   "scene": "hook",
+   "who": "B",
+   "text": "Okay, I need to understand this. Let's go.",
+   "cap": "Okay. LET'S GO.",
+   "start": 10.453,
+   "end": 12.916,
+   "words": [
+    {
+     "w": "Okay,",
+     "start": 10.453,
+     "end": 10.7
+    },
+    {
+     "w": "I",
+     "start": 11.086,
+     "end": 11.241
+    },
+    {
+     "w": "need",
+     "start": 11.241,
+     "end": 11.488
+    },
+    {
+     "w": "to",
+     "start": 11.488,
+     "end": 11.658
+    },
+    {
+     "w": "understand",
+     "start": 11.658,
+     "end": 12.136
+    },
+    {
+     "w": "this.",
+     "start": 12.136,
+     "end": 12.422
+    },
+    {
+     "w": "Let's",
+     "start": 12.422,
+     "end": 12.708
+    },
+    {
+     "w": "go.",
+     "start": 12.708,
+     "end": 12.916
+    }
+   ]
+  },
+  {
+   "id": "c1",
+   "scene": "compare",
+   "who": "A",
+   "text": "A normal chatbot is reactive. It waits for your prompt, answers, and then it just stops.",
+   "cap": "A chatbot is REACTIVE. It waits, answers, STOPS.",
+   "start": 13.381,
+   "end": 18.367,
+   "words": [
+    {
+     "w": "A",
+     "start": 13.381,
+     "end": 13.534
+    },
+    {
+     "w": "normal",
+     "start": 13.534,
+     "end": 13.856
+    },
+    {
+     "w": "chatbot",
+     "start": 13.856,
+     "end": 14.217
+    },
+    {
+     "w": "is",
+     "start": 14.217,
+     "end": 14.386
+    },
+    {
+     "w": "reactive.",
+     "start": 14.386,
+     "end": 14.823
+    },
+    {
+     "w": "It",
+     "start": 14.823,
+     "end": 14.992
+    },
+    {
+     "w": "waits",
+     "start": 14.992,
+     "end": 15.275
+    },
+    {
+     "w": "for",
+     "start": 15.275,
+     "end": 15.482
+    },
+    {
+     "w": "your",
+     "start": 15.482,
+     "end": 15.728
+    },
+    {
+     "w": "prompt,",
+     "start": 15.728,
+     "end": 16.05
+    },
+    {
+     "w": "answers,",
+     "start": 16.434,
+     "end": 16.794
+    },
+    {
+     "w": "and",
+     "start": 17.178,
+     "end": 17.385
+    },
+    {
+     "w": "then",
+     "start": 17.385,
+     "end": 17.63
+    },
+    {
+     "w": "it",
+     "start": 17.63,
+     "end": 17.799
+    },
+    {
+     "w": "just",
+     "start": 17.799,
+     "end": 18.045
+    },
+    {
+     "w": "stops.",
+     "start": 18.045,
+     "end": 18.367
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "scene": "compare",
+   "who": "B",
+   "text": "So if I close the app, nothing happens.",
+   "cap": "Close the app, NOTHING happens?",
+   "start": 18.794,
+   "end": 20.917,
+   "words": [
+    {
+     "w": "So",
+     "start": 18.794,
+     "end": 18.947
+    },
+    {
+     "w": "if",
+     "start": 18.947,
+     "end": 19.101
+    },
+    {
+     "w": "I",
+     "start": 19.101,
+     "end": 19.241
+    },
+    {
+     "w": "close",
+     "start": 19.241,
+     "end": 19.499
+    },
+    {
+     "w": "the",
+     "start": 19.499,
+     "end": 19.688
+    },
+    {
+     "w": "app,",
+     "start": 19.688,
+     "end": 19.876
+    },
+    {
+     "w": "nothing",
+     "start": 20.225,
+     "end": 20.554
+    },
+    {
+     "w": "happens.",
+     "start": 20.554,
+     "end": 20.917
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "scene": "compare",
+   "who": "A",
+   "text": "Exactly. An always-on agent is proactive. You give it a goal once. It watches for triggers, it acts, and it checks in with you.",
+   "cap": "An agent is PROACTIVE: GOAL, TRIGGERS, ACT, CHECK IN.",
+   "start": 21.32,
+   "end": 28.592,
+   "words": [
+    {
+     "w": "Exactly.",
+     "start": 21.32,
+     "end": 21.74
+    },
+    {
+     "w": "An",
+     "start": 21.74,
+     "end": 21.918
+    },
+    {
+     "w": "always-on",
+     "start": 21.918,
+     "end": 22.378
+    },
+    {
+     "w": "agent",
+     "start": 22.378,
+     "end": 22.676
+    },
+    {
+     "w": "is",
+     "start": 22.676,
+     "end": 22.854
+    },
+    {
+     "w": "proactive.",
+     "start": 22.854,
+     "end": 23.354
+    },
+    {
+     "w": "You",
+     "start": 23.354,
+     "end": 23.572
+    },
+    {
+     "w": "give",
+     "start": 23.572,
+     "end": 23.83
+    },
+    {
+     "w": "it",
+     "start": 23.83,
+     "end": 24.008
+    },
+    {
+     "w": "a",
+     "start": 24.008,
+     "end": 24.169
+    },
+    {
+     "w": "goal",
+     "start": 24.169,
+     "end": 24.427
+    },
+    {
+     "w": "once.",
+     "start": 24.427,
+     "end": 24.726
+    },
+    {
+     "w": "It",
+     "start": 24.726,
+     "end": 24.904
+    },
+    {
+     "w": "watches",
+     "start": 24.904,
+     "end": 25.283
+    },
+    {
+     "w": "for",
+     "start": 25.283,
+     "end": 25.501
+    },
+    {
+     "w": "triggers,",
+     "start": 25.501,
+     "end": 25.92
+    },
+    {
+     "w": "it",
+     "start": 26.324,
+     "end": 26.502
+    },
+    {
+     "w": "acts,",
+     "start": 26.502,
+     "end": 26.76
+    },
+    {
+     "w": "and",
+     "start": 27.163,
+     "end": 27.381
+    },
+    {
+     "w": "it",
+     "start": 27.381,
+     "end": 27.559
+    },
+    {
+     "w": "checks",
+     "start": 27.559,
+     "end": 27.898
+    },
+    {
+     "w": "in",
+     "start": 27.898,
+     "end": 28.075
+    },
+    {
+     "w": "with",
+     "start": 28.075,
+     "end": 28.333
+    },
+    {
+     "w": "you.",
+     "start": 28.333,
+     "end": 28.592
+    }
+   ]
+  },
+  {
+   "id": "l1",
+   "scene": "loop",
+   "who": "B",
+   "text": "Triggers? Like what?",
+   "cap": "TRIGGERS? Like what?",
+   "start": 29.053,
+   "end": 30.109,
+   "words": [
+    {
+     "w": "Triggers?",
+     "start": 29.053,
+     "end": 29.307
+    },
+    {
+     "w": "Like",
+     "start": 29.551,
+     "end": 29.708
+    },
+    {
+     "w": "what?",
+     "start": 29.708,
+     "end": 30.109
+    }
+   ]
+  },
+  {
+   "id": "l2",
+   "scene": "loop",
+   "who": "A",
+   "text": "A schedule, like every morning at seven. A new email. A change in some data. Anything that says: time to work.",
+   "cap": "A SCHEDULE. A NEW EMAIL. A DATA CHANGE.",
+   "start": 30.587,
+   "end": 37.258,
+   "words": [
+    {
+     "w": "A",
+     "start": 30.587,
+     "end": 30.754
+    },
+    {
+     "w": "schedule,",
+     "start": 30.754,
+     "end": 31.187
+    },
+    {
+     "w": "like",
+     "start": 31.603,
+     "end": 31.869
+    },
+    {
+     "w": "every",
+     "start": 31.869,
+     "end": 32.178
+    },
+    {
+     "w": "morning",
+     "start": 32.178,
+     "end": 32.569
+    },
+    {
+     "w": "at",
+     "start": 32.569,
+     "end": 32.752
+    },
+    {
+     "w": "seven.",
+     "start": 32.752,
+     "end": 33.102
+    },
+    {
+     "w": "A",
+     "start": 33.102,
+     "end": 33.269
+    },
+    {
+     "w": "new",
+     "start": 33.269,
+     "end": 33.493
+    },
+    {
+     "w": "email.",
+     "start": 33.493,
+     "end": 33.843
+    },
+    {
+     "w": "A",
+     "start": 33.843,
+     "end": 34.01
+    },
+    {
+     "w": "change",
+     "start": 34.01,
+     "end": 34.36
+    },
+    {
+     "w": "in",
+     "start": 34.36,
+     "end": 34.543
+    },
+    {
+     "w": "some",
+     "start": 34.543,
+     "end": 34.809
+    },
+    {
+     "w": "data.",
+     "start": 34.809,
+     "end": 35.117
+    },
+    {
+     "w": "Anything",
+     "start": 35.117,
+     "end": 35.55
+    },
+    {
+     "w": "that",
+     "start": 35.55,
+     "end": 35.817
+    },
+    {
+     "w": "says:",
+     "start": 35.817,
+     "end": 36.083
+    },
+    {
+     "w": "time",
+     "start": 36.5,
+     "end": 36.766
+    },
+    {
+     "w": "to",
+     "start": 36.766,
+     "end": 36.95
+    },
+    {
+     "w": "work.",
+     "start": 36.95,
+     "end": 37.258
+    }
+   ]
+  },
+  {
+   "id": "l3",
+   "scene": "loop",
+   "who": "A",
+   "text": "Then it loops. Trigger, think, act, check in. And then it goes back to watching.",
+   "cap": "TRIGGER, THINK, ACT, CHECK IN. Repeat.",
+   "start": 37.748,
+   "end": 41.689,
+   "words": [
+    {
+     "w": "Then",
+     "start": 37.748,
+     "end": 37.944
+    },
+    {
+     "w": "it",
+     "start": 37.944,
+     "end": 38.078
+    },
+    {
+     "w": "loops.",
+     "start": 38.078,
+     "end": 38.335
+    },
+    {
+     "w": "Trigger,",
+     "start": 38.335,
+     "end": 38.622
+    },
+    {
+     "w": "think,",
+     "start": 38.927,
+     "end": 39.153
+    },
+    {
+     "w": "act,",
+     "start": 39.459,
+     "end": 39.624
+    },
+    {
+     "w": "check",
+     "start": 39.929,
+     "end": 40.155
+    },
+    {
+     "w": "in.",
+     "start": 40.155,
+     "end": 40.32
+    },
+    {
+     "w": "And",
+     "start": 40.32,
+     "end": 40.485
+    },
+    {
+     "w": "then",
+     "start": 40.485,
+     "end": 40.681
+    },
+    {
+     "w": "it",
+     "start": 40.681,
+     "end": 40.815
+    },
+    {
+     "w": "goes",
+     "start": 40.815,
+     "end": 41.011
+    },
+    {
+     "w": "back",
+     "start": 41.011,
+     "end": 41.206
+    },
+    {
+     "w": "to",
+     "start": 41.206,
+     "end": 41.341
+    },
+    {
+     "w": "watching.",
+     "start": 41.341,
+     "end": 41.689
+    }
+   ]
+  },
+  {
+   "id": "l4",
+   "scene": "loop",
+   "who": "B",
+   "text": "And where is it doing all this? On my laptop?",
+   "cap": "Where does it run? My LAPTOP?",
+   "start": 42.185,
+   "end": 44.453,
+   "words": [
+    {
+     "w": "And",
+     "start": 42.185,
+     "end": 42.342
+    },
+    {
+     "w": "where",
+     "start": 42.342,
+     "end": 42.557
+    },
+    {
+     "w": "is",
+     "start": 42.557,
+     "end": 42.685
+    },
+    {
+     "w": "it",
+     "start": 42.685,
+     "end": 42.813
+    },
+    {
+     "w": "doing",
+     "start": 42.813,
+     "end": 43.028
+    },
+    {
+     "w": "all",
+     "start": 43.028,
+     "end": 43.185
+    },
+    {
+     "w": "this?",
+     "start": 43.185,
+     "end": 43.371
+    },
+    {
+     "w": "On",
+     "start": 43.662,
+     "end": 43.79
+    },
+    {
+     "w": "my",
+     "start": 43.79,
+     "end": 43.918
+    },
+    {
+     "w": "laptop?",
+     "start": 43.918,
+     "end": 44.453
+    }
+   ]
+  },
+  {
+   "id": "l5",
+   "scene": "loop",
+   "who": "A",
+   "text": "Usually in the cloud. So you can close your laptop, and it keeps going.",
+   "cap": "In the CLOUD. Close your laptop, it KEEPS GOING.",
+   "start": 44.887,
+   "end": 48.5,
+   "words": [
+    {
+     "w": "Usually",
+     "start": 44.887,
+     "end": 45.224
+    },
+    {
+     "w": "in",
+     "start": 45.224,
+     "end": 45.382
+    },
+    {
+     "w": "the",
+     "start": 45.382,
+     "end": 45.576
+    },
+    {
+     "w": "cloud.",
+     "start": 45.576,
+     "end": 45.878
+    },
+    {
+     "w": "So",
+     "start": 45.878,
+     "end": 46.036
+    },
+    {
+     "w": "you",
+     "start": 46.036,
+     "end": 46.23
+    },
+    {
+     "w": "can",
+     "start": 46.23,
+     "end": 46.424
+    },
+    {
+     "w": "close",
+     "start": 46.424,
+     "end": 46.69
+    },
+    {
+     "w": "your",
+     "start": 46.69,
+     "end": 46.919
+    },
+    {
+     "w": "laptop,",
+     "start": 46.919,
+     "end": 47.221
+    },
+    {
+     "w": "and",
+     "start": 47.58,
+     "end": 47.774
+    },
+    {
+     "w": "it",
+     "start": 47.774,
+     "end": 47.932
+    },
+    {
+     "w": "keeps",
+     "start": 47.932,
+     "end": 48.198
+    },
+    {
+     "w": "going.",
+     "start": 48.198,
+     "end": 48.5
+    }
+   ]
+  },
+  {
+   "id": "q1",
+   "scene": "quiz1",
+   "who": "B",
+   "text": "Quiz time! Your laptop is closed. Where does an always-on agent keep working?",
+   "cap": "QUIZ: laptop closed. Where does it WORK?",
+   "start": 48.945,
+   "end": 53.242,
+   "words": [
+    {
+     "w": "Quiz",
+     "start": 48.945,
+     "end": 49.186
+    },
+    {
+     "w": "time!",
+     "start": 49.186,
+     "end": 49.427
+    },
+    {
+     "w": "Your",
+     "start": 49.803,
+     "end": 50.044
+    },
+    {
+     "w": "laptop",
+     "start": 50.044,
+     "end": 50.36
+    },
+    {
+     "w": "is",
+     "start": 50.36,
+     "end": 50.526
+    },
+    {
+     "w": "closed.",
+     "start": 50.526,
+     "end": 50.879
+    },
+    {
+     "w": "Where",
+     "start": 50.879,
+     "end": 51.158
+    },
+    {
+     "w": "does",
+     "start": 51.158,
+     "end": 51.398
+    },
+    {
+     "w": "an",
+     "start": 51.398,
+     "end": 51.564
+    },
+    {
+     "w": "always-on",
+     "start": 51.564,
+     "end": 51.993
+    },
+    {
+     "w": "agent",
+     "start": 51.993,
+     "end": 52.271
+    },
+    {
+     "w": "keep",
+     "start": 52.271,
+     "end": 52.512
+    },
+    {
+     "w": "working?",
+     "start": 52.512,
+     "end": 53.242
+    }
+   ]
+  },
+  {
+   "id": "q2",
+   "scene": "quiz1",
+   "who": "A",
+   "text": "Pause the video and guess. A, B, or C.",
+   "cap": "PAUSE and guess. A, B or C?",
+   "start": 53.686,
+   "end": 55.868,
+   "words": [
+    {
+     "w": "Pause",
+     "start": 53.686,
+     "end": 53.914
+    },
+    {
+     "w": "the",
+     "start": 53.914,
+     "end": 54.081
+    },
+    {
+     "w": "video",
+     "start": 54.081,
+     "end": 54.309
+    },
+    {
+     "w": "and",
+     "start": 54.309,
+     "end": 54.475
+    },
+    {
+     "w": "guess.",
+     "start": 54.475,
+     "end": 54.734
+    },
+    {
+     "w": "A,",
+     "start": 54.734,
+     "end": 54.857
+    },
+    {
+     "w": "B,",
+     "start": 55.166,
+     "end": 55.289
+    },
+    {
+     "w": "or",
+     "start": 55.597,
+     "end": 55.733
+    },
+    {
+     "w": "C.",
+     "start": 55.733,
+     "end": 55.868
+    }
+   ]
+  },
+  {
+   "id": "q3",
+   "scene": "quiz1",
+   "who": "A",
+   "text": "It's B, the cloud. Some agents even get their own virtual computer and browser.",
+   "cap": "B! The CLOUD, on its OWN COMPUTER.",
+   "start": 58.613,
+   "end": 63.241,
+   "words": [
+    {
+     "w": "It's",
+     "start": 58.613,
+     "end": 58.884
+    },
+    {
+     "w": "B,",
+     "start": 58.884,
+     "end": 59.054
+    },
+    {
+     "w": "the",
+     "start": 59.478,
+     "end": 59.706
+    },
+    {
+     "w": "cloud.",
+     "start": 59.706,
+     "end": 60.062
+    },
+    {
+     "w": "Some",
+     "start": 60.062,
+     "end": 60.334
+    },
+    {
+     "w": "agents",
+     "start": 60.334,
+     "end": 60.69
+    },
+    {
+     "w": "even",
+     "start": 60.69,
+     "end": 60.961
+    },
+    {
+     "w": "get",
+     "start": 60.961,
+     "end": 61.19
+    },
+    {
+     "w": "their",
+     "start": 61.19,
+     "end": 61.503
+    },
+    {
+     "w": "own",
+     "start": 61.503,
+     "end": 61.732
+    },
+    {
+     "w": "virtual",
+     "start": 61.732,
+     "end": 62.13
+    },
+    {
+     "w": "computer",
+     "start": 62.13,
+     "end": 62.571
+    },
+    {
+     "w": "and",
+     "start": 62.571,
+     "end": 62.8
+    },
+    {
+     "w": "browser.",
+     "start": 62.8,
+     "end": 63.241
+    }
+   ]
+  },
+  {
+   "id": "r1",
+   "scene": "launches",
+   "who": "B",
+   "text": "Is this real yet, or just a demo?",
+   "cap": "Is this REAL yet?",
+   "start": 63.731,
+   "end": 65.642,
+   "words": [
+    {
+     "w": "Is",
+     "start": 63.731,
+     "end": 63.862
+    },
+    {
+     "w": "this",
+     "start": 63.862,
+     "end": 64.054
+    },
+    {
+     "w": "real",
+     "start": 64.054,
+     "end": 64.246
+    },
+    {
+     "w": "yet,",
+     "start": 64.246,
+     "end": 64.408
+    },
+    {
+     "w": "or",
+     "start": 64.707,
+     "end": 64.839
+    },
+    {
+     "w": "just",
+     "start": 64.839,
+     "end": 65.031
+    },
+    {
+     "w": "a",
+     "start": 65.031,
+     "end": 65.151
+    },
+    {
+     "w": "demo?",
+     "start": 65.151,
+     "end": 65.642
+    }
+   ]
+  },
+  {
+   "id": "r2",
+   "scene": "launches",
+   "who": "A",
+   "text": "It's real. On September twenty-ninth, OpenAI launched dots. Always-on agents in ChatGPT that work on your goals in the background.",
+   "cap": "Sept 29: OpenAI launched DOTS.",
+   "start": 66.114,
+   "end": 75.158,
+   "words": [
+    {
+     "w": "It's",
+     "start": 66.114,
+     "end": 66.459
+    },
+    {
+     "w": "real.",
+     "start": 66.459,
+     "end": 66.857
+    },
+    {
+     "w": "On",
+     "start": 66.857,
+     "end": 67.094
+    },
+    {
+     "w": "September",
+     "start": 67.094,
+     "end": 67.707
+    },
+    {
+     "w": "twenty-ninth,",
+     "start": 67.707,
+     "end": 68.483
+    },
+    {
+     "w": "OpenAI",
+     "start": 69.021,
+     "end": 69.473
+    },
+    {
+     "w": "launched",
+     "start": 69.473,
+     "end": 70.033
+    },
+    {
+     "w": "dots.",
+     "start": 70.033,
+     "end": 70.431
+    },
+    {
+     "w": "Always-on",
+     "start": 70.431,
+     "end": 71.045
+    },
+    {
+     "w": "agents",
+     "start": 71.045,
+     "end": 71.497
+    },
+    {
+     "w": "in",
+     "start": 71.497,
+     "end": 71.734
+    },
+    {
+     "w": "ChatGPT",
+     "start": 71.734,
+     "end": 72.24
+    },
+    {
+     "w": "that",
+     "start": 72.24,
+     "end": 72.584
+    },
+    {
+     "w": "work",
+     "start": 72.584,
+     "end": 72.929
+    },
+    {
+     "w": "on",
+     "start": 72.929,
+     "end": 73.166
+    },
+    {
+     "w": "your",
+     "start": 73.166,
+     "end": 73.51
+    },
+    {
+     "w": "goals",
+     "start": 73.51,
+     "end": 73.909
+    },
+    {
+     "w": "in",
+     "start": 73.909,
+     "end": 74.146
+    },
+    {
+     "w": "the",
+     "start": 74.146,
+     "end": 74.436
+    },
+    {
+     "w": "background.",
+     "start": 74.436,
+     "end": 75.158
+    }
+   ]
+  },
+  {
+   "id": "r3",
+   "scene": "launches",
+   "who": "A",
+   "text": "You can message them in Slack or Teams. OpenAI's example: a developer's dot watches customer feedback, and fixes bugs.",
+   "cap": "Message them in SLACK or TEAMS.",
+   "start": 75.661,
+   "end": 83.699,
+   "words": [
+    {
+     "w": "You",
+     "start": 75.661,
+     "end": 75.925
+    },
+    {
+     "w": "can",
+     "start": 75.925,
+     "end": 76.189
+    },
+    {
+     "w": "message",
+     "start": 76.189,
+     "end": 76.65
+    },
+    {
+     "w": "them",
+     "start": 76.65,
+     "end": 76.963
+    },
+    {
+     "w": "in",
+     "start": 76.963,
+     "end": 77.178
+    },
+    {
+     "w": "Slack",
+     "start": 77.178,
+     "end": 77.54
+    },
+    {
+     "w": "or",
+     "start": 77.54,
+     "end": 77.756
+    },
+    {
+     "w": "Teams.",
+     "start": 77.756,
+     "end": 78.167
+    },
+    {
+     "w": "OpenAI's",
+     "start": 78.167,
+     "end": 78.676
+    },
+    {
+     "w": "example:",
+     "start": 78.676,
+     "end": 79.136
+    },
+    {
+     "w": "a",
+     "start": 79.626,
+     "end": 79.822
+    },
+    {
+     "w": "developer's",
+     "start": 79.822,
+     "end": 80.478
+    },
+    {
+     "w": "dot",
+     "start": 80.478,
+     "end": 80.742
+    },
+    {
+     "w": "watches",
+     "start": 80.742,
+     "end": 81.202
+    },
+    {
+     "w": "customer",
+     "start": 81.202,
+     "end": 81.711
+    },
+    {
+     "w": "feedback,",
+     "start": 81.711,
+     "end": 82.22
+    },
+    {
+     "w": "and",
+     "start": 82.71,
+     "end": 82.974
+    },
+    {
+     "w": "fixes",
+     "start": 82.974,
+     "end": 83.336
+    },
+    {
+     "w": "bugs.",
+     "start": 83.336,
+     "end": 83.699
+    }
+   ]
+  },
+  {
+   "id": "r4",
+   "scene": "launches",
+   "who": "B",
+   "text": "And Anthropic?",
+   "cap": "And ANTHROPIC?",
+   "start": 84.117,
+   "end": 84.941,
+   "words": [
+    {
+     "w": "And",
+     "start": 84.117,
+     "end": 84.283
+    },
+    {
+     "w": "Anthropic?",
+     "start": 84.283,
+     "end": 84.941
+    }
+   ]
+  },
+  {
+   "id": "r5",
+   "scene": "launches",
+   "who": "A",
+   "text": "In late October, Anthropic previewed Claude Duet. It sends you a morning brief from your email and calendar, and checks your accounts every few hours.",
+   "cap": "CLAUDE DUET: a MORNING BRIEF, checks every few hours.",
+   "start": 85.432,
+   "end": 94.089,
+   "words": [
+    {
+     "w": "In",
+     "start": 85.432,
+     "end": 85.618
+    },
+    {
+     "w": "late",
+     "start": 85.618,
+     "end": 85.889
+    },
+    {
+     "w": "October,",
+     "start": 85.889,
+     "end": 86.286
+    },
+    {
+     "w": "Anthropic",
+     "start": 86.71,
+     "end": 87.192
+    },
+    {
+     "w": "previewed",
+     "start": 87.192,
+     "end": 87.674
+    },
+    {
+     "w": "Claude",
+     "start": 87.674,
+     "end": 88.03
+    },
+    {
+     "w": "Duet.",
+     "start": 88.03,
+     "end": 88.343
+    },
+    {
+     "w": "It",
+     "start": 88.343,
+     "end": 88.529
+    },
+    {
+     "w": "sends",
+     "start": 88.529,
+     "end": 88.842
+    },
+    {
+     "w": "you",
+     "start": 88.842,
+     "end": 89.071
+    },
+    {
+     "w": "a",
+     "start": 89.071,
+     "end": 89.24
+    },
+    {
+     "w": "morning",
+     "start": 89.24,
+     "end": 89.638
+    },
+    {
+     "w": "brief",
+     "start": 89.638,
+     "end": 89.951
+    },
+    {
+     "w": "from",
+     "start": 89.951,
+     "end": 90.222
+    },
+    {
+     "w": "your",
+     "start": 90.222,
+     "end": 90.492
+    },
+    {
+     "w": "email",
+     "start": 90.492,
+     "end": 90.806
+    },
+    {
+     "w": "and",
+     "start": 90.806,
+     "end": 91.034
+    },
+    {
+     "w": "calendar,",
+     "start": 91.034,
+     "end": 91.474
+    },
+    {
+     "w": "and",
+     "start": 91.897,
+     "end": 92.126
+    },
+    {
+     "w": "checks",
+     "start": 92.126,
+     "end": 92.481
+    },
+    {
+     "w": "your",
+     "start": 92.481,
+     "end": 92.752
+    },
+    {
+     "w": "accounts",
+     "start": 92.752,
+     "end": 93.192
+    },
+    {
+     "w": "every",
+     "start": 93.192,
+     "end": 93.505
+    },
+    {
+     "w": "few",
+     "start": 93.505,
+     "end": 93.734
+    },
+    {
+     "w": "hours.",
+     "start": 93.734,
+     "end": 94.089
+    }
+   ]
+  },
+  {
+   "id": "r6",
+   "scene": "launches",
+   "who": "A",
+   "text": "It runs on its own cloud computer, with its own browser. For now, it's a preview for Pro and Max users in the US, by waitlist.",
+   "cap": "Its OWN CLOUD COMPUTER. Preview, US WAITLIST.",
+   "start": 94.519,
+   "end": 102.386,
+   "words": [
+    {
+     "w": "It",
+     "start": 94.519,
+     "end": 94.701
+    },
+    {
+     "w": "runs",
+     "start": 94.701,
+     "end": 94.964
+    },
+    {
+     "w": "on",
+     "start": 94.964,
+     "end": 95.145
+    },
+    {
+     "w": "its",
+     "start": 95.145,
+     "end": 95.368
+    },
+    {
+     "w": "own",
+     "start": 95.368,
+     "end": 95.59
+    },
+    {
+     "w": "cloud",
+     "start": 95.59,
+     "end": 95.895
+    },
+    {
+     "w": "computer,",
+     "start": 95.895,
+     "end": 96.323
+    },
+    {
+     "w": "with",
+     "start": 96.735,
+     "end": 96.999
+    },
+    {
+     "w": "its",
+     "start": 96.999,
+     "end": 97.221
+    },
+    {
+     "w": "own",
+     "start": 97.221,
+     "end": 97.443
+    },
+    {
+     "w": "browser.",
+     "start": 97.443,
+     "end": 97.872
+    },
+    {
+     "w": "For",
+     "start": 97.872,
+     "end": 98.094
+    },
+    {
+     "w": "now,",
+     "start": 98.094,
+     "end": 98.317
+    },
+    {
+     "w": "it's",
+     "start": 98.728,
+     "end": 98.992
+    },
+    {
+     "w": "a",
+     "start": 98.992,
+     "end": 99.157
+    },
+    {
+     "w": "preview",
+     "start": 99.157,
+     "end": 99.544
+    },
+    {
+     "w": "for",
+     "start": 99.544,
+     "end": 99.766
+    },
+    {
+     "w": "Pro",
+     "start": 99.766,
+     "end": 99.989
+    },
+    {
+     "w": "and",
+     "start": 99.989,
+     "end": 100.211
+    },
+    {
+     "w": "Max",
+     "start": 100.211,
+     "end": 100.433
+    },
+    {
+     "w": "users",
+     "start": 100.433,
+     "end": 100.738
+    },
+    {
+     "w": "in",
+     "start": 100.738,
+     "end": 100.919
+    },
+    {
+     "w": "the",
+     "start": 100.919,
+     "end": 101.142
+    },
+    {
+     "w": "US,",
+     "start": 101.142,
+     "end": 101.323
+    },
+    {
+     "w": "by",
+     "start": 101.735,
+     "end": 101.916
+    },
+    {
+     "w": "waitlist.",
+     "start": 101.916,
+     "end": 102.386
+    }
+   ]
+  },
+  {
+   "id": "d1",
+   "scene": "day",
+   "who": "B",
+   "text": "So what does a day with one actually look like?",
+   "cap": "What does a DAY look like?",
+   "start": 102.82,
+   "end": 104.991,
+   "words": [
+    {
+     "w": "So",
+     "start": 102.82,
+     "end": 102.954
+    },
+    {
+     "w": "what",
+     "start": 102.954,
+     "end": 103.148
+    },
+    {
+     "w": "does",
+     "start": 103.148,
+     "end": 103.342
+    },
+    {
+     "w": "a",
+     "start": 103.342,
+     "end": 103.463
+    },
+    {
+     "w": "day",
+     "start": 103.463,
+     "end": 103.627
+    },
+    {
+     "w": "with",
+     "start": 103.627,
+     "end": 103.821
+    },
+    {
+     "w": "one",
+     "start": 103.821,
+     "end": 103.985
+    },
+    {
+     "w": "actually",
+     "start": 103.985,
+     "end": 104.3
+    },
+    {
+     "w": "look",
+     "start": 104.3,
+     "end": 104.494
+    },
+    {
+     "w": "like?",
+     "start": 104.494,
+     "end": 104.991
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "scene": "day",
+   "who": "A",
+   "text": "Seven A.M. Your morning brief. Three meetings, two urgent emails.",
+   "cap": "7:00 · Your MORNING BRIEF.",
+   "start": 105.475,
+   "end": 109.375,
+   "words": [
+    {
+     "w": "Seven",
+     "start": 105.475,
+     "end": 105.799
+    },
+    {
+     "w": "A.M.",
+     "start": 105.799,
+     "end": 106.08
+    },
+    {
+     "w": "Your",
+     "start": 106.08,
+     "end": 106.36
+    },
+    {
+     "w": "morning",
+     "start": 106.36,
+     "end": 106.772
+    },
+    {
+     "w": "brief.",
+     "start": 106.772,
+     "end": 107.14
+    },
+    {
+     "w": "Three",
+     "start": 107.14,
+     "end": 107.464
+    },
+    {
+     "w": "meetings,",
+     "start": 107.464,
+     "end": 107.92
+    },
+    {
+     "w": "two",
+     "start": 108.358,
+     "end": 108.595
+    },
+    {
+     "w": "urgent",
+     "start": 108.595,
+     "end": 108.963
+    },
+    {
+     "w": "emails.",
+     "start": 108.963,
+     "end": 109.375
+    }
+   ]
+  },
+  {
+   "id": "d3",
+   "scene": "day",
+   "who": "A",
+   "text": "Ten A.M. An invoice email lands, and the agent drafts a reply.",
+   "cap": "10:00 · It DRAFTS A REPLY.",
+   "start": 109.788,
+   "end": 113.771,
+   "words": [
+    {
+     "w": "Ten",
+     "start": 109.788,
+     "end": 110.028
+    },
+    {
+     "w": "A.M.",
+     "start": 110.028,
+     "end": 110.314
+    },
+    {
+     "w": "An",
+     "start": 110.314,
+     "end": 110.51
+    },
+    {
+     "w": "invoice",
+     "start": 110.51,
+     "end": 110.928
+    },
+    {
+     "w": "email",
+     "start": 110.928,
+     "end": 111.258
+    },
+    {
+     "w": "lands,",
+     "start": 111.258,
+     "end": 111.588
+    },
+    {
+     "w": "and",
+     "start": 112.033,
+     "end": 112.274
+    },
+    {
+     "w": "the",
+     "start": 112.274,
+     "end": 112.515
+    },
+    {
+     "w": "agent",
+     "start": 112.515,
+     "end": 112.844
+    },
+    {
+     "w": "drafts",
+     "start": 112.844,
+     "end": 113.219
+    },
+    {
+     "w": "a",
+     "start": 113.219,
+     "end": 113.397
+    },
+    {
+     "w": "reply.",
+     "start": 113.397,
+     "end": 113.771
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "scene": "day",
+   "who": "A",
+   "text": "But before sending, it asks you. Send this? You tap approve.",
+   "cap": "SEND THIS? You tap APPROVE.",
+   "start": 114.254,
+   "end": 117.092,
+   "words": [
+    {
+     "w": "But",
+     "start": 114.254,
+     "end": 114.416
+    },
+    {
+     "w": "before",
+     "start": 114.416,
+     "end": 114.669
+    },
+    {
+     "w": "sending,",
+     "start": 114.669,
+     "end": 114.952
+    },
+    {
+     "w": "it",
+     "start": 115.252,
+     "end": 115.384
+    },
+    {
+     "w": "asks",
+     "start": 115.384,
+     "end": 115.577
+    },
+    {
+     "w": "you.",
+     "start": 115.577,
+     "end": 115.769
+    },
+    {
+     "w": "Send",
+     "start": 115.769,
+     "end": 115.962
+    },
+    {
+     "w": "this?",
+     "start": 115.962,
+     "end": 116.154
+    },
+    {
+     "w": "You",
+     "start": 116.455,
+     "end": 116.617
+    },
+    {
+     "w": "tap",
+     "start": 116.617,
+     "end": 116.779
+    },
+    {
+     "w": "approve.",
+     "start": 116.779,
+     "end": 117.092
+    }
+   ]
+  },
+  {
+   "id": "d5",
+   "scene": "day",
+   "who": "B",
+   "text": "Oh. So I'm still the boss.",
+   "cap": "So I'm still THE BOSS.",
+   "start": 117.592,
+   "end": 118.851,
+   "words": [
+    {
+     "w": "Oh.",
+     "start": 117.592,
+     "end": 117.784
+    },
+    {
+     "w": "So",
+     "start": 117.784,
+     "end": 117.941
+    },
+    {
+     "w": "I'm",
+     "start": 117.941,
+     "end": 118.133
+    },
+    {
+     "w": "still",
+     "start": 118.133,
+     "end": 118.396
+    },
+    {
+     "w": "the",
+     "start": 118.396,
+     "end": 118.588
+    },
+    {
+     "w": "boss.",
+     "start": 118.588,
+     "end": 118.851
+    }
+   ]
+  },
+  {
+   "id": "t1",
+   "scene": "safety",
+   "who": "A",
+   "text": "Exactly. That's the big trade-off. Duet pauses for approval before payments, signing documents, or deleting things.",
+   "cap": "It PAUSES before PAYING, SIGNING, DELETING.",
+   "start": 119.284,
+   "end": 126.194,
+   "words": [
+    {
+     "w": "Exactly.",
+     "start": 119.284,
+     "end": 119.744
+    },
+    {
+     "w": "That's",
+     "start": 119.744,
+     "end": 120.115
+    },
+    {
+     "w": "the",
+     "start": 120.115,
+     "end": 120.354
+    },
+    {
+     "w": "big",
+     "start": 120.354,
+     "end": 120.592
+    },
+    {
+     "w": "trade-off.",
+     "start": 120.592,
+     "end": 121.14
+    },
+    {
+     "w": "Duet",
+     "start": 121.14,
+     "end": 121.423
+    },
+    {
+     "w": "pauses",
+     "start": 121.423,
+     "end": 121.794
+    },
+    {
+     "w": "for",
+     "start": 121.794,
+     "end": 122.032
+    },
+    {
+     "w": "approval",
+     "start": 122.032,
+     "end": 122.492
+    },
+    {
+     "w": "before",
+     "start": 122.492,
+     "end": 122.863
+    },
+    {
+     "w": "payments,",
+     "start": 122.863,
+     "end": 123.323
+    },
+    {
+     "w": "signing",
+     "start": 123.764,
+     "end": 124.18
+    },
+    {
+     "w": "documents,",
+     "start": 124.18,
+     "end": 124.683
+    },
+    {
+     "w": "or",
+     "start": 125.125,
+     "end": 125.32
+    },
+    {
+     "w": "deleting",
+     "start": 125.32,
+     "end": 125.779
+    },
+    {
+     "w": "things.",
+     "start": 125.779,
+     "end": 126.194
+    }
+   ]
+  },
+  {
+   "id": "t2",
+   "scene": "safety",
+   "who": "A",
+   "text": "Some actions stay blocked even if you approve, like moving money. And purchases use a one-time card.",
+   "cap": "MOVING MONEY stays BLOCKED. ONE-TIME CARDS.",
+   "start": 126.648,
+   "end": 132.544,
+   "words": [
+    {
+     "w": "Some",
+     "start": 126.648,
+     "end": 126.929
+    },
+    {
+     "w": "actions",
+     "start": 126.929,
+     "end": 127.341
+    },
+    {
+     "w": "stay",
+     "start": 127.341,
+     "end": 127.622
+    },
+    {
+     "w": "blocked",
+     "start": 127.622,
+     "end": 128.034
+    },
+    {
+     "w": "even",
+     "start": 128.034,
+     "end": 128.315
+    },
+    {
+     "w": "if",
+     "start": 128.315,
+     "end": 128.508
+    },
+    {
+     "w": "you",
+     "start": 128.508,
+     "end": 128.745
+    },
+    {
+     "w": "approve,",
+     "start": 128.745,
+     "end": 129.157
+    },
+    {
+     "w": "like",
+     "start": 129.596,
+     "end": 129.877
+    },
+    {
+     "w": "moving",
+     "start": 129.877,
+     "end": 130.245
+    },
+    {
+     "w": "money.",
+     "start": 130.245,
+     "end": 130.614
+    },
+    {
+     "w": "And",
+     "start": 130.614,
+     "end": 130.851
+    },
+    {
+     "w": "purchases",
+     "start": 130.851,
+     "end": 131.351
+    },
+    {
+     "w": "use",
+     "start": 131.351,
+     "end": 131.588
+    },
+    {
+     "w": "a",
+     "start": 131.588,
+     "end": 131.763
+    },
+    {
+     "w": "one-time",
+     "start": 131.763,
+     "end": 132.22
+    },
+    {
+     "w": "card.",
+     "start": 132.22,
+     "end": 132.544
+    }
+   ]
+  },
+  {
+   "id": "t3",
+   "scene": "safety",
+   "who": "B",
+   "text": "What can still go wrong?",
+   "cap": "What can GO WRONG?",
+   "start": 133.054,
+   "end": 134.091,
+   "words": [
+    {
+     "w": "What",
+     "start": 133.054,
+     "end": 133.216
+    },
+    {
+     "w": "can",
+     "start": 133.216,
+     "end": 133.353
+    },
+    {
+     "w": "still",
+     "start": 133.353,
+     "end": 133.54
+    },
+    {
+     "w": "go",
+     "start": 133.54,
+     "end": 133.651
+    },
+    {
+     "w": "wrong?",
+     "start": 133.651,
+     "end": 134.091
+    }
+   ]
+  },
+  {
+   "id": "t4",
+   "scene": "safety",
+   "who": "A",
+   "text": "It can misjudge what's urgent. Emails it reads could try to trick it. And background work still uses your plan's limits.",
+   "cap": "Misjudged URGENCY. TRICK EMAILS. USAGE LIMITS.",
+   "start": 134.578,
+   "end": 141.426,
+   "words": [
+    {
+     "w": "It",
+     "start": 134.578,
+     "end": 134.778
+    },
+    {
+     "w": "can",
+     "start": 134.778,
+     "end": 135.024
+    },
+    {
+     "w": "misjudge",
+     "start": 135.024,
+     "end": 135.498
+    },
+    {
+     "w": "what's",
+     "start": 135.498,
+     "end": 135.88
+    },
+    {
+     "w": "urgent.",
+     "start": 135.88,
+     "end": 136.308
+    },
+    {
+     "w": "Emails",
+     "start": 136.308,
+     "end": 136.691
+    },
+    {
+     "w": "it",
+     "start": 136.691,
+     "end": 136.891
+    },
+    {
+     "w": "reads",
+     "start": 136.891,
+     "end": 137.228
+    },
+    {
+     "w": "could",
+     "start": 137.228,
+     "end": 137.565
+    },
+    {
+     "w": "try",
+     "start": 137.565,
+     "end": 137.811
+    },
+    {
+     "w": "to",
+     "start": 137.811,
+     "end": 138.011
+    },
+    {
+     "w": "trick",
+     "start": 138.011,
+     "end": 138.348
+    },
+    {
+     "w": "it.",
+     "start": 138.348,
+     "end": 138.594
+    },
+    {
+     "w": "And",
+     "start": 138.594,
+     "end": 138.84
+    },
+    {
+     "w": "background",
+     "start": 138.84,
+     "end": 139.404
+    },
+    {
+     "w": "work",
+     "start": 139.404,
+     "end": 139.696
+    },
+    {
+     "w": "still",
+     "start": 139.696,
+     "end": 140.033
+    },
+    {
+     "w": "uses",
+     "start": 140.033,
+     "end": 140.324
+    },
+    {
+     "w": "your",
+     "start": 140.324,
+     "end": 140.615
+    },
+    {
+     "w": "plan's",
+     "start": 140.615,
+     "end": 140.998
+    },
+    {
+     "w": "limits.",
+     "start": 140.998,
+     "end": 141.426
+    }
+   ]
+  },
+  {
+   "id": "q4",
+   "scene": "quiz2",
+   "who": "B",
+   "text": "Last quiz! Before signing a document for you, an agent should do what?",
+   "cap": "QUIZ: before SIGNING, it should...",
+   "start": 141.874,
+   "end": 145.641,
+   "words": [
+    {
+     "w": "Last",
+     "start": 141.874,
+     "end": 142.08
+    },
+    {
+     "w": "quiz!",
+     "start": 142.08,
+     "end": 142.287
+    },
+    {
+     "w": "Before",
+     "start": 142.609,
+     "end": 142.88
+    },
+    {
+     "w": "signing",
+     "start": 142.88,
+     "end": 143.183
+    },
+    {
+     "w": "a",
+     "start": 143.183,
+     "end": 143.312
+    },
+    {
+     "w": "document",
+     "start": 143.312,
+     "end": 143.648
+    },
+    {
+     "w": "for",
+     "start": 143.648,
+     "end": 143.822
+    },
+    {
+     "w": "you,",
+     "start": 143.822,
+     "end": 143.996
+    },
+    {
+     "w": "an",
+     "start": 144.319,
+     "end": 144.461
+    },
+    {
+     "w": "agent",
+     "start": 144.461,
+     "end": 144.699
+    },
+    {
+     "w": "should",
+     "start": 144.699,
+     "end": 144.97
+    },
+    {
+     "w": "do",
+     "start": 144.97,
+     "end": 145.112
+    },
+    {
+     "w": "what?",
+     "start": 145.112,
+     "end": 145.641
+    }
+   ]
+  },
+  {
+   "id": "q5",
+   "scene": "quiz2",
+   "who": "A",
+   "text": "Pause and guess. A, B, or C.",
+   "cap": "PAUSE and guess. A, B or C?",
+   "start": 146.092,
+   "end": 147.75,
+   "words": [
+    {
+     "w": "Pause",
+     "start": 146.092,
+     "end": 146.303
+    },
+    {
+     "w": "and",
+     "start": 146.303,
+     "end": 146.458
+    },
+    {
+     "w": "guess.",
+     "start": 146.458,
+     "end": 146.698
+    },
+    {
+     "w": "A,",
+     "start": 146.698,
+     "end": 146.812
+    },
+    {
+     "w": "B,",
+     "start": 147.098,
+     "end": 147.212
+    },
+    {
+     "w": "or",
+     "start": 147.498,
+     "end": 147.624
+    },
+    {
+     "w": "C.",
+     "start": 147.624,
+     "end": 147.75
+    }
+   ]
+  },
+  {
+   "id": "q6",
+   "scene": "quiz2",
+   "who": "A",
+   "text": "B. Pause and ask you. Big actions always need your yes.",
+   "cap": "B! Big actions need YOUR YES.",
+   "start": 150.509,
+   "end": 153.667,
+   "words": [
+    {
+     "w": "B.",
+     "start": 150.509,
+     "end": 150.703
+    },
+    {
+     "w": "Pause",
+     "start": 150.703,
+     "end": 151.031
+    },
+    {
+     "w": "and",
+     "start": 151.031,
+     "end": 151.269
+    },
+    {
+     "w": "ask",
+     "start": 151.269,
+     "end": 151.508
+    },
+    {
+     "w": "you.",
+     "start": 151.508,
+     "end": 151.791
+    },
+    {
+     "w": "Big",
+     "start": 151.791,
+     "end": 152.03
+    },
+    {
+     "w": "actions",
+     "start": 152.03,
+     "end": 152.446
+    },
+    {
+     "w": "always",
+     "start": 152.446,
+     "end": 152.818
+    },
+    {
+     "w": "need",
+     "start": 152.818,
+     "end": 153.101
+    },
+    {
+     "w": "your",
+     "start": 153.101,
+     "end": 153.384
+    },
+    {
+     "w": "yes.",
+     "start": 153.384,
+     "end": 153.667
+    }
+   ]
+  },
+  {
+   "id": "o1",
+   "scene": "outro",
+   "who": "B",
+   "text": "So: a goal, a trigger, an action, and a check-in.",
+   "cap": "GOAL. TRIGGER. ACT. CHECK IN.",
+   "start": 154.076,
+   "end": 156.47,
+   "words": [
+    {
+     "w": "So:",
+     "start": 154.076,
+     "end": 154.18
+    },
+    {
+     "w": "a",
+     "start": 154.415,
+     "end": 154.509
+    },
+    {
+     "w": "goal,",
+     "start": 154.509,
+     "end": 154.659
+    },
+    {
+     "w": "a",
+     "start": 154.895,
+     "end": 154.989
+    },
+    {
+     "w": "trigger,",
+     "start": 154.989,
+     "end": 155.21
+    },
+    {
+     "w": "an",
+     "start": 155.445,
+     "end": 155.548
+    },
+    {
+     "w": "action,",
+     "start": 155.548,
+     "end": 155.746
+    },
+    {
+     "w": "and",
+     "start": 155.981,
+     "end": 156.108
+    },
+    {
+     "w": "a",
+     "start": 156.108,
+     "end": 156.202
+    },
+    {
+     "w": "check-in.",
+     "start": 156.202,
+     "end": 156.47
+    }
+   ]
+  },
+  {
+   "id": "o2",
+   "scene": "outro",
+   "who": "A",
+   "text": "That's always-on AI. Next up: G.E.O., how to get your business recommended by AI search. Follow so you don't miss it.",
+   "cap": "Next: GEO. FOLLOW for more.",
+   "start": 156.961,
+   "end": 164.59,
+   "words": [
+    {
+     "w": "That's",
+     "start": 156.961,
+     "end": 157.349
+    },
+    {
+     "w": "always-on",
+     "start": 157.349,
+     "end": 157.874
+    },
+    {
+     "w": "AI.",
+     "start": 157.874,
+     "end": 158.124
+    },
+    {
+     "w": "Next",
+     "start": 158.124,
+     "end": 158.419
+    },
+    {
+     "w": "up:",
+     "start": 158.419,
+     "end": 158.622
+    },
+    {
+     "w": "G.E.O.,",
+     "start": 159.083,
+     "end": 159.47
+    },
+    {
+     "w": "how",
+     "start": 159.932,
+     "end": 160.181
+    },
+    {
+     "w": "to",
+     "start": 160.181,
+     "end": 160.384
+    },
+    {
+     "w": "get",
+     "start": 160.384,
+     "end": 160.633
+    },
+    {
+     "w": "your",
+     "start": 160.633,
+     "end": 160.928
+    },
+    {
+     "w": "business",
+     "start": 160.928,
+     "end": 161.408
+    },
+    {
+     "w": "recommended",
+     "start": 161.408,
+     "end": 162.026
+    },
+    {
+     "w": "by",
+     "start": 162.026,
+     "end": 162.229
+    },
+    {
+     "w": "AI",
+     "start": 162.229,
+     "end": 162.432
+    },
+    {
+     "w": "search.",
+     "start": 162.432,
+     "end": 162.865
+    },
+    {
+     "w": "Follow",
+     "start": 162.865,
+     "end": 163.253
+    },
+    {
+     "w": "so",
+     "start": 163.253,
+     "end": 163.456
+    },
+    {
+     "w": "you",
+     "start": 163.456,
+     "end": 163.705
+    },
+    {
+     "w": "don't",
+     "start": 163.705,
+     "end": 164.046
+    },
+    {
+     "w": "miss",
+     "start": 164.046,
+     "end": 164.341
+    },
+    {
+     "w": "it.",
+     "start": 164.341,
+     "end": 164.59
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "explainer-engine",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic GSAP/SVG explainer renderer: headless Edge seeks a timeline frame by frame and pipes to ffmpeg.",
+  "dependencies": {
+    "gsap": "3.13.0",
+    "playwright-core": "1.63.0",
+    "ffmpeg-static": "5.2.0"
+  }
+}
