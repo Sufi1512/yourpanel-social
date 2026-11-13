@@ -88,8 +88,10 @@
         "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-13-browser-terminal/slide3.jpg"
       ],
       "caption": "A root terminal in your browser 💻\n\nNo SSH client, no keys on your laptop. And built with guardrails:\n✅ Admins only, every session audited\n✅ 30-minute idle timeout\n✅ Can be turned off per server\n✅ Runs over the agent's outbound connection: still no inbound ports\n\nStart free, no card needed 👉 link in bio\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #terminal #ssh",
-      "status": "approved",
-      "note": "Approved by owner on 2026-11-07."
+      "status": "published",
+      "note": "Approved by owner on 2026-11-07.",
+      "media_id": "18105376250038280",
+      "permalink": "https://www.instagram.com/p/Dfr_9_6DaG0/"
     },
     {
       "date": "2026-11-14",
