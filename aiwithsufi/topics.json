@@ -69,7 +69,8 @@
    "plan_approved": "2026-11-13",
    "engine": "explainer-engine (GSAP/HTML) + explainer-saas-ui UI mocks",
    "video": "aiwithsufi/reels/2026-11-13-always-on-agents/reel.mp4",
-   "source": "aiwithsufi/reels_src/2026-11-13-always-on-agents/"
+   "source": "aiwithsufi/reels_src/2026-11-13-always-on-agents/",
+   "variant": "narrated story \"The Night Shift\" (~2 min, no on-screen hosts), approved 2026-11-13 in place of the Riya/Arjun discussion cut"
   },
   {
    "slug": "geo-ai-search",

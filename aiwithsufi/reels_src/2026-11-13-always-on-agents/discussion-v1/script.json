@@ -1,0 +1,56 @@
+{
+ "title": "Always-on AI",
+ "date": "2026-11-13",
+ "next": "GEO: how to get your business recommended by AI search",
+ "style": "glow_sketch",
+ "speed": 1.05,
+ "lead": 0.5,
+ "tail": 1.4,
+ "gap": 0.3,
+ "speakers": {"A": {"name": "Arjun", "voice": "am_fenrir"}, "B": {"name": "Riya", "voice": "af_heart"}},
+ "scenes": [
+  {"id": "hook", "type": "hook", "lines": [
+   {"id": "h1", "who": "B", "vo": "Wait. An AI that texts me first? Without me asking anything?", "cap": "An AI that TEXTS ME FIRST?"},
+   {"id": "h2", "who": "A", "vo": "That's always-on AI. Agents that keep working in the background, and check in when something needs you.", "cap": "That's ALWAYS-ON AI. It works in the BACKGROUND."},
+   {"id": "h3", "who": "B", "vo": "Okay, I need to understand this. Let's go.", "cap": "Okay. LET'S GO."}]},
+  {"id": "compare", "type": "compare", "label": "1 · CHATBOT VS ALWAYS-ON", "lines": [
+   {"id": "c1", "who": "A", "vo": "A normal chatbot is reactive. It waits for your prompt, answers, and then it just stops.", "cap": "A chatbot is REACTIVE. It waits, answers, STOPS."},
+   {"id": "c2", "who": "B", "vo": "So if I close the app, nothing happens.", "cap": "Close the app, NOTHING happens?"},
+   {"id": "c3", "who": "A", "vo": "Exactly. An always-on agent is proactive. You give it a goal once. It watches for triggers, it acts, and it checks in with you.", "cap": "An agent is PROACTIVE: GOAL, TRIGGERS, ACT, CHECK IN."}]},
+  {"id": "loop", "type": "cycle", "label": "2 · HOW IT WORKS", "lines": [
+   {"id": "l1", "who": "B", "vo": "Triggers? Like what?", "cap": "TRIGGERS? Like what?"},
+   {"id": "l2", "who": "A", "vo": "A schedule, like every morning at seven. A new email. A change in some data. Anything that says: time to work.", "cap": "A SCHEDULE. A NEW EMAIL. A DATA CHANGE."},
+   {"id": "l3", "who": "A", "vo": "Then it loops. Trigger, think, act, check in. And then it goes back to watching.", "cap": "TRIGGER, THINK, ACT, CHECK IN. Repeat."},
+   {"id": "l4", "who": "B", "vo": "And where is it doing all this? On my laptop?", "cap": "Where does it run? My LAPTOP?"},
+   {"id": "l5", "who": "A", "vo": "Usually in the cloud. So you can close your laptop, and it keeps going.", "cap": "In the CLOUD. Close your laptop, it KEEPS GOING."}]},
+  {"id": "quiz1", "type": "quiz", "label": "QUIZ 1", "question": "Your laptop is closed. Where does an always-on agent keep working?", "options": ["On your phone", "In the cloud", "It pauses"], "answer": 1, "lines": [
+   {"id": "q1", "who": "B", "vo": "Quiz time! Your laptop is closed. Where does an always-on agent keep working?", "cap": "QUIZ: laptop closed. Where does it WORK?"},
+   {"id": "q2", "who": "A", "vo": "Pause the video and guess. A, B, or C.", "cap": "PAUSE and guess. A, B or C?"},
+   {"id": "q3", "who": "A", "vo": "It's B, the cloud. Some agents even get their own virtual computer and browser.", "cap": "B! The CLOUD, on its OWN COMPUTER.", "gap": 2.6}]},
+  {"id": "launches", "type": "launches", "label": "3 · IT'S ALREADY HERE", "lines": [
+   {"id": "r1", "who": "B", "vo": "Is this real yet, or just a demo?", "cap": "Is this REAL yet?"},
+   {"id": "r2", "who": "A", "vo": "It's real. On September twenty-ninth, OpenAI launched dots. Always-on agents in ChatGPT that work on your goals in the background.", "cap": "Sept 29: OpenAI launched DOTS."},
+   {"id": "r3", "who": "A", "vo": "You can message them in Slack or Teams. OpenAI's example: a developer's dot watches customer feedback, and fixes bugs.", "cap": "Message them in SLACK or TEAMS."},
+   {"id": "r4", "who": "B", "vo": "And Anthropic?", "cap": "And ANTHROPIC?"},
+   {"id": "r5", "who": "A", "vo": "In late October, Anthropic previewed Claude Duet. It sends you a morning brief from your email and calendar, and checks your accounts every few hours.", "cap": "CLAUDE DUET: a MORNING BRIEF, checks every few hours."},
+   {"id": "r6", "who": "A", "vo": "It runs on its own cloud computer, with its own browser. For now, it's a preview for Pro and Max users in the US, by waitlist.", "cap": "Its OWN CLOUD COMPUTER. Preview, US WAITLIST."}]},
+  {"id": "day", "type": "day", "label": "4 · A DAY WITH AN AGENT", "lines": [
+   {"id": "d1", "who": "B", "vo": "So what does a day with one actually look like?", "cap": "What does a DAY look like?"},
+   {"id": "d2", "who": "A", "vo": "Seven A.M. Your morning brief. Three meetings, two urgent emails.", "cap": "7:00 · Your MORNING BRIEF."},
+   {"id": "d3", "who": "A", "vo": "Ten A.M. An invoice email lands, and the agent drafts a reply.", "cap": "10:00 · It DRAFTS A REPLY."},
+   {"id": "d4", "who": "A", "vo": "But before sending, it asks you. Send this? You tap approve.", "cap": "SEND THIS? You tap APPROVE."},
+   {"id": "d5", "who": "B", "vo": "Oh. So I'm still the boss.", "cap": "So I'm still THE BOSS."}]},
+  {"id": "safety", "type": "list", "label": "5 · THE TRADE-OFFS", "lines": [
+   {"id": "t1", "who": "A", "vo": "Exactly. That's the big trade-off. Duet pauses for approval before payments, signing documents, or deleting things.", "cap": "It PAUSES before PAYING, SIGNING, DELETING."},
+   {"id": "t2", "who": "A", "vo": "Some actions stay blocked even if you approve, like moving money. And purchases use a one-time card.", "cap": "MOVING MONEY stays BLOCKED. ONE-TIME CARDS."},
+   {"id": "t3", "who": "B", "vo": "What can still go wrong?", "cap": "What can GO WRONG?"},
+   {"id": "t4", "who": "A", "vo": "It can misjudge what's urgent. Emails it reads could try to trick it. And background work still uses your plan's limits.", "cap": "Misjudged URGENCY. TRICK EMAILS. USAGE LIMITS."}]},
+  {"id": "quiz2", "type": "quiz", "label": "QUIZ 2", "question": "Before signing a document for you, an agent should...", "options": ["Sign it fast", "Pause and ask you", "Wait a week"], "answer": 1, "lines": [
+   {"id": "q4", "who": "B", "vo": "Last quiz! Before signing a document for you, an agent should do what?", "cap": "QUIZ: before SIGNING, it should..."},
+   {"id": "q5", "who": "A", "vo": "Pause and guess. A, B, or C.", "cap": "PAUSE and guess. A, B or C?"},
+   {"id": "q6", "who": "A", "vo": "B. Pause and ask you. Big actions always need your yes.", "cap": "B! Big actions need YOUR YES.", "gap": 2.6}]},
+  {"id": "outro", "type": "outro", "recap": ["Goal", "Trigger", "Act", "Check in"], "lines": [
+   {"id": "o1", "who": "B", "vo": "So: a goal, a trigger, an action, and a check-in.", "cap": "GOAL. TRIGGER. ACT. CHECK IN."},
+   {"id": "o2", "who": "A", "vo": "That's always-on AI. Next up: G.E.O., how to get your business recommended by AI search. Follow so you don't miss it.", "cap": "Next: GEO. FOLLOW for more."}]}
+ ]
+}
