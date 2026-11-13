@@ -1,249 +1,253 @@
 {
- "note": "Explainer queue for @aiwithsufi. Format alternates daily: Reel on days where (date - 2026-11-09) is an even number of days, carousel post on odd days (Mon 9 Nov Reel, Tue 10 Nov post, ...). The evening planning task proposes the next day's topic (from this queue or a new trending concept), gets the plan approved, builds it, gets the result approved, then posts at 5:00 PM Riyadh. status: todo -> planned -> ready -> approved -> posted. Entries with a 'date' are the default proposal for that day; the evening task may propose a trending alternative, which Sufi must approve.",
- "topics": [
-  {
-   "slug": "ai-agents",
-   "title": "AI Agents",
-   "status": "posted",
-   "script": "aiwithsufi/scripts/2026-11-09-ai-agents-deep.json",
-   "video": "aiwithsufi/reels/2026-11-09-ai-agents/reel.mp4",
-   "format": "reel",
-   "date": "2026-11-09",
-   "note": "deep-dive discussion version approved by Sufi on 2026-11-08",
-   "media_id": "18085666286356820",
-   "posted_on": "2026-11-09"
-  },
-  {
-   "slug": "agent-skills",
-   "title": "Agent Skills: how AI learns a new job from a folder",
-   "date": "2026-11-10",
-   "format": "post",
-   "status": "todo",
-   "angle": "What a skill is (a folder with instructions + scripts the agent loads when needed); why it beats one giant prompt; example skill; Anthropic donated the Agent Skills standard to the Agentic AI Foundation (AAIF), so it is becoming an open standard.",
-   "sources": [
-    "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
-    "https://agentskills.io/home",
-    "https://www.oreilly.com/radar/radar-trends-to-watch-november-2026/"
-   ]
-  },
-  {
-   "slug": "brain-scan-ai",
-   "title": "Can AI read your mind? Rebuilding what you see from brain scans",
-   "date": "2026-11-11",
-   "format": "reel",
-   "status": "posted",
-   "angle": "Brain scan while a person looks at images -> model learns the mapping -> reconstructs a new image; what it can and cannot do; privacy concerns. Verify every claim on the MIT Technology Review article / the paper.",
-   "sources": [
-    "https://www.technologyreview.com/2026/10/01/1145588/ai-mind-reading-reconstructs-what-youre-looking-at/"
-   ],
-   "script": "scripts/2026-11-11-ai-mind-reading.json",
-   "video": "reels/2026-11-11-ai-mind-reading/reel.mp4",
-   "media_sha": "01afed84aaa16794caecab7320ed8399ae3aa68a",
-   "media_id": "18120762670983195",
-   "posted_on": "2026-11-11"
-  },
-  {
-   "slug": "agent-prompt-injection",
-   "title": "How AI agents get hacked (prompt injection)",
-   "date": "2026-11-12",
-   "format": "post",
-   "status": "todo",
-   "angle": "Agents read files and web pages and can't always tell data from instructions; real example: malicious AGENTS.md files in Downloads folders made agents install a malicious NPM package; 5 safety habits (separate working folders, approve installs, least-privilege tools, review actions, trusted sources).",
-   "sources": [
-    "https://www.oreilly.com/radar/radar-trends-to-watch-november-2026/"
-   ]
-  },
-  {
-   "slug": "always-on-agents",
-   "title": "Always-on AI: agents that work without being asked",
-   "date": "2026-11-13",
-   "format": "reel",
-   "status": "todo",
-   "angle": "Reactive chat vs proactive agents that run in the cloud, watch for triggers and act; OpenAI dots (always on, own browser and tools); what this means and the approval/safety trade-offs. Verify launches on primary sources before using them.",
-   "sources": [
-    "https://openai.com/index/introducing-dots/",
-    "https://www.oreilly.com/radar/radar-trends-to-watch-november-2026/"
-   ]
-  },
-  {
-   "slug": "geo-ai-search",
-   "title": "GEO: how to get your business recommended by AI search",
-   "date": "2026-11-14",
-   "format": "post",
-   "status": "todo",
-   "angle": "Search is moving into AI answers; what generative engine optimization is; Google's 2026 guide calling AEO/GEO 'still SEO'; practical checklist (clear facts, structured pages, reviews, cited sources).",
-   "sources": [
-    "https://en.wikipedia.org/wiki/Generative_engine_optimization",
-    "https://www.searchenginejournal.com/googles-new-ai-search-guide-calls-aeo-and-geo-still-seo/575026/"
-   ]
-  },
-  {
-   "slug": "ai-on-your-phone",
-   "title": "A 24-billion-parameter AI on your phone: how AI got small",
-   "date": "2026-11-15",
-   "format": "reel",
-   "status": "todo",
-   "angle": "Why big models used to need data centres; compression/quantization (Gemma 4 E4B shrunk to 5 GB); mixture-of-experts with few active parameters (Liquid LFM2.5-24B-A2B: 24B total, 2B active); benefits: privacy, offline, speed.",
-   "sources": [
-    "https://alphasignal.ai/news/google-deepmind-shrinks-gemma-4-e4b-to-5gb-without-losing-reasoning-power",
-    "https://www.liquid.ai/blog/lfm2-5-24b-a2b"
-   ]
-  },
-  {
-   "slug": "reasoning-effort",
-   "title": "The 'think harder' dial: reasoning effort settings",
-   "status": "todo",
-   "angle": "why models now let you choose how long they reason; cost/latency trade-off"
-  },
-  {
-   "slug": "world-models",
-   "title": "World models: AI that simulates whole worlds",
-   "status": "todo",
-   "angle": "models that generate interactive worlds that remember what happened; uses in games and robotics"
-  },
-  {
-   "slug": "ai-shopping-agents",
-   "title": "AI shopping agents",
-   "status": "todo",
-   "angle": "agents that compare and buy for you; how stores are opening up to agents"
-  },
-  {
-   "slug": "mcp",
-   "title": "MCP: the USB-C port for AI",
-   "status": "todo",
-   "angle": "N apps x M tools problem -> one standard plug; host, client, server; tools, resources, prompts; example: an assistant reading your files and calendar"
-  },
-  {
-   "slug": "rag",
-   "title": "RAG: how AI reads your documents",
-   "status": "todo",
-   "angle": "why LLMs don't know your data; chunk, embed, store; retrieve top chunks; grounded answer with sources"
-  },
-  {
-   "slug": "vector-databases",
-   "title": "Vector databases",
-   "status": "todo",
-   "angle": "keyword vs meaning search; words as points; nearest neighbours; indexing at scale; uses"
-  },
-  {
-   "slug": "context-window",
-   "title": "Context window",
-   "status": "todo",
-   "angle": "what fits in the model's working memory; tokens; what happens when it's full"
-  },
-  {
-   "slug": "prompt-engineering",
-   "title": "Prompt engineering",
-   "status": "todo",
-   "angle": "role, context, task, format, examples; before/after prompt"
-  },
-  {
-   "slug": "hallucinations",
-   "title": "Why AI hallucinates",
-   "status": "todo",
-   "angle": "next-token prediction guesses; missing knowledge; how RAG, citations and checks reduce it"
-  },
-  {
-   "slug": "fine-tuning-vs-rag",
-   "title": "Fine-tuning vs RAG",
-   "status": "todo",
-   "angle": "teach behaviour vs give knowledge; cost, freshness; when to use which"
-  },
-  {
-   "slug": "multi-agent-systems",
-   "title": "Multi-agent systems",
-   "status": "todo",
-   "angle": "planner, workers, reviewer; hand-offs; example: research report"
-  },
-  {
-   "slug": "embeddings",
-   "title": "Embeddings",
-   "status": "todo",
-   "angle": "meaning as numbers; similarity; king - man + woman"
-  },
-  {
-   "slug": "tokens",
-   "title": "Tokens",
-   "status": "todo",
-   "angle": "how text is split; why pricing and limits use tokens"
-  },
-  {
-   "slug": "function-calling",
-   "title": "Function calling",
-   "status": "todo",
-   "angle": "model outputs a structured call; app runs it; result goes back"
-  },
-  {
-   "slug": "agent-memory",
-   "title": "How AI agents remember",
-   "status": "todo",
-   "angle": "short-term context, long-term store, summaries"
-  },
-  {
-   "slug": "reasoning-models",
-   "title": "Reasoning models",
-   "status": "todo",
-   "angle": "thinking before answering; chain of thought; when it helps"
-  },
-  {
-   "slug": "diffusion-models",
-   "title": "How AI makes images",
-   "status": "todo",
-   "angle": "noise to image step by step; text guidance"
-  },
-  {
-   "slug": "multimodal-ai",
-   "title": "Multimodal AI",
-   "status": "todo",
-   "angle": "text, images, audio in one model; shared embeddings"
-  },
-  {
-   "slug": "rlhf",
-   "title": "RLHF",
-   "status": "todo",
-   "angle": "pre-training, human ratings, reward model, tuning"
-  },
-  {
-   "slug": "lora",
-   "title": "LoRA fine-tuning",
-   "status": "todo",
-   "angle": "small adapter matrices instead of retraining everything"
-  },
-  {
-   "slug": "mixture-of-experts",
-   "title": "Mixture of Experts",
-   "status": "todo",
-   "angle": "router picks a few experts per token; big model, low cost"
-  },
-  {
-   "slug": "quantization",
-   "title": "Quantization",
-   "status": "todo",
-   "angle": "fewer bits per number; smaller, faster, small accuracy cost"
-  },
-  {
-   "slug": "a2a-protocol",
-   "title": "A2A: agents talking to agents",
-   "status": "todo",
-   "angle": "agent cards, tasks, messages; vs MCP"
-  },
-  {
-   "slug": "guardrails",
-   "title": "AI guardrails",
-   "status": "todo",
-   "angle": "input checks, output checks, permissions, human approval"
-  },
-  {
-   "slug": "ai-evals",
-   "title": "How AI is tested (evals)",
-   "status": "todo",
-   "angle": "benchmarks, test sets, LLM-as-judge, why scores mislead"
-  },
-  {
-   "slug": "temperature",
-   "title": "Temperature",
-   "status": "todo",
-   "angle": "probability sampling; creative vs precise"
-  }
- ]
+    "note": "Explainer queue for @aiwithsufi. Format alternates daily: Reel on days where (date - 2026-11-09) is an even number of days, carousel post on odd days (Mon 9 Nov Reel, Tue 10 Nov post, ...). The evening planning task proposes the next day's topic (from this queue or a new trending concept), gets the plan approved, builds it, gets the result approved, then posts at 5:00 PM Riyadh. status: todo -> planned -> ready -> approved -> posted. Entries with a 'date' are the default proposal for that day; the evening task may propose a trending alternative, which Sufi must approve.",
+    "topics": [
+        {
+            "slug": "ai-agents",
+            "title": "AI Agents",
+            "status": "posted",
+            "script": "aiwithsufi/scripts/2026-11-09-ai-agents-deep.json",
+            "video": "aiwithsufi/reels/2026-11-09-ai-agents/reel.mp4",
+            "format": "reel",
+            "date": "2026-11-09",
+            "note": "deep-dive discussion version approved by Sufi on 2026-11-08",
+            "media_id": "18085666286356820",
+            "posted_on": "2026-11-09"
+        },
+        {
+            "slug": "agent-skills",
+            "title": "Agent Skills: how AI learns a new job from a folder",
+            "date": "2026-11-10",
+            "format": "post",
+            "status": "todo",
+            "angle": "What a skill is (a folder with instructions + scripts the agent loads when needed); why it beats one giant prompt; example skill; Anthropic donated the Agent Skills standard to the Agentic AI Foundation (AAIF), so it is becoming an open standard.",
+            "sources": [
+                "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+                "https://agentskills.io/home",
+                "https://www.oreilly.com/radar/radar-trends-to-watch-november-2026/"
+            ]
+        },
+        {
+            "slug": "brain-scan-ai",
+            "title": "Can AI read your mind? Rebuilding what you see from brain scans",
+            "date": "2026-11-11",
+            "format": "reel",
+            "status": "posted",
+            "angle": "Brain scan while a person looks at images -> model learns the mapping -> reconstructs a new image; what it can and cannot do; privacy concerns. Verify every claim on the MIT Technology Review article / the paper.",
+            "sources": [
+                "https://www.technologyreview.com/2026/10/01/1145588/ai-mind-reading-reconstructs-what-youre-looking-at/"
+            ],
+            "script": "scripts/2026-11-11-ai-mind-reading.json",
+            "video": "reels/2026-11-11-ai-mind-reading/reel.mp4",
+            "media_sha": "01afed84aaa16794caecab7320ed8399ae3aa68a",
+            "media_id": "18120762670983195",
+            "posted_on": "2026-11-11"
+        },
+        {
+            "slug": "agent-prompt-injection",
+            "title": "How AI agents get hacked (prompt injection)",
+            "date": "2026-11-12",
+            "format": "post",
+            "status": "todo",
+            "angle": "Agents read files and web pages and can't always tell data from instructions; real example: malicious AGENTS.md files in Downloads folders made agents install a malicious NPM package; 5 safety habits (separate working folders, approve installs, least-privilege tools, review actions, trusted sources).",
+            "sources": [
+                "https://www.oreilly.com/radar/radar-trends-to-watch-november-2026/"
+            ]
+        },
+        {
+            "slug": "always-on-agents",
+            "title": "Always-on AI: agents that work without being asked",
+            "date": "2026-11-13",
+            "format": "reel",
+            "status": "planned",
+            "angle": "Reactive chat vs proactive agents that run in the cloud, watch for triggers and act; OpenAI dots (always on, own browser and tools); what this means and the approval/safety trade-offs. Verify launches on primary sources before using them.",
+            "sources": [
+                "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
+                "https://www.vktr.com/ai-platforms/claude-duet-anthropic-previews-an-ai-agent-that-messages-you-first/",
+                "https://siliconangle.com/?p=851495"
+            ],
+            "style": "glow_sketch",
+            "plan_approved": "2026-11-13",
+            "engine": "explainer-engine (GSAP/HTML) + explainer-saas-ui UI mocks"
+        },
+        {
+            "slug": "geo-ai-search",
+            "title": "GEO: how to get your business recommended by AI search",
+            "date": "2026-11-14",
+            "format": "post",
+            "status": "todo",
+            "angle": "Search is moving into AI answers; what generative engine optimization is; Google's 2026 guide calling AEO/GEO 'still SEO'; practical checklist (clear facts, structured pages, reviews, cited sources).",
+            "sources": [
+                "https://en.wikipedia.org/wiki/Generative_engine_optimization",
+                "https://www.searchenginejournal.com/googles-new-ai-search-guide-calls-aeo-and-geo-still-seo/575026/"
+            ]
+        },
+        {
+            "slug": "ai-on-your-phone",
+            "title": "A 24-billion-parameter AI on your phone: how AI got small",
+            "date": "2026-11-15",
+            "format": "reel",
+            "status": "todo",
+            "angle": "Why big models used to need data centres; compression/quantization (Gemma 4 E4B shrunk to 5 GB); mixture-of-experts with few active parameters (Liquid LFM2.5-24B-A2B: 24B total, 2B active); benefits: privacy, offline, speed.",
+            "sources": [
+                "https://alphasignal.ai/news/google-deepmind-shrinks-gemma-4-e4b-to-5gb-without-losing-reasoning-power",
+                "https://www.liquid.ai/blog/lfm2-5-24b-a2b"
+            ]
+        },
+        {
+            "slug": "reasoning-effort",
+            "title": "The 'think harder' dial: reasoning effort settings",
+            "status": "todo",
+            "angle": "why models now let you choose how long they reason; cost/latency trade-off"
+        },
+        {
+            "slug": "world-models",
+            "title": "World models: AI that simulates whole worlds",
+            "status": "todo",
+            "angle": "models that generate interactive worlds that remember what happened; uses in games and robotics"
+        },
+        {
+            "slug": "ai-shopping-agents",
+            "title": "AI shopping agents",
+            "status": "todo",
+            "angle": "agents that compare and buy for you; how stores are opening up to agents"
+        },
+        {
+            "slug": "mcp",
+            "title": "MCP: the USB-C port for AI",
+            "status": "todo",
+            "angle": "N apps x M tools problem -> one standard plug; host, client, server; tools, resources, prompts; example: an assistant reading your files and calendar"
+        },
+        {
+            "slug": "rag",
+            "title": "RAG: how AI reads your documents",
+            "status": "todo",
+            "angle": "why LLMs don't know your data; chunk, embed, store; retrieve top chunks; grounded answer with sources"
+        },
+        {
+            "slug": "vector-databases",
+            "title": "Vector databases",
+            "status": "todo",
+            "angle": "keyword vs meaning search; words as points; nearest neighbours; indexing at scale; uses"
+        },
+        {
+            "slug": "context-window",
+            "title": "Context window",
+            "status": "todo",
+            "angle": "what fits in the model's working memory; tokens; what happens when it's full"
+        },
+        {
+            "slug": "prompt-engineering",
+            "title": "Prompt engineering",
+            "status": "todo",
+            "angle": "role, context, task, format, examples; before/after prompt"
+        },
+        {
+            "slug": "hallucinations",
+            "title": "Why AI hallucinates",
+            "status": "todo",
+            "angle": "next-token prediction guesses; missing knowledge; how RAG, citations and checks reduce it"
+        },
+        {
+            "slug": "fine-tuning-vs-rag",
+            "title": "Fine-tuning vs RAG",
+            "status": "todo",
+            "angle": "teach behaviour vs give knowledge; cost, freshness; when to use which"
+        },
+        {
+            "slug": "multi-agent-systems",
+            "title": "Multi-agent systems",
+            "status": "todo",
+            "angle": "planner, workers, reviewer; hand-offs; example: research report"
+        },
+        {
+            "slug": "embeddings",
+            "title": "Embeddings",
+            "status": "todo",
+            "angle": "meaning as numbers; similarity; king - man + woman"
+        },
+        {
+            "slug": "tokens",
+            "title": "Tokens",
+            "status": "todo",
+            "angle": "how text is split; why pricing and limits use tokens"
+        },
+        {
+            "slug": "function-calling",
+            "title": "Function calling",
+            "status": "todo",
+            "angle": "model outputs a structured call; app runs it; result goes back"
+        },
+        {
+            "slug": "agent-memory",
+            "title": "How AI agents remember",
+            "status": "todo",
+            "angle": "short-term context, long-term store, summaries"
+        },
+        {
+            "slug": "reasoning-models",
+            "title": "Reasoning models",
+            "status": "todo",
+            "angle": "thinking before answering; chain of thought; when it helps"
+        },
+        {
+            "slug": "diffusion-models",
+            "title": "How AI makes images",
+            "status": "todo",
+            "angle": "noise to image step by step; text guidance"
+        },
+        {
+            "slug": "multimodal-ai",
+            "title": "Multimodal AI",
+            "status": "todo",
+            "angle": "text, images, audio in one model; shared embeddings"
+        },
+        {
+            "slug": "rlhf",
+            "title": "RLHF",
+            "status": "todo",
+            "angle": "pre-training, human ratings, reward model, tuning"
+        },
+        {
+            "slug": "lora",
+            "title": "LoRA fine-tuning",
+            "status": "todo",
+            "angle": "small adapter matrices instead of retraining everything"
+        },
+        {
+            "slug": "mixture-of-experts",
+            "title": "Mixture of Experts",
+            "status": "todo",
+            "angle": "router picks a few experts per token; big model, low cost"
+        },
+        {
+            "slug": "quantization",
+            "title": "Quantization",
+            "status": "todo",
+            "angle": "fewer bits per number; smaller, faster, small accuracy cost"
+        },
+        {
+            "slug": "a2a-protocol",
+            "title": "A2A: agents talking to agents",
+            "status": "todo",
+            "angle": "agent cards, tasks, messages; vs MCP"
+        },
+        {
+            "slug": "guardrails",
+            "title": "AI guardrails",
+            "status": "todo",
+            "angle": "input checks, output checks, permissions, human approval"
+        },
+        {
+            "slug": "ai-evals",
+            "title": "How AI is tested (evals)",
+            "status": "todo",
+            "angle": "benchmarks, test sets, LLM-as-judge, why scores mislead"
+        },
+        {
+            "slug": "temperature",
+            "title": "Temperature",
+            "status": "todo",
+            "angle": "probability sampling; creative vs precise"
+        }
+    ]
 }
