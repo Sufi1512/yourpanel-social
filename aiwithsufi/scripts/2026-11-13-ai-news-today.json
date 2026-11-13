@@ -1,0 +1,259 @@
+{
+ "title": "AI News Today",
+ "next": "tomorrow's AI news",
+ "date": "2026-11-13",
+ "speed": 1.15,
+ "speakers": {
+  "A": {
+   "name": "Arjun",
+   "voice": "am_fenrir"
+  },
+  "B": {
+   "name": "Riya",
+   "voice": "af_heart"
+  }
+ },
+ "scenes": [
+  {
+   "type": "hook",
+   "chips": [
+    "Nvidia",
+    "OpenAI",
+    "Google"
+   ],
+   "title": "AI NEWS TODAY",
+   "subtitle": "Friday, 13 November 2026",
+   "lines": [
+    {
+     "who": "B",
+     "vo": "Arjun, what happened in AI today?",
+     "cap": "What happened in AI TODAY?"
+    },
+    {
+     "who": "A",
+     "vo": "Six big stories. And the first one shook the whole chip industry.",
+     "cap": "SIX big stories. The first one shook the chip industry."
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "label": "1 · LEADERSHIP",
+   "items": [
+    {
+     "t": "Jensen Huang resigns",
+     "s": "Nvidia CEO for 33 years",
+     "at": 0
+    },
+    {
+     "t": "Colette Kress steps in",
+     "s": "CFO becomes interim CEO",
+     "at": 1
+    }
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "Jensen Huang has resigned as Nvidia's CEO, effective immediately, after thirty three years.",
+     "cap": "JENSEN HUANG resigned as Nvidia CEO after 33 years."
+    },
+    {
+     "who": "B",
+     "vo": "Who runs Nvidia now?",
+     "cap": "Who runs NVIDIA now?"
+    },
+    {
+     "who": "A",
+     "vo": "CFO Colette Kress is interim CEO while the board searches for a successor.",
+     "cap": "CFO COLETTE KRESS is interim CEO for now."
+    }
+   ]
+  },
+  {
+   "type": "bars",
+   "label": "2 · FUNDING",
+   "title": "OpenAI's new round, per CNBC",
+   "bars": [
+    {
+     "t": "First target",
+     "v": 30,
+     "unit": "B"
+    },
+    {
+     "t": "Raised",
+     "v": 15,
+     "unit": "B"
+    }
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "OpenAI is raising fifteen billion dollars at a one point two five trillion dollar valuation, according to CNBC.",
+     "cap": "OpenAI raises $15B at a $1.25 TRILLION valuation."
+    },
+    {
+     "who": "B",
+     "vo": "That's huge. But wasn't the goal thirty billion?",
+     "cap": "Wasn't the goal $30B?"
+    },
+    {
+     "who": "A",
+     "vo": "Right. It's half the target, a bridge to a twenty twenty seven IPO.",
+     "cap": "HALF the target. A bridge to a 2027 IPO."
+    }
+   ]
+  },
+  {
+   "type": "flow",
+   "label": "3 · RESEARCH",
+   "nodes": [
+    {
+     "t": "Your DNA",
+     "s": "a million letters",
+     "at": 0
+    },
+    {
+     "t": "AlphaGenome 2",
+     "s": "Google DeepMind",
+     "at": 0
+    },
+    {
+     "t": "Effect per cell type",
+     "s": "30% causal hits, up from 16%",
+     "at": 1
+    }
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "DeepMind released AlphaGenome 2. It predicts how changes in DNA affect each type of cell.",
+     "cap": "ALPHAGENOME 2 predicts DNA effects CELL BY CELL."
+    },
+    {
+     "who": "A",
+     "vo": "It finds causal variants thirty percent of the time, up from sixteen. Free for research, not for diagnosis.",
+     "cap": "30% causal hits, up from 16%. NOT for diagnosis."
+    }
+   ]
+  },
+  {
+   "type": "compare",
+   "label": "4 · DEV TOOL",
+   "left": "Normal LLM call",
+   "right": "Gemini Decisions API",
+   "rows": [
+    [
+     "writes text",
+     "scores choices"
+    ],
+    [
+     "one question",
+     "up to 1,000"
+    ],
+    [
+     "pays for output",
+     "output is free"
+    ]
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "Google launched the Gemini Decisions API. Instead of writing text, it scores choices.",
+     "cap": "GEMINI DECISIONS API scores choices instead of writing text."
+    },
+    {
+     "who": "B",
+     "vo": "Why would developers want that?",
+     "cap": "Why would DEVELOPERS want that?"
+    },
+    {
+     "who": "A",
+     "vo": "Up to a thousand yes or no questions per request, in about two hundred milliseconds.",
+     "cap": "1,000 questions per request in ~200 MS."
+    }
+   ]
+  },
+  {
+   "type": "hub",
+   "label": "5 · PRODUCT LAUNCH",
+   "center": "ChatGPT",
+   "nodes": [
+    {
+     "t": "Verified profile"
+    },
+    {
+     "t": "Insights"
+    },
+    {
+     "t": "Business Agent"
+    }
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "OpenAI now lets businesses claim a verified profile inside ChatGPT and see how people engage with them.",
+     "cap": "Businesses can claim a VERIFIED PROFILE in ChatGPT."
+    },
+    {
+     "who": "A",
+     "vo": "Some can even build a Business Agent that answers customer questions.",
+     "cap": "Plus a BUSINESS AGENT that answers customers."
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "label": "6 · INDUSTRY",
+   "items": [
+    {
+     "t": "United blocks AI agents",
+     "s": "no bookings by personal AI assistants",
+     "at": 0
+    },
+    {
+     "t": "Why?",
+     "s": "security, accidental buys, check-in rules",
+     "at": 1
+    }
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "And United Airlines is blocking third party AI agents from booking flights.",
+     "cap": "UNITED blocks AI agents from booking flights."
+    },
+    {
+     "who": "B",
+     "vo": "So my AI assistant can't book my trip?",
+     "cap": "My AI assistant can't BOOK MY TRIP?"
+    },
+    {
+     "who": "A",
+     "vo": "Not on United, for now. They cite security and check-in rules.",
+     "cap": "Not for now. SECURITY and CHECK-IN rules."
+    }
+   ]
+  },
+  {
+   "type": "outro",
+   "recap": [
+    "Nvidia CEO exit",
+    "OpenAI $15B",
+    "AlphaGenome 2",
+    "AI agents"
+   ],
+   "lines": [
+    {
+     "who": "B",
+     "vo": "That's a lot for one day!",
+     "cap": "That's a lot for ONE DAY!"
+    },
+    {
+     "who": "A",
+     "vo": "Follow at AI with Sufi for AI news every day.",
+     "cap": "FOLLOW @aiwithsufi for daily AI news."
+    }
+   ]
+  }
+ ]
+}
