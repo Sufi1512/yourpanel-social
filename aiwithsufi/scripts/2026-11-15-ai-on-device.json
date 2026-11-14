@@ -1,0 +1,326 @@
+{
+ "title": "24B AI, 2B at a time",
+ "next": "Next week's topics",
+ "speed": 1.05,
+ "speakers": {
+  "A": {
+   "name": "Arjun",
+   "voice": "am_fenrir"
+  },
+  "B": {
+   "name": "Riya",
+   "voice": "af_heart"
+  }
+ },
+ "caption": "24 billion parameters… but only 2 billion working at a time 🤯\n\nRiya asks, Arjun explains how 'mixture of experts' is bringing big AI to your devices, privately and offline:\n1. Cloud AI vs on-device AI\n2. Why memory is the real limit\n3. Mixture of experts: the router trick\n4. Quantization and the other tricks\n5. What private on-device agents unlock\n6. The reality check for phones today\n\nTake the quiz ⏸️ and drop your answer below 👇\n\n#ai #ondeviceai #llm #mixtureofexperts #edgeai #privacy #aiexplained #techeducation #aiwithsufi",
+ "scenes": [
+  {
+   "type": "hook",
+   "chips": [
+    "24B total",
+    "2B active"
+   ],
+   "title": "BIG AI, SMALL DEVICE",
+   "subtitle": "The mixture-of-experts trick",
+   "lines": [
+    {
+     "who": "B",
+     "vo": "Arjun, I read about an AI with twenty four billion parameters that's built to run on your own device. How is that possible?",
+     "cap": "A 24 BILLION parameter AI built for YOUR device. How?"
+    },
+    {
+     "who": "A",
+     "vo": "Here's the trick. It only uses about two billion of them at a time. Let me show you how.",
+     "cap": "It only uses about 2 BILLION at a time. Let me show you."
+    }
+   ]
+  },
+  {
+   "type": "compare",
+   "label": "1 · CLOUD VS ON-DEVICE",
+   "left": "Cloud AI",
+   "right": "On-device AI",
+   "rows": [
+    [
+     "Data leaves phone",
+     "Data STAYS with you",
+     0
+    ],
+    [
+     "Needs internet",
+     "Works offline",
+     1
+    ],
+    [
+     "Huge models, max power",
+     "Smaller, faster replies",
+     2
+    ],
+    [
+     "Pay per use",
+     "Runs on your own chip",
+     2
+    ]
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "Most AI today runs in the cloud. Your message travels to a giant data center, and the answer comes back.",
+     "cap": "Most AI runs in the CLOUD. Your message travels to a data center."
+    },
+    {
+     "who": "A",
+     "vo": "On-device AI runs on your own chip. Your data stays with you, and it even works offline.",
+     "cap": "ON-DEVICE AI runs on your chip. Data STAYS with you."
+    },
+    {
+     "who": "B",
+     "vo": "So why doesn't every phone just run a huge model?",
+     "cap": "So why not run a HUGE model on every phone?"
+    }
+   ]
+  },
+  {
+   "type": "bars",
+   "label": "2 · MEMORY IS THE LIMIT",
+   "title": "Model size that fits today (billions)",
+   "bars": [
+    {
+     "t": "iPhone",
+     "v": 3,
+     "unit": "B",
+     "at": 0
+    },
+    {
+     "t": "Android",
+     "v": 7,
+     "unit": "B",
+     "at": 1
+    },
+    {
+     "t": "iPad",
+     "v": 13,
+     "unit": "B",
+     "at": 1
+    },
+    {
+     "t": "Laptop, MoE",
+     "v": 24,
+     "unit": "B",
+     "at": 2
+    }
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "Memory. A model has to fit in your device's memory before it can think at all.",
+     "cap": "MEMORY. The model must FIT before it can think."
+    },
+    {
+     "who": "A",
+     "vo": "Today, iPhones comfortably run models of around three billion parameters, and flagship Androids up to about seven.",
+     "cap": "iPhone: about 3B. Flagship Android: about 7B."
+    },
+    {
+     "who": "A",
+     "vo": "Liquid AI's new twenty four billion model is aimed at devices like laptops, where it runs very fast.",
+     "cap": "Liquid AI's 24B model targets devices like LAPTOPS."
+    }
+   ]
+  },
+  {
+   "type": "hub",
+   "label": "3 · MIXTURE OF EXPERTS",
+   "center": "Router",
+   "nodes": [
+    {
+     "t": "Math",
+     "s": "awake",
+     "at": 1
+    },
+    {
+     "t": "Code",
+     "s": "asleep",
+     "at": 1
+    },
+    {
+     "t": "Grammar",
+     "s": "awake",
+     "at": 2
+    },
+    {
+     "t": "Science",
+     "s": "asleep",
+     "at": 2
+    }
+   ],
+   "lines": [
+    {
+     "who": "B",
+     "vo": "Okay, so how does a big model run like a small one?",
+     "cap": "How does a BIG model run like a SMALL one?"
+    },
+    {
+     "who": "A",
+     "vo": "It's called mixture of experts. The model is split into many smaller expert networks.",
+     "cap": "MIXTURE OF EXPERTS: many smaller EXPERT networks."
+    },
+    {
+     "who": "A",
+     "vo": "For every word, a router picks only the few experts it needs. The rest stay asleep, so it does far less work.",
+     "cap": "A ROUTER picks a few experts per word. The rest SLEEP."
+    }
+   ]
+  },
+  {
+   "type": "quiz",
+   "label": "QUIZ 1",
+   "question": "The model is called LFM2.5-24B-A2B. What does 'A2B' mean?",
+   "options": [
+    "Android to Browser",
+    "2B active parameters per word",
+    "Version 2, build B"
+   ],
+   "answer": 1,
+   "reveal": 2,
+   "lines": [
+    {
+     "who": "B",
+     "vo": "Quiz time. The model's name ends in A two B. What does that mean?",
+     "cap": "QUIZ: The name ends in A2B. What does it MEAN?"
+    },
+    {
+     "who": "A",
+     "vo": "Pause and guess. A, B, or C.",
+     "cap": "PAUSE and guess. A, B or C?"
+    },
+    {
+     "who": "A",
+     "vo": "It's B. Two billion active parameters for each word. Twenty four billion in total.",
+     "cap": "B! 2B ACTIVE per word. 24B in TOTAL."
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "label": "4 · THE OTHER TRICKS",
+   "items": [
+    {
+     "t": "Quantization",
+     "s": "store each number in fewer bits",
+     "at": 0
+    },
+    {
+     "t": "Smaller models",
+     "s": "1B to 7B, trained to punch above their size",
+     "at": 1
+    },
+    {
+     "t": "AI chips (NPUs)",
+     "s": "built into new phones and laptops",
+     "at": 2
+    }
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "Trick two is quantization. Each number in the model is stored with fewer bits, so the whole model shrinks.",
+     "cap": "QUANTIZATION: fewer bits per number. The model SHRINKS."
+    },
+    {
+     "who": "A",
+     "vo": "Small models are also getting much smarter, and new phones have special AI chips called NPUs.",
+     "cap": "Smarter SMALL models, plus AI chips called NPUs."
+    }
+   ]
+  },
+  {
+   "type": "flow",
+   "label": "5 · WHAT IT UNLOCKS",
+   "nodes": [
+    {
+     "t": "Your messages, files, calendar",
+     "s": "stay on the device",
+     "at": 0
+    },
+    {
+     "t": "Local agent reads them",
+     "s": "no upload",
+     "at": 1
+    },
+    {
+     "t": "Plans and acts for you",
+     "s": "even offline",
+     "at": 1
+    },
+    {
+     "t": "Private by design",
+     "s": "nothing leaves your phone",
+     "at": 2
+    }
+   ],
+   "lines": [
+    {
+     "who": "B",
+     "vo": "So what can I actually do with it?",
+     "cap": "So what can I actually DO with it?"
+    },
+    {
+     "who": "A",
+     "vo": "Imagine an assistant that reads your messages and calendar and plans your day, without uploading anything.",
+     "cap": "An assistant that plans your day WITHOUT uploading anything."
+    },
+    {
+     "who": "A",
+     "vo": "That's why Liquid AI built this model for private agents. Your data never has to leave your device.",
+     "cap": "PRIVATE agents. Your data never leaves your device."
+    }
+   ]
+  },
+  {
+   "type": "quiz",
+   "label": "QUIZ 2",
+   "question": "Can today's iPhone run a 70B model on-device?",
+   "options": [
+    "Yes, easily",
+    "No, not even close",
+    "Only with Wi-Fi"
+   ],
+   "answer": 1,
+   "reveal": 1,
+   "lines": [
+    {
+     "who": "B",
+     "vo": "Second quiz. Can today's iPhone run a seventy billion parameter model?",
+     "cap": "QUIZ 2: Can today's iPhone run a 70B model?"
+    },
+    {
+     "who": "A",
+     "vo": "No, not even close. Phones today stick to small models. But tricks like mixture of experts keep closing the gap.",
+     "cap": "NO. But tricks like MIXTURE OF EXPERTS keep closing the gap."
+    }
+   ]
+  },
+  {
+   "type": "outro",
+   "recap": [
+    "On-device: private, offline, fast",
+    "Memory decides what fits",
+    "MoE: 24B total, 2B active",
+    "Phones today: small models, growing fast"
+   ],
+   "lines": [
+    {
+     "who": "A",
+     "vo": "So big AI is moving closer to your pocket. Not by shrinking the brain, but by waking only the parts it needs.",
+     "cap": "Not a smaller brain. Just waking the PARTS it needs."
+    },
+    {
+     "who": "B",
+     "vo": "Follow AI with Sufi for more AI, explained simply.",
+     "cap": "Follow @aiwithsufi for more AI, explained simply."
+    }
+   ]
+  }
+ ]
+}
