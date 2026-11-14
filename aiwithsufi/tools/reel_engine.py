@@ -27,6 +27,11 @@ co-host who asks what viewers would ask). Captions then show the speaker's name 
 highlight word by word. See scripts/2026-11-09-ai-agents-discussion.json.
 Every element may carry "at": the index of the voiceover line at which it appears (default: spread evenly).
 In captions, words in ALL CAPS are highlighted in gold.
+Visual skins (styles.json): add "skin": "pixel_art" for a chunky pixel look (Jersey 10 pixel font, blocky corners,
+dot-grid backdrop, every frame snapped to a 4 px pixel grid with a reduced colour depth). Default: flat style.
+Extra scene for the pixel skin (works in any skin):
+    {"type": "bits", "label": "...", "steps": [{"bits": 16, "t": "16-bit", "s": "17.9 GB", "at": 0}, ...], "lines": [...]}
+    (one picture shown at fewer and fewer bits per colour value, with a size label per step)
 """
 import json, math, os, subprocess, sys, tempfile, urllib.request
 import numpy as np
@@ -57,6 +62,9 @@ DL = {
 MONO = os.path.join(HERE, "PlexMono.ttf")
 DL[MONO] = "https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexmono/IBMPlexMono-Medium.ttf"
 VOICE, SPEED = "am_fenrir", 1.0
+PIXEL_FONT = os.path.join(HERE, "Jersey10.ttf")
+DL[PIXEL_FONT] = "https://raw.githubusercontent.com/google/fonts/main/ofl/jersey10/Jersey10-Regular.ttf"
+SKIN = [None]; PX = 4   # pixel_art: frame snapped to a PX-pixel grid
 
 def fetch(path):
     if not os.path.exists(path):
@@ -76,14 +84,19 @@ _fc = {}
 def font(size, weight="Bold", scale=SS):
     k = (round(size, 1), weight, scale)
     if k not in _fc:
-        f = ImageFont.truetype(fetch(FONT), max(1, int(size * scale)))
-        f.set_variation_by_name("ExtraBold" if size >= 56 and weight == "Bold" else weight)
+        if SKIN[0] == "pixel_art":
+            f = ImageFont.truetype(fetch(PIXEL_FONT), max(1, int(size * 1.18 * scale)))
+        else:
+            f = ImageFont.truetype(fetch(FONT), max(1, int(size * scale)))
+            f.set_variation_by_name("ExtraBold" if size >= 56 and weight == "Bold" else weight)
         _fc[k] = f
     return _fc[k]
 
 class Canvas:
     def __init__(self):
         self.im = Image.new("RGB", (W * SS, H * SS), BG); self.d = ImageDraw.Draw(self.im)
+        self.tl = None  # pixel skin: text goes on its own layer so the pixel grid never garbles letters
+        if SKIN[0] == "pixel_art": self.tl = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); self.td = ImageDraw.Draw(self.tl)
     def s(self, v): return int(round(v * SS))
     def circle(self, x, y, r, fill=None, outline=None, width=0):
         self.d.ellipse([self.s(x - r), self.s(y - r), self.s(x + r), self.s(y + r)], fill=fill, outline=outline, width=self.s(width))
@@ -92,10 +105,11 @@ class Canvas:
     def rrect(self, x0, y0, x1, y1, r, fill=None, outline=None, width=0):
         if x1 <= x0 or y1 <= y0: return
         r = min(r, (x1 - x0) / 2, (y1 - y0) / 2)
+        if SKIN[0] == "pixel_art": r = min(r, 10)
         self.d.rounded_rectangle([self.s(x0), self.s(y0), self.s(x1), self.s(y1)], radius=self.s(r), fill=fill, outline=outline, width=self.s(width))
     def poly(self, pts, fill): self.d.polygon([(self.s(x), self.s(y)) for x, y in pts], fill=fill)
     def text(self, x, y, t, size, fill, weight="Bold", anchor="mm"):
-        self.d.text((self.s(x), self.s(y)), t, font=font(size, weight), fill=fill, anchor=anchor)
+        (self.td if self.tl is not None else self.d).text((self.s(x), self.s(y)), t, font=font(size, weight), fill=fill, anchor=anchor)
     def tw(self, t, size, weight="Bold"):
         b = self.d.textbbox((0, 0), t, font=font(size, weight)); return (b[2] - b[0]) / SS
     def arrow(self, x0, y0, x1, y1, col, w=4, head=16):
@@ -106,7 +120,11 @@ class Canvas:
     def fit(self, t, size, maxw, weight="Bold"):
         while size > 18 and self.tw(t, size, weight) > maxw: size -= 1
         return size
-    def out(self): return self.im.reduce(SS)
+    def out(self):
+        if self.tl is None: return self.im.reduce(SS)
+        im = pixelize(self.im.reduce(SS)).convert("RGBA")
+        tl = self.tl.reduce(SS); a = tl.getchannel("A").point(lambda v: 255 if v > 110 else 0); tl.putalpha(a)
+        return Image.alpha_composite(im, tl).convert("RGB")
 
 _av = {}
 def avatar(c, x, y, r, t, a):
@@ -146,8 +164,16 @@ def reveal_times(items, sc):
     return out
 
 def chrome(c, sc, t, T, TOTAL):
-    c.rrect(60, 70, W - 60, 78, 4, fill=LINE)
-    c.rrect(60, 70, 60 + (W - 120) * T / TOTAL, 78, 4, fill=GOLD)
+    if SKIN[0] == "pixel_art":  # dot-grid backdrop + segmented progress bar
+        for gy in range(40, H, 64):
+            for gx in range(28, W, 64): c.d.rectangle([c.s(gx), c.s(gy), c.s(gx + 8) - 1, c.s(gy + 8) - 1], fill=mix(BG, LINE, 0.55))
+        n = 24; seg = (W - 120) / n; k = T / TOTAL * n
+        for i in range(n):
+            col = GOLD if i < int(k) else (mix(LINE, GOLD, k - int(k)) if i == int(k) else LINE)
+            c.d.rectangle([c.s(60 + i * seg), c.s(66), c.s(60 + (i + 1) * seg - 8), c.s(82)], fill=col)
+    else:
+        c.rrect(60, 70, W - 60, 78, 4, fill=LINE)
+        c.rrect(60, 70, 60 + (W - 120) * T / TOTAL, 78, 4, fill=GOLD)
     c.text(W / 2, 130, "@aiwithsufi", 32, fade(GOLD, 0.9), "Medium")
     lab = sc.get("label")
     if lab:
@@ -307,7 +333,7 @@ def s_hub(c, t, sc, ctx):
     for i, nd in enumerate(nodes):
         p = back((t - ts[i]) / 0.5)
         if p <= 0: continue
-        node(c, cx + R * math.cos(angs[i]), cy + R * math.sin(angs[i]), nd["t"], nd.get("s"), clamp(p), i == last, size=36)
+        node(c, cx + R * math.cos(angs[i]), cy + R * math.sin(angs[i]), nd["t"], nd.get("s"), clamp(p), i == last or nd.get("hi", False), size=36)
 
 def s_list(c, t, sc, ctx):
     items = sc["items"]; n = len(items); ts = reveal_times(items, sc)
@@ -483,7 +509,43 @@ def s_media(c, t, sc, ctx):
         c.text(W / 2, yy - (16 if sc.get("sub") else 0), sc["title"], size, fade(TEXT, q))
         if sc.get("sub"): c.text(W / 2, yy + 30, sc["sub"], 28, fade(MUTED, q), "Medium")
 
-FN = {"media": s_media, "quiz": s_quiz, "code": s_code, "hook": s_hook, "flow": s_flow, "cycle": s_cycle, "hub": s_hub, "list": s_list, "compare": s_compare, "bars": s_bars, "outro": s_outro}
+_bits = {}
+def _bits_picture(w, h):
+    """Original procedural pixel landscape (sky, sun, hills, a little chip-shaped house) used by the 'bits' scene."""
+    if (w, h) in _bits: return _bits[(w, h)]
+    gw, gh = w // 12, h // 12; yy, xx = np.mgrid[0:gh, 0:gw].astype(np.float32); img = np.zeros((gh, gw, 3), np.float32)
+    top, bot = np.array(mix(BG, GOLD, 0.25), np.float32), np.array(GOLD, np.float32)
+    k = (yy / gh)[..., None]; img[:] = top * (1 - k) + bot * k
+    sun = (xx - gw * 0.68) ** 2 + (yy - gh * 0.36) ** 2 < (gw * 0.13) ** 2; img[sun] = np.array(TEXT, np.float32)
+    for amp, base, ph, col in ((0.07, 0.62, 0.0, mix(BG, MUTED, 0.6)), (0.05, 0.74, 1.7, mix(BG, CARD2, 0.9))):
+        ridge = gh * (base + amp * np.sin(xx / gw * 6.3 + ph) + amp * 0.5 * np.sin(xx / gw * 17 + ph))
+        m = yy > ridge; shade = 1 - 0.35 * ((yy - ridge) / gh).clip(0, 1)
+        img[m] = (np.array(col, np.float32)[None] * shade[m][:, None])
+    x0, x1, y0, y1 = int(gw * 0.2), int(gw * 0.36), int(gh * 0.66), int(gh * 0.8)
+    img[y0:y1, x0:x1] = np.array(CARD, np.float32); img[y0 + 2:y1 - 2, x0 + 2:x1 - 2] = np.array(GOLD, np.float32) * 0.8
+    _bits[(w, h)] = img; return img
+
+def s_bits(c, t, sc, ctx):
+    """{"type": "bits", "steps": [{"bits": 16, "t": "16-bit", "s": "17.9 GB", "at": 0}, ...]}: the same picture
+    with fewer bits per colour value at each step (2^bits levels), plus a size label."""
+    steps = sc["steps"]; ts = reveal_times(steps, sc); a = ease(t / 0.5)
+    cur = max([i for i in range(len(steps)) if t >= ts[i]] or [0]); st = steps[cur]
+    bw, bh = 840, 720; x0, y0 = (W - bw) // 2, 300
+    img = _bits_picture(bw, bh); lv = 2 ** min(int(st.get("bits", 16)), 8) - 1
+    q = np.round(img / 255.0 * lv) / lv * 255.0 if lv < 255 else img
+    pic = Image.fromarray(q.clip(0, 255).astype(np.uint8)).resize((c.s(bw), c.s(bh)), Image.NEAREST)
+    m = Image.new("L", pic.size, int(255 * a)); c.im.paste(pic, (c.s(x0), c.s(y0)), m)
+    c.rrect(x0 - 6, y0 - 6, x0 + bw + 6, y0 + bh + 6, 4, outline=fade(GOLD, a), width=6)
+    p = back((t - ts[cur]) / 0.4); pa = clamp(p)
+    c.text(W / 2, y0 + bh + 70, st["t"], 64 * max(0.4, p), fade(TEXT, pa))
+    if st.get("s"): c.text(W / 2, y0 + bh + 140, st["s"], 46, fade(GOLD, pa))
+    n = len(steps); sw = 180
+    for i, s2 in enumerate(steps):  # step pips
+        x = W / 2 + (i - (n - 1) / 2) * (sw + 20); on = i <= cur
+        c.rrect(x - sw / 2, y0 + bh + 196, x + sw / 2, y0 + bh + 246, 6, fill=fade(GOLD if i == cur else (CARD2 if on else CARD), a), outline=fade(LINE, a), width=2)
+        c.text(x, y0 + bh + 221, s2["t"], 26, fade(BG if i == cur else (TEXT if on else MUTED), a))
+
+FN = {"bits": s_bits, "media": s_media, "quiz": s_quiz, "code": s_code, "hook": s_hook, "flow": s_flow, "cycle": s_cycle, "hub": s_hub, "list": s_list, "compare": s_compare, "bars": s_bars, "outro": s_outro}
 
 # ---------- voice ----------
 def eleven_tts(text, voice_id, model=None):
@@ -539,11 +601,17 @@ def voiceover(spec, work):
 
 # ---------- render ----------
 def frame(spec, idx, f, TOTAL):
-    sc = spec["scenes"][idx]; T0 = sum(s["dur"] for s in spec["scenes"][:idx]); t = f / FPS
+    SKIN[0] = spec.get("skin"); sc = spec["scenes"][idx]; T0 = sum(s["dur"] for s in spec["scenes"][:idx]); t = f / FPS
     c = Canvas(); chrome(c, sc, t, T0 + t, TOTAL); FN[sc["type"]](c, t, sc, spec); caption(c, sc, t, spec, T0 + t)
     im = c.out(); fi = clamp(t / 0.3) if idx > 0 else 1.0; fo = clamp((sc["dur"] - t) / 0.25); k = min(fi, fo)
     if k < 1: im = Image.blend(Image.new("RGB", (W, H), BG), im, k)
     return im
+
+def pixelize(im):
+    """Snap a frame to a PX-pixel grid with reduced colour depth (retro pixel-art look)."""
+    from PIL import ImageOps
+    small = im.resize((W // PX, H // PX), Image.BOX)
+    return ImageOps.posterize(small, 5).resize((W, H), Image.NEAREST)
 
 def render_scene(spec, idx, path, TOTAL):
     n = round(spec["scenes"][idx]["dur"] * FPS); tmp = path[:-4] + "_tmp.mp4"
@@ -556,7 +624,7 @@ def render_scene(spec, idx, path, TOTAL):
 def main():
     src, out = sys.argv[1], sys.argv[2]; preview = "--preview" in sys.argv
     spec = json.load(open(src)); work = tempfile.mkdtemp(prefix="reel_"); spec["_base"] = os.path.dirname(os.path.abspath(src))
-    day = spec.get("date") or date_from_path(src)
+    day = spec.get("date") or date_from_path(src); SKIN[0] = spec.get("skin")
     set_theme(spec.get("theme") or (for_date(day) if day else "sand_espresso")); print("theme", THEME_NAME[0])
     audio = voiceover(spec, work); TOTAL = sum(s["dur"] for s in spec["scenes"])
     json.dump(spec, open(os.path.join(work, "timeline.json"), "w"), indent=1)

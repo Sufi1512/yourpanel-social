@@ -1,0 +1,71 @@
+{
+ "title": "AI in your pocket",
+ "next": "The think harder dial",
+ "skin": "pixel_art",
+ "speed": 1.05,
+ "speakers": {"A": {"name": "Arjun", "voice": "am_fenrir"}, "B": {"name": "Riya", "voice": "af_heart"}},
+ "caption": "AI used to need a data centre. Now chips are built to run a 30B model on a phone 📱\n\nRiya asks, Arjun explains:\n1. The real wall: memory\n2. Quantization: fewer bits per number\n3. Mixture of experts: only wake who you need\n4. Putting it together on a phone chip\n5. Why it matters (and the catch)\n\nPause at the 2 quizzes and guess before the reveal 🧠\n\nFacts: Google Gemma 4 docs, Liquid AI LFM2.5-24B-A2B blog, Qualcomm via TechCrunch (Sept 2026).\n\nNext up: the \"think harder\" dial ⏱️\n\n#ai #ondeviceai #edgeai #quantization #mixtureofexperts #llm #gemma #techexplained #learnai #aiwithsufi",
+ "scenes": [
+  {"type": "hook", "chips": ["Data centre", "Phone"], "title": "AI IN YOUR POCKET", "subtitle": "How a 30B model fits on a phone chip",
+   "lines": [
+    {"who": "B", "vo": "Arjun, I read that a new phone chip can run a thirty billion parameter A.I. model. On a phone?", "cap": "A 30 BILLION parameter AI... on a PHONE?"},
+    {"who": "A", "vo": "Yep. Qualcomm says its top Snapdragon chip can run one locally. No cloud. Let's see how that's even possible.", "cap": "No cloud. Let's see HOW that's possible."}
+   ]},
+  {"type": "bars", "label": "1 · THE MEMORY WALL", "title": "Memory to load Gemma 4 E4B", "bars": [{"t": "16-bit", "v": 17.9, "unit": " GB", "at": 1}, {"t": "8-bit", "v": 8.9, "unit": " GB", "at": 2}],
+   "lines": [
+    {"who": "B", "vo": "So what was stopping it before? Phones are pretty fast.", "cap": "What was stopping it? Phones are FAST."},
+    {"who": "A", "vo": "Speed isn't the wall. Memory is. A model is billions of numbers, and normally each one takes sixteen bits. That's two bytes.", "cap": "The wall is MEMORY. Each number = 16 BITS."},
+    {"who": "A", "vo": "Google's Gemma four E4B needs about eighteen gigabytes at sixteen bit. Eight bit halves that. Still too big for most phones.", "cap": "Gemma 4 E4B: ~18 GB. Still TOO BIG."}
+   ]},
+  {"type": "quiz", "label": "QUIZ 1", "question": "Same model, 4 bits per number instead of 16. How much memory?", "options": ["About 9 GB", "About 4.5 GB", "About 1 GB"], "answer": 1, "reveal": 2,
+   "lines": [
+    {"who": "B", "vo": "Okay, quiz time. Same model, but four bits per number instead of sixteen. How much memory?", "cap": "QUIZ: 4 bits instead of 16. How much memory?"},
+    {"who": "A", "vo": "Pause and guess. Three, two, one.", "cap": "Pause and GUESS. 3... 2... 1..."},
+    {"who": "A", "vo": "About four and a half gigabytes. A quarter of the bits, a quarter of the size.", "cap": "About 4.5 GB. A QUARTER of the size."}
+   ]},
+  {"type": "bits", "label": "2 · QUANTIZATION", "steps": [{"bits": 8, "t": "16-bit", "s": "17.9 GB", "at": 0}, {"bits": 5, "t": "8-bit", "s": "8.9 GB", "at": 1}, {"bits": 3, "t": "4-bit", "s": "4.5 GB", "at": 2}, {"bits": 1, "t": "2-bit", "s": "quality drops", "at": 4}],
+   "lines": [
+    {"who": "A", "vo": "That trick is called quantization. You store every number with fewer bits, like saving a photo with fewer colours.", "cap": "QUANTIZATION: fewer bits, like fewer COLOURS."},
+    {"who": "B", "vo": "But if you squash the numbers, doesn't the A.I. get dumber?", "cap": "Doesn't the AI get DUMBER?"},
+    {"who": "A", "vo": "A little, if you just squash a finished model. So Google trains Gemma while simulating the low precision. That's called quantization aware training.", "cap": "Train it WHILE simulating low precision: QAT."},
+    {"who": "A", "vo": "The model learns to cope with rough numbers. Their mobile version of E4B gets down to about two and a half gigabytes.", "cap": "Mobile E4B: about 2.5 GB."},
+    {"who": "B", "vo": "And if you go even lower?", "cap": "And even LOWER?"},
+    {"who": "A", "vo": "Then the picture really breaks. Squash too far and quality drops.", "cap": "Too far and QUALITY drops."}
+   ]},
+  {"type": "hub", "label": "3 · MIXTURE OF EXPERTS", "center": "Router", "nodes": [{"t": "Expert 1", "s": "awake", "hi": true, "at": 2}, {"t": "Expert 2", "s": "asleep", "at": 2}, {"t": "Expert 3", "s": "asleep", "at": 2}, {"t": "Expert 4", "s": "awake", "hi": true, "at": 2}, {"t": "Expert 5", "s": "asleep", "at": 2}, {"t": "Expert 6", "s": "asleep", "at": 2}],
+   "lines": [
+    {"who": "B", "vo": "Okay, but thirty billion is still huge. What's the second trick?", "cap": "30 billion is still HUGE. Trick number two?"},
+    {"who": "A", "vo": "Mixture of experts. Instead of one giant brain, the model is split into many smaller expert networks.", "cap": "MIXTURE OF EXPERTS: many small expert networks."},
+    {"who": "A", "vo": "For every word, a router wakes up just a few of them. The rest sit idle.", "cap": "A ROUTER wakes just a FEW per word."},
+    {"who": "A", "vo": "Liquid A.I.'s new model has twenty four billion parameters, but only two billion work on each word. It picks four of sixty four experts.", "cap": "24B total, only 2B ACTIVE. 4 of 64 experts."},
+    {"who": "A", "vo": "On a MacBook with an M5 Max chip, Liquid says it runs at one hundred eighty four tokens a second.", "cap": "184 TOKENS a second on a laptop."}
+   ]},
+  {"type": "quiz", "label": "QUIZ 2", "question": "24B total, 2B active. What does mixture of experts save?", "options": ["Memory", "Compute (speed)", "Both"], "answer": 1, "reveal": 2,
+   "lines": [
+    {"who": "B", "vo": "Wait, so it saves memory too, right? Only two billion are working.", "cap": "So it saves MEMORY too, right?"},
+    {"who": "A", "vo": "That's our second quiz. Memory, compute, or both? Three, two, one.", "cap": "Memory, compute or BOTH? 3... 2... 1..."},
+    {"who": "A", "vo": "Compute. Every expert still has to sit in memory, ready to be picked. Google says the same about its own twenty six billion expert model.", "cap": "COMPUTE. All experts still sit in MEMORY."}
+   ]},
+  {"type": "flow", "label": "4 · PUTTING IT TOGETHER", "nodes": [{"t": "Quantization", "s": "shrinks memory", "at": 1}, {"t": "Mixture of experts", "s": "cuts compute per word", "at": 2}, {"t": "Newer phone chips", "s": "more memory and AI hardware", "at": 3}, {"t": "30B on a phone", "s": "Qualcomm's claim", "at": 4}],
+   "lines": [
+    {"who": "B", "vo": "So how does it all fit on a phone?", "cap": "So how does it all FIT?"},
+    {"who": "A", "vo": "Stack the tricks. Quantization shrinks the memory.", "cap": "QUANTIZATION shrinks memory."},
+    {"who": "A", "vo": "Mixture of experts means each word only needs a small slice of the work.", "cap": "EXPERTS cut the work per word."},
+    {"who": "A", "vo": "And new chips add more memory and dedicated A.I. hardware.", "cap": "New CHIPS add memory and AI hardware."},
+    {"who": "A", "vo": "Together, that's how Qualcomm can claim a thirty billion mixture of experts model on a phone.", "cap": "That's how 30B on a PHONE becomes possible."}
+   ]},
+  {"type": "list", "label": "5 · WHY IT MATTERS", "items": [{"t": "Privacy", "s": "your data stays on the device", "at": 1}, {"t": "Works offline", "s": "no signal needed", "at": 1}, {"t": "Fast and free", "s": "no server wait, no per-token bill", "at": 2}, {"t": "The catch", "s": "battery, heat, still behind cloud models", "at": 4}],
+   "lines": [
+    {"who": "B", "vo": "Why should I care if it runs on my phone?", "cap": "Why should I CARE?"},
+    {"who": "A", "vo": "Privacy, for one. Your messages and photos never leave the device. And it works offline.", "cap": "PRIVACY, and it works OFFLINE."},
+    {"who": "A", "vo": "There's no waiting on a server, and no bill for every token.", "cap": "No server wait. No per-token BILL."},
+    {"who": "B", "vo": "There has to be a catch.", "cap": "There has to be a CATCH."},
+    {"who": "A", "vo": "Battery and heat. And the biggest cloud models are still smarter. So phones will handle the everyday stuff, and the cloud the heavy lifting.", "cap": "BATTERY, heat, and the cloud is still SMARTER."}
+   ]},
+  {"type": "outro", "recap": ["Memory is the wall", "Fewer bits per number", "Only wake a few experts", "Chips built for AI"],
+   "lines": [
+    {"who": "B", "vo": "So, memory is the wall, fewer bits shrink it, experts cut the work, and the chips caught up.", "cap": "MEMORY, BITS, EXPERTS, CHIPS."},
+    {"who": "A", "vo": "Exactly. Next time, the think harder dial. Follow so you don't miss it.", "cap": "Next: the THINK HARDER dial. FOLLOW!"}
+   ]}
+ ]
+}

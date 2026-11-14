@@ -89,7 +89,7 @@
    "title": "How a 30B AI fits in your pocket",
    "date": "2026-11-15",
    "format": "reel",
-   "status": "planned",
+   "status": "ready",
    "angle": "Memory wall (params x bytes; Gemma 4 E4B 17.9 GB BF16 -> 4.5 GB Q4_0 -> 2.5 GB mobile, Google docs); quantization + QAT; MoE saves compute not memory (LFM2.5-24B-A2B 24B total/2B active, 64 experts top-4, 184 tok/s on M5 Max; Gemma 26B A4B must load all 26B); Qualcomm Snapdragon 8 Elite Extreme Gen 6 can run a 30B MoE locally (Qualcomm claim via TechCrunch); privacy/offline/speed vs battery/heat. Dropped: '24B on a phone' (Liquid shows laptops only), '5 GB' (secondary; Google says 4.5 GB).",
    "sources": [
     "https://ai.google.dev/gemma/docs/core",
@@ -97,7 +97,10 @@
     "https://techcrunch.com/2026/09/22/qualcomm-launches-two-new-smartphone-chips-with-emphasis-on-ai/"
    ],
    "style": "pixel_art",
-   "plan_approved": "2026-11-14"
+   "plan_approved": "2026-11-14",
+   "script": "aiwithsufi/scripts/2026-11-15-ai-in-your-pocket.json",
+   "video": "aiwithsufi/reels/2026-11-15-ai-in-your-pocket/reel.mp4",
+   "duration_s": 178
   },
   {
    "slug": "reasoning-effort",
