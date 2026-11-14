@@ -103,8 +103,10 @@
         "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-14-coming-next/slide3.jpg"
       ],
       "caption": "What's coming next in YourPanel 🚀\n\n📧 Deploy emails when a deploy fails or rolls back\n🧱 Firewall check that asks before a rule cuts off your SSH\n👥 Custom roles with read/write per area\n💾 Warnings before you lose unsaved changes\n\nWhat should we build after that? Tell us in the comments 👇\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #buildinpublic #saas",
-      "status": "approved",
-      "note": "Approved by owner on 2026-11-07."
+      "status": "published",
+      "note": "Approved by owner on 2026-11-07.",
+      "media_id": "18082556468715492",
+      "permalink": "https://www.instagram.com/p/DfuejkniDvZ/"
     }
   ]
 }
