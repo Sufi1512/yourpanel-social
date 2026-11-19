@@ -107,6 +107,20 @@
       "note": "Approved by owner on 2026-11-07.",
       "media_id": "18082556468715492",
       "permalink": "https://www.instagram.com/p/DfuejkniDvZ/"
+    },
+    {
+      "date": "2026-11-19",
+      "slug": "2026-11-19-encrypted-backups",
+      "format": "carousel",
+      "images": [
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-19-encrypted-backups/slide1.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-19-encrypted-backups/slide2.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-19-encrypted-backups/slide3.jpg",
+        "https://raw.githubusercontent.com/Sufi1512/yourpanel-social/main/posts/2026-11-19-encrypted-backups/slide4.jpg"
+      ],
+      "caption": "Backups your storage provider can't read 🔐\n\nYourPanel copies backups to any S3-compatible bucket, encrypted on your server before they upload:\n✅ Encrypted with age; servers hold only the public key\n✅ Servers never see your storage keys\n✅ Each backup's newest copy is re-checked at least every 30 days, with an alert if a check fails\n✅ Restores go to a new folder or database by default, and replacing a database takes a safety dump first\n\nStart free, no card needed 👉 link in bio\n\n#devops #linux #selfhosted #sysadmin #webdev #server #deployment #developer #vps #backups #security",
+      "status": "approved",
+      "note": "Approved by owner on 2026-11-19."
     }
   ]
 }
