@@ -32,6 +32,10 @@ dot-grid backdrop, every frame snapped to a 4 px pixel grid with a reduced colou
 Extra scene for the pixel skin (works in any skin):
     {"type": "bits", "label": "...", "steps": [{"bits": 16, "t": "16-bit", "s": "17.9 GB", "at": 0}, ...], "lines": [...]}
     (one picture shown at fewer and fewer bits per colour value, with a size label per step)
+"skin": "chalkboard": dark green board with smudges, chalk-grain texture on every stroke and letter (the grain
+"boils" every few frames), Kalam handwritten font, sketchy double outlines, chalk progress line, connector lines and
+arrows that draw themselves. Colours: board green + chalk white, with the weekday palette's accent as the highlight
+chalk and a terracotta/second-accent chalk for outlines (chalk_theme()).
 """
 import json, math, os, subprocess, sys, tempfile, urllib.request
 import numpy as np
@@ -65,6 +69,14 @@ VOICE, SPEED = "am_fenrir", 1.0
 PIXEL_FONT = os.path.join(HERE, "Jersey10.ttf")
 DL[PIXEL_FONT] = "https://raw.githubusercontent.com/google/fonts/main/ofl/jersey10/Jersey10-Regular.ttf"
 SKIN = [None]; PX = 4   # pixel_art: frame snapped to a PX-pixel grid
+CHALK_FONT = os.path.join(HERE, "Kalam-Bold.ttf")
+DL[CHALK_FONT] = "https://raw.githubusercontent.com/google/fonts/main/ofl/kalam/Kalam-Bold.ttf"
+FRAME = [0]             # current frame index (chalk grain boil)
+def chalk_theme(name):
+    """Chalkboard colours: green board + chalk white; the day's accent is the highlight chalk, its line colour the outline chalk."""
+    pal = PALETTES.get(name, {}); acc = pal.get("ACCENT", (240, 210, 150)); ln = pal.get("LINE", (214, 124, 92))
+    ln = tuple(int(v) for v in ln) if sum(ln) > 300 else (214, 124, 92)
+    return dict(BG=(30, 47, 40), CARD=(37, 56, 48), CARD2=(43, 64, 55), LINE=ln, TEXT=(240, 238, 228), MUTED=(176, 190, 180), GOLD=acc)
 
 def fetch(path):
     if not os.path.exists(path):
@@ -86,6 +98,8 @@ def font(size, weight="Bold", scale=SS):
     if k not in _fc:
         if SKIN[0] == "pixel_art":
             f = ImageFont.truetype(fetch(PIXEL_FONT), max(1, int(size * 1.18 * scale)))
+        elif SKIN[0] == "chalkboard":
+            f = ImageFont.truetype(fetch(CHALK_FONT), max(1, int(size * 1.08 * scale)))
         else:
             f = ImageFont.truetype(fetch(FONT), max(1, int(size * scale)))
             f.set_variation_by_name("ExtraBold" if size >= 56 and weight == "Bold" else weight)
@@ -96,7 +110,7 @@ class Canvas:
     def __init__(self):
         self.im = Image.new("RGB", (W * SS, H * SS), BG); self.d = ImageDraw.Draw(self.im)
         self.tl = None  # pixel skin: text goes on its own layer so the pixel grid never garbles letters
-        if SKIN[0] == "pixel_art": self.tl = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); self.td = ImageDraw.Draw(self.tl)
+        if SKIN[0] in ("pixel_art", "chalkboard"): self.tl = Image.new("RGBA", (W * SS, H * SS), (0, 0, 0, 0)); self.td = ImageDraw.Draw(self.tl)
     def s(self, v): return int(round(v * SS))
     def circle(self, x, y, r, fill=None, outline=None, width=0):
         self.d.ellipse([self.s(x - r), self.s(y - r), self.s(x + r), self.s(y + r)], fill=fill, outline=outline, width=self.s(width))
@@ -107,6 +121,9 @@ class Canvas:
         r = min(r, (x1 - x0) / 2, (y1 - y0) / 2)
         if SKIN[0] == "pixel_art": r = min(r, 10)
         self.d.rounded_rectangle([self.s(x0), self.s(y0), self.s(x1), self.s(y1)], radius=self.s(r), fill=fill, outline=outline, width=self.s(width))
+        if SKIN[0] == "chalkboard" and outline is not None and width and x1 - x0 > 12 and y1 - y0 > 12:  # sketchy second pass, slightly off
+            o = 2.5; self.d.rounded_rectangle([self.s(x0 + o), self.s(y0 - o * 0.6), self.s(x1 - o * 0.4), self.s(y1 + o * 0.5)], radius=self.s(r * 1.1),
+                                              outline=mix(BG, outline, 0.55), width=max(1, self.s(width * 0.6)))
     def poly(self, pts, fill): self.d.polygon([(self.s(x), self.s(y)) for x, y in pts], fill=fill)
     def text(self, x, y, t, size, fill, weight="Bold", anchor="mm"):
         (self.td if self.tl is not None else self.d).text((self.s(x), self.s(y)), t, font=font(size, weight), fill=fill, anchor=anchor)
@@ -122,6 +139,7 @@ class Canvas:
         return size
     def out(self):
         if self.tl is None: return self.im.reduce(SS)
+        if SKIN[0] == "chalkboard": return chalkify(self.im.reduce(SS), self.tl.reduce(SS))
         im = pixelize(self.im.reduce(SS)).convert("RGBA")
         tl = self.tl.reduce(SS); a = tl.getchannel("A").point(lambda v: 255 if v > 110 else 0); tl.putalpha(a)
         return Image.alpha_composite(im, tl).convert("RGB")
@@ -163,8 +181,53 @@ def reveal_times(items, sc):
             out.append(L[0]["start"] + 0.3 + span * i / max(1, n))
     return out
 
+_board = {}
+def board_image():
+    """Green chalkboard with soft smudges and a few faint eraser sweeps (seeded, same every frame)."""
+    if "b" in _board: return _board["b"]
+    rng = np.random.default_rng(7); bg = np.array(BG, np.float32)
+    low = Image.fromarray((rng.random((H // 48, W // 48)) * 255).astype(np.uint8)).resize((W, H), Image.BICUBIC)
+    mid = Image.fromarray((rng.random((H // 12, W // 12)) * 255).astype(np.uint8)).resize((W, H), Image.BICUBIC)
+    n = (np.asarray(low, np.float32) / 255 - 0.5) * 14 + (np.asarray(mid, np.float32) / 255 - 0.5) * 5
+    b = bg[None, None] + n[..., None]
+    sweep = Image.new("L", (W, H), 0); sd = ImageDraw.Draw(sweep)
+    for _ in range(7):
+        x, y, r = rng.uniform(-200, W), rng.uniform(0, H), rng.uniform(260, 620)
+        sd.arc([x - r, y - r * 0.45, x + r, y + r * 0.45], rng.uniform(180, 250), rng.uniform(290, 360), fill=int(rng.uniform(14, 26)), width=int(rng.uniform(40, 90)))
+    from PIL import ImageFilter
+    sw = np.asarray(sweep.filter(ImageFilter.GaussianBlur(18)), np.float32)[..., None]
+    b = b + sw * 0.55
+    yy = np.linspace(-1, 1, H)[:, None]; xx = np.linspace(-1, 1, W)[None, :]   # vignette
+    b = b * (1 - 0.16 * (xx ** 2 + yy ** 2))[..., None]
+    _board["b"] = b.clip(0, 255); return _board["b"]
+
+_grain = {}
+def grain(k):
+    """Chalk grain: speckled multiplier in [~0.35, 1]; 3 variants so strokes 'boil' gently."""
+    if k not in _grain:
+        rng = np.random.default_rng(100 + k)
+        g = rng.random((H // 2, W // 2)).astype(np.float32)
+        g = np.asarray(Image.fromarray((g * 255).astype(np.uint8)).resize((W, H), Image.BILINEAR), np.float32) / 255
+        streak = np.asarray(Image.fromarray((rng.random((H // 3, W // 40)) * 255).astype(np.uint8)).resize((W, H), Image.BICUBIC), np.float32) / 255
+        _grain[k] = np.clip(0.38 + 0.8 * g * (0.75 + 0.35 * streak), 0, 1)
+    return _grain[k]
+
+def chalkify(im, tl):
+    k = (FRAME[0] // 4) % 3; g = grain(k); bd = board_image()
+    a = np.asarray(im, np.float32); d = a - np.array(BG, np.float32)
+    out = bd + d * g[..., None]
+    t = np.asarray(tl, np.float32); ta = t[..., 3:4] / 255 * (0.72 + 0.28 * g[..., None])
+    tc = bd + (t[..., :3] - np.array(BG, np.float32))   # text relative to the board, so faded (board-coloured) text vanishes
+    out = out * (1 - ta) + tc * ta
+    return Image.fromarray(out.clip(0, 255).astype(np.uint8))
+
 def chrome(c, sc, t, T, TOTAL):
-    if SKIN[0] == "pixel_art":  # dot-grid backdrop + segmented progress bar
+    if SKIN[0] == "chalkboard":  # chalk progress line + small tick marks
+        pts = [(60 + k * (W - 120) / 40, 74 + 2.5 * math.sin(k * 1.7)) for k in range(41)]
+        c.line(pts, mix(BG, LINE, 0.45), 4)
+        m = int(40 * T / TOTAL) + 1
+        c.line(pts[:max(2, m)], GOLD, 6)
+    elif SKIN[0] == "pixel_art":  # dot-grid backdrop + segmented progress bar
         for gy in range(40, H, 64):
             for gx in range(28, W, 64): c.d.rectangle([c.s(gx), c.s(gy), c.s(gx + 8) - 1, c.s(gy + 8) - 1], fill=mix(BG, LINE, 0.55))
         n = 24; seg = (W - 120) / n; k = T / TOTAL * n
@@ -282,7 +345,10 @@ def s_flow(c, t, sc, ctx):
         p = ease((t - ts[i]) / 0.5)
         if p <= 0: continue
         y = top + gap * (i + 0.5)
-        if i > 0: c.arrow(W / 2, y - gap + h / 2 + 6, W / 2, y - h / 2 - 8, fade(MUTED, p), 4)
+        if i > 0:
+            ya, yb = y - gap + h / 2 + 6, y - h / 2 - 8
+            if SKIN[0] == "chalkboard": yb = ya + (yb - ya) * max(0.15, p)
+            c.arrow(W / 2, ya, W / 2, yb, fade(MUTED, p), 4)
         node(c, W / 2 + (1 - p) * 60, y, nd["t"], nd.get("s"), p, shown and i == shown[-1], w=760, h=h, size=42)
 
 def s_cycle(c, t, sc, ctx):
@@ -299,7 +365,10 @@ def s_cycle(c, t, sc, ctx):
         a0, a1 = angs[i] + 0.38, angs[(i + 1) % n] - 0.38
         if a1 < a0: a1 += 2 * math.pi
         if t >= ts[(i + 1) % n] or (all_in and i == n - 1):
-            pts = [(cx + R * math.cos(a0 + (a1 - a0) * k / 24), cy + R * math.sin(a0 + (a1 - a0) * k / 24)) for k in range(25)]
+            start = ts[i + 1] if i < n - 1 else ts[-1] + 0.4
+            dr = ease((t - start) / 0.6) if SKIN[0] == "chalkboard" else 1.0
+            kk = max(3, int(25 * dr))
+            pts = [(cx + R * math.cos(a0 + (a1 - a0) * dr * k / (kk - 1)), cy + R * math.sin(a0 + (a1 - a0) * dr * k / (kk - 1))) for k in range(kk)]
             c.line(pts, fade(LINE, 1), 4)
             (x1, y1), (x0, y0) = pts[-1], pts[-3]; c.arrow(x0, y0, x1, y1, fade(MUTED, 1), 4, 18)
     if all_in:
@@ -602,9 +671,13 @@ def voiceover(spec, work):
 # ---------- render ----------
 def frame(spec, idx, f, TOTAL):
     SKIN[0] = spec.get("skin"); sc = spec["scenes"][idx]; T0 = sum(s["dur"] for s in spec["scenes"][:idx]); t = f / FPS
+    FRAME[0] = int(round(T0 * FPS)) + f
+    if SKIN[0] == "chalkboard" and THEME_NAME[0] != "chalk": globals().update(spec["_chalk"]); THEME_NAME[0] = "chalk"
     c = Canvas(); chrome(c, sc, t, T0 + t, TOTAL); FN[sc["type"]](c, t, sc, spec); caption(c, sc, t, spec, T0 + t)
     im = c.out(); fi = clamp(t / 0.3) if idx > 0 else 1.0; fo = clamp((sc["dur"] - t) / 0.25); k = min(fi, fo)
-    if k < 1: im = Image.blend(Image.new("RGB", (W, H), BG), im, k)
+    if k < 1:
+        base = Image.fromarray(board_image().astype(np.uint8)) if SKIN[0] == "chalkboard" else Image.new("RGB", (W, H), BG)
+        im = Image.blend(base, im, k)
     return im
 
 def pixelize(im):
@@ -626,6 +699,9 @@ def main():
     spec = json.load(open(src)); work = tempfile.mkdtemp(prefix="reel_"); spec["_base"] = os.path.dirname(os.path.abspath(src))
     day = spec.get("date") or date_from_path(src); SKIN[0] = spec.get("skin")
     set_theme(spec.get("theme") or (for_date(day) if day else "sand_espresso")); print("theme", THEME_NAME[0])
+    if SKIN[0] == "chalkboard":
+        spec["_chalk"] = chalk_theme(THEME_NAME[0]); globals().update(spec["_chalk"])
+        CHAR["A"]["shirt"] = GOLD; CHAR["B"]["shirt"] = LINE; spec["_chalk_char"] = True
     audio = voiceover(spec, work); TOTAL = sum(s["dur"] for s in spec["scenes"])
     json.dump(spec, open(os.path.join(work, "timeline.json"), "w"), indent=1)
     print(f"voiceover {TOTAL:.1f}s, work dir {work}")

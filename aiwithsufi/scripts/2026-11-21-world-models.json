@@ -1,0 +1,89 @@
+{
+ "title": "World models",
+ "next": "AI shopping agents",
+ "skin": "chalkboard",
+ "speed": 1.05,
+ "speakers": {"A": {"name": "Arjun", "voice": "am_fenrir"}, "B": {"name": "Riya", "voice": "af_heart"}},
+ "caption": "Nobody filmed this. There's no game engine. The AI is imagining every frame as you move 🌍\n\nWorld models are AI's next big race: Google's Genie 4, NVIDIA's Cosmos 3 and World Labs' Atlas all dropped in the last few weeks. Riya asks, Arjun explains:\n1. Video model vs world model\n2. The memory problem\n3. Two ways to build a world\n4. Why robots train inside dreams\n5. Where it still breaks\n\nPause at the 2 quizzes and comment your guess 👇\n\nFacts: Google DeepMind (Genie 3, Genie 4), TechCrunch (Oct 2026), NVIDIA Cosmos 3 blogs (Nov 2026), World Labs blog (Nov 2026).\n\nNext up: AI shopping agents, just in time for Black Friday 🛒\n\n#worldmodels #AI #GenerativeAI #Genie4 #NVIDIA #robotics #MachineLearning #aiexplained #techexplained #aiwithsufi",
+ "scenes": [
+  {"type": "hook", "chips": ["AI video", "AI world"], "title": "WORLD MODELS", "subtitle": "AI that dreams worlds you can walk into",
+   "lines": [
+    {"who": "B", "vo": "Arjun, look at this. Nobody filmed it? And there's no game engine?", "cap": "Nobody FILMED this? No game ENGINE?"},
+    {"who": "A", "vo": "Nope. An A.I. is imagining every frame, live, as you move. It's called a world model.", "cap": "AI imagines every FRAME as you move."}
+   ]},
+  {"type": "compare", "label": "1 · VIDEO vs WORLD MODEL", "left": "Video model", "right": "World model",
+   "rows": [["you watch", "you play", 1], ["a fixed clip", "reacts to you", 1], ["one prompt", "prompt + actions", 2]],
+   "lines": [
+    {"who": "B", "vo": "Isn't that just an A.I. video generator?", "cap": "Isn't that just AI VIDEO?"},
+    {"who": "A", "vo": "Close, but no. A video model makes a clip, and you watch it. A world model lets you act inside it.", "cap": "Video: you WATCH. World: you ACT."},
+    {"who": "A", "vo": "Press forward, turn left, and it responds. Like a game that nobody coded.", "cap": "Like a GAME nobody coded."}
+   ]},
+  {"type": "cycle", "label": "1 · THE LOOP", "center": "World model",
+   "nodes": [{"t": "You act", "s": "press a key", "at": 0}, {"t": "Predict", "s": "the next frame", "at": 1}, {"t": "Show it", "s": "then repeat", "at": 2}],
+   "lines": [
+    {"who": "A", "vo": "Here's the loop. You press a key.", "cap": "The LOOP: you press a key."},
+    {"who": "A", "vo": "The model predicts the very next frame, from everything so far, plus your action.", "cap": "It PREDICTS the next frame."},
+    {"who": "A", "vo": "It shows that frame, then does it all again. For Genie 3, twenty four times a second.", "cap": "Show it, REPEAT. 24 times a second."},
+    {"who": "B", "vo": "So it's dreaming the game in real time.", "cap": "It's DREAMING the game, live."}
+   ]},
+  {"type": "quiz", "label": "QUIZ 1", "question": "Genie has no 3D engine inside. How does it draw the world?",
+   "options": ["It builds a 3D map first", "It predicts the next frame, one at a time", "It copies Google Street View"], "answer": 1, "reveal": 2,
+   "lines": [
+    {"who": "B", "vo": "Quiz time. Google's Genie has no 3D engine inside. So how does it draw the world?", "cap": "QUIZ: no 3D engine. How does it DRAW?"},
+    {"who": "A", "vo": "Pause and guess. Three, two, one.", "cap": "Pause and GUESS. 3... 2... 1..."},
+    {"who": "A", "vo": "It predicts the next frame, one at a time. DeepMind calls it auto regressive. Each frame builds on the last one.", "cap": "Next frame, ONE at a time."}
+   ]},
+  {"type": "flow", "label": "2 · THE MEMORY PROBLEM",
+   "nodes": [{"t": "Look at a tree", "s": "frame 1", "at": 1}, {"t": "Turn away", "s": "the tree is off screen", "at": 1}, {"t": "Turn back", "s": "is it still there?", "at": 2}],
+   "lines": [
+    {"who": "B", "vo": "Wait. If it only makes the next frame, what happens when I look away?", "cap": "What if I LOOK AWAY?"},
+    {"who": "A", "vo": "That's the hard part. You turn around, you turn back, and the tree has to still be there.", "cap": "The tree has to STILL be there."},
+    {"who": "A", "vo": "So the model has to remember what it drew. If it forgets, the world melts.", "cap": "If it FORGETS, the world melts."}
+   ]},
+  {"type": "list", "label": "2 · HOW LONG IT HOLDS",
+   "items": [{"t": "Genie 3 · Aug 2025", "s": "720p, 24 fps, consistent for a few minutes", "at": 0}, {"t": "Visual memory", "s": "reaches back about one minute", "at": 1},
+             {"t": "Genie 4 · Oct 2026", "s": "adds sound + live text prompts", "at": 3}, {"t": "Status", "s": "research preview", "at": 3}],
+   "lines": [
+    {"who": "A", "vo": "Google's Genie 3 runs at seven twenty p, twenty four frames a second, and stays consistent for a few minutes.", "cap": "Genie 3: 720p, 24 FPS, a few MINUTES."},
+    {"who": "A", "vo": "Its visual memory reaches back about a minute.", "cap": "Memory: about ONE minute back."},
+    {"who": "B", "vo": "And the new one?", "cap": "And the NEW one?"},
+    {"who": "A", "vo": "Genie 4 came out in late October. It adds sound, and you can type to change the world live. Make it rain, add a character. It's still a research preview.", "cap": "Genie 4: SOUND + type to change it LIVE."}
+   ]},
+  {"type": "compare", "label": "3 · TWO WAYS TO BUILD A WORLD", "left": "Dream frames", "right": "Build 3D",
+   "rows": [["Genie, Atlas Frameboy", "Atlas Viewfinder", 1], ["generated live", "rebuilt from photos", 2], ["runs on cloud GPUs", "export to Blender", 2]],
+   "lines": [
+    {"who": "B", "vo": "Is everyone doing it this way?", "cap": "Is EVERYONE doing it this way?"},
+    {"who": "A", "vo": "There are two camps. One dreams every frame live, like Genie. World Labs' Atlas can do that too, streaming up to fifteen frames a second from cloud G.P.U.s.", "cap": "Camp 1: DREAM every frame, live."},
+    {"who": "A", "vo": "The other builds a real 3D scene. Atlas Viewfinder rebuilds a place from photos, and you can take it into tools like Blender.", "cap": "Camp 2: BUILD a real 3D scene."},
+    {"who": "B", "vo": "So one is a dream, and the other is a set you can keep.", "cap": "A DREAM vs a SET you keep."}
+   ]},
+  {"type": "hub", "label": "4 · WHY ROBOTS CARE", "center": "Cosmos 3",
+   "nodes": [{"t": "Robot arms", "s": "actions in, frames out", "at": 2}, {"t": "Self-driving", "s": "loop tests", "at": 2}, {"t": "Open weights", "s": "commercial use OK", "at": 1}, {"t": "Practice", "s": "before real life", "at": 3}],
+   "lines": [
+    {"who": "B", "vo": "Who actually needs this? Gamers?", "cap": "Who NEEDS this? Gamers?"},
+    {"who": "A", "vo": "Robots, mostly. In early November, NVIDIA released Cosmos 3, open world models for robots and cars.", "cap": "ROBOTS. NVIDIA Cosmos 3, open models."},
+    {"who": "A", "vo": "One takes a robot arm's actions and predicts what the camera sees next. Another runs driving tests in a loop.", "cap": "Arm ACTIONS in, next FRAMES out."},
+    {"who": "B", "vo": "So the robot practises in a dream first.", "cap": "Robots PRACTISE in a dream."}
+   ]},
+  {"type": "quiz", "label": "QUIZ 2", "question": "Why train a robot inside a dream world?",
+   "options": ["Cheap, safe, and rare cases on repeat", "Robots prefer video games", "Real cameras are too slow"], "answer": 0, "reveal": 2,
+   "lines": [
+    {"who": "B", "vo": "Second quiz. Why train a robot inside a dream world, instead of the real one?", "cap": "QUIZ 2: why train in a DREAM?"},
+    {"who": "A", "vo": "Pause and guess. Three, two, one.", "cap": "Pause and GUESS. 3... 2... 1..."},
+    {"who": "A", "vo": "It's cheap and safe. A robot can fail a thousand times, and you can replay rare moments, like a ball rolling into the road.", "cap": "CHEAP, SAFE, replay RARE moments."}
+   ]},
+  {"type": "list", "label": "5 · WHERE IT BREAKS",
+   "items": [{"t": "Details drift", "s": "the longer it runs", "at": 1}, {"t": "Text is messy", "s": "unless it's in the prompt", "at": 1},
+             {"t": "Real places aren't exact", "s": "it imagines, it doesn't map", "at": 2}, {"t": "Not cheap", "s": "powerful cloud GPUs", "at": 2}],
+   "lines": [
+    {"who": "B", "vo": "Okay. What's the catch?", "cap": "What's the CATCH?"},
+    {"who": "A", "vo": "Details drift the longer it runs. And text usually comes out messy, unless it was in your prompt.", "cap": "Details DRIFT. Text gets MESSY."},
+    {"who": "A", "vo": "It can't copy real places perfectly. And it runs on powerful cloud G.P.U.s, so it isn't cheap.", "cap": "Not EXACT, and not CHEAP."}
+   ]},
+  {"type": "outro", "recap": ["Act, predict, repeat", "Memory is the hard part", "Dream vs build", "Robots train in dreams"],
+   "lines": [
+    {"who": "B", "vo": "So. You act, it predicts the next frame, memory is the hard part, and robots train inside these dreams.", "cap": "ACT, PREDICT, REMEMBER, TRAIN."},
+    {"who": "A", "vo": "Exactly. Next up, A.I. shopping agents, just in time for Black Friday. Follow so you don't miss it.", "cap": "Next: AI SHOPPING agents. FOLLOW!"}
+   ]}
+ ]
+}

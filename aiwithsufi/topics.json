@@ -111,7 +111,7 @@
   {
    "slug": "world-models",
    "title": "World models: AI that dreams up worlds you can walk into",
-   "status": "planned",
+   "status": "ready",
    "angle": "Video model vs world model (you act, it responds); next-frame loop; memory/consistency problem (Genie 3: 720p 24fps, few minutes consistent, ~1 min visual memory; Genie 4 research preview with audio + live prompts); two approaches (dream every frame: Genie, Atlas Frameboy 15fps cloud; build a 3D scene: Atlas Viewfinder); robots/driving train in dreams (NVIDIA Cosmos 3 Sim-Bimanual, Sim-Auto); limits (drift, text, real places, GPU cost). Dropped: Genie 4 '2 min' figure (sources conflict), Genie 4 fps/res, AMD-World Labs $8.2B, AMI Labs round, Atlas 'open to everyone'.",
    "date": "2026-11-21",
    "format": "reel",
@@ -124,7 +124,10 @@
     "https://huggingface.co/blog/nvidia/cosmos-interactive-world-simulation",
     "https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos/",
     "https://worldlabs.ai/blog"
-   ]
+   ],
+   "script": "aiwithsufi/scripts/2026-11-21-world-models.json",
+   "video": "aiwithsufi/reels/2026-11-21-world-models/reel.mp4",
+   "duration_s": 176
   },
   {
    "slug": "ai-shopping-agents",
